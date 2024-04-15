@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+
+const docs = await getCollection("docs");
+
+const { pathname } = Astro.url;
+---
+
+<ul class="uk-nav-default uk-nav lg:hidden">
+  <li class={pathname.startsWith("/docs") ? "uk-active" : ""}>
+    <a href="/docs/introduction">Docs</a>
+  </li>
+  <li>
+    <a href="#not-available" uk-toggle>Themes</a>
+  </li>
+  <li class={pathname.startsWith("/examples") ? "uk-active" : ""}>
+    <a href="/examples/mail">Examples</a>
+  </li>
+  <li>
+    <a href="#not-available" uk-toggle>Blocks</a>
+  </li>
+  <li>
+    <a href="#not-available" uk-toggle>Github</a>
+  </li>
+</ul>
+
+<ul class="uk-nav-default uk-nav pt-4 lg:pt-0">
+  <li class="uk-nav-header">Getting Started</li>
+  {
+    docs
+      .filter((a) => a.data.group === "getting-started")
+      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+      .map((a) => (
+        <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
+          <a href={a.slug}>{a.data.name}</a>
+        </li>
+      ))
+  }
+</ul>
+
+<ul class="uk-nav-default uk-nav pt-4">
+  <li class="uk-nav-header">Components</li>
+  {
+    docs
+      .filter((a) => a.data.group === "components")
+      .map((a) => (
+        <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
+          <a class="justify-between" href={a.slug}>
+            <span>{a.data.name}</span>
+            {a.data.icon ? (
+              <span uk-icon={`icon: ${a.data.icon}; ratio: 0.8`} />
+            ) : (
+              ""
+            )}
+          </a>
+        </li>
+      ))
+  }
+</ul>
+
+<ul class="uk-nav-default uk-nav pt-4">
+  <li class="uk-nav-header">UIkit Compatibility</li>
+  {
+    docs
+      .filter((a) => a.data.group === "compatibility")
+      .map((a) => (
+        <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
+          <a class="justify-between" href={a.slug}>
+            {a.data.name}
+          </a>
+        </li>
+      ))
+  }
+</ul>

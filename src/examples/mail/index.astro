@@ -1,0 +1,894 @@
+---
+import Mail from "./mail.astro";
+
+const mails = [
+  {
+    id: "6c84fb90-12c4-11e1-840d-7b25c5ee775a",
+    name: "William Smith",
+    email: "williamsmith@example.com",
+    subject: "Meeting Tomorrow",
+    text: "Hi, let's have a meeting tomorrow to discuss the project. I've been reviewing the project details and have some ideas I'd like to share. It's crucial that we align on our next steps to ensure the project's success.\n\nPlease come prepared with any questions or insights you may have. Looking forward to our meeting!\n\nBest regards, William",
+    date: "2023-10-22T09:00:00",
+    read: true,
+    active: true,
+    labels: ["meeting", "work", "important"],
+  },
+  {
+    id: "110e8400-e29b-11d4-a716-446655440000",
+    name: "Alice Smith",
+    email: "alicesmith@example.com",
+    subject: "Re: Project Update",
+    text: "Thank you for the project update. It looks great! I've gone through the report, and the progress is impressive. The team has done a fantastic job, and I appreciate the hard work everyone has put in.\n\nI have a few minor suggestions that I'll include in the attached document.\n\nLet's discuss these during our next meeting. Keep up the excellent work!\n\nBest regards, Alice",
+    date: "2023-10-22T10:30:00",
+    read: true,
+    active: false,
+    labels: ["work", "important"],
+  },
+  {
+    id: "3e7c3f6d-bdf5-46ae-8d90-171300f27ae2",
+    name: "Bob Johnson",
+    email: "bobjohnson@example.com",
+    subject: "Weekend Plans",
+    text: "Any plans for the weekend? I was thinking of going hiking in the nearby mountains. It's been a while since we had some outdoor fun.\n\nIf you're interested, let me know, and we can plan the details. It'll be a great way to unwind and enjoy nature.\n\nLooking forward to your response!\n\nBest, Bob",
+    date: "2023-04-10T11:45:00",
+    read: true,
+    active: false,
+    labels: ["personal"],
+  },
+  {
+    id: "61c35085-72d7-42b4-8d62-738f700d4b92",
+    name: "Emily Davis",
+    email: "emilydavis@example.com",
+    subject: "Re: Question about Budget",
+    text: "I have a question about the budget for the upcoming project. It seems like there's a discrepancy in the allocation of resources.\n\nI've reviewed the budget report and identified a few areas where we might be able to optimize our spending without compromising the project's quality.\n\nI've attached a detailed analysis for your reference. Let's discuss this further in our next meeting.\n\nThanks, Emily",
+    date: "2023-03-25T13:15:00",
+    read: false,
+    active: false,
+    labels: ["work", "budget"],
+  },
+  {
+    id: "8f7b5db9-d935-4e42-8e05-1f1d0a3dfb97",
+    name: "Michael Wilson",
+    email: "michaelwilson@example.com",
+    subject: "Important Announcement",
+    text: "I have an important announcement to make during our team meeting. It pertains to a strategic shift in our approach to the upcoming product launch. We've received valuable feedback from our beta testers, and I believe it's time to make some adjustments to better meet our customers' needs.\n\nThis change is crucial to our success, and I look forward to discussing it with the team. Please be prepared to share your insights during the meeting.\n\nRegards, Michael",
+    date: "2023-03-10T15:00:00",
+    read: false,
+    active: false,
+    labels: ["meeting", "work", "important"],
+  },
+  {
+    id: "1f0f2c02-e299-40de-9b1d-86ef9e42126b",
+    name: "Sarah Brown",
+    email: "sarahbrown@example.com",
+    subject: "Re: Feedback on Proposal",
+    text: "Thank you for your feedback on the proposal. It looks great! I'm pleased to hear that you found it promising. The team worked diligently to address all the key points you raised, and I believe we now have a strong foundation for the project.\n\nI've attached the revised proposal for your review.\n\nPlease let me know if you have any further comments or suggestions. Looking forward to your response.\n\nBest regards, Sarah",
+    date: "2023-02-15T16:30:00",
+    read: true,
+    active: false,
+    labels: ["work"],
+  },
+  {
+    id: "17c0a96d-4415-42b1-8b4f-764efab57f66",
+    name: "David Lee",
+    email: "davidlee@example.com",
+    subject: "New Project Idea",
+    text: "I have an exciting new project idea to discuss with you. It involves expanding our services to target a niche market that has shown considerable growth in recent months.\n\nI've prepared a detailed proposal outlining the potential benefits and the strategy for execution.\n\nThis project has the potential to significantly impact our business positively. Let's set up a meeting to dive into the details and determine if it aligns with our current goals.\n\nBest regards, David",
+    date: "2023-01-28T17:45:00",
+    read: false,
+    active: false,
+    labels: ["meeting", "work", "important"],
+  },
+  {
+    id: "2f0130cb-39fc-44c4-bb3c-0a4337edaaab",
+    name: "Olivia Wilson",
+    email: "oliviawilson@example.com",
+    subject: "Vacation Plans",
+    text: "Let's plan our vacation for next month. What do you think? I've been thinking of visiting a tropical paradise, and I've put together some destination options.\n\nI believe it's time for us to unwind and recharge. Please take a look at the options and let me know your preferences.\n\nWe can start making arrangements to ensure a smooth and enjoyable trip.\n\nExcited to hear your thoughts! Olivia",
+    date: "2022-12-20T18:30:00",
+    read: true,
+    active: false,
+    labels: ["personal"],
+  },
+  {
+    id: "de305d54-75b4-431b-adb2-eb6b9e546014",
+    name: "James Martin",
+    email: "jamesmartin@example.com",
+    subject: "Re: Conference Registration",
+    text: "I've completed the registration for the conference next month. The event promises to be a great networking opportunity, and I'm looking forward to attending the various sessions and connecting with industry experts.\n\nI've also attached the conference schedule for your reference.\n\nIf there are any specific topics or sessions you'd like me to explore, please let me know. It's an exciting event, and I'll make the most of it.\n\nBest regards, James",
+    date: "2022-11-30T19:15:00",
+    read: true,
+    active: false,
+    labels: ["work", "conference"],
+  },
+  {
+    id: "7dd90c63-00f6-40f3-bd87-5060a24e8ee7",
+    name: "Sophia White",
+    email: "sophiawhite@example.com",
+    subject: "Team Dinner",
+    text: "Let's have a team dinner next week to celebrate our success. We've achieved some significant milestones, and it's time to acknowledge our hard work and dedication.\n\nI've made reservations at a lovely restaurant, and I'm sure it'll be an enjoyable evening.\n\nPlease confirm your availability and any dietary preferences. Looking forward to a fun and memorable dinner with the team!\n\nBest, Sophia",
+    date: "2022-11-05T20:30:00",
+    read: false,
+    active: false,
+    labels: ["meeting", "work"],
+  },
+  {
+    id: "99a88f78-3eb4-4d87-87b7-7b15a49a0a05",
+    name: "Daniel Johnson",
+    email: "danieljohnson@example.com",
+    subject: "Feedback Request",
+    text: "I'd like your feedback on the latest project deliverables. We've made significant progress, and I value your input to ensure we're on the right track.\n\nI've attached the deliverables for your review, and I'm particularly interested in any areas where you think we can further enhance the quality or efficiency.\n\nYour feedback is invaluable, and I appreciate your time and expertise. Let's work together to make this project a success.\n\nRegards, Daniel",
+    date: "2022-10-22T09:30:00",
+    read: false,
+    active: false,
+    labels: ["work"],
+  },
+  {
+    id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    name: "Ava Taylor",
+    email: "avataylor@example.com",
+    subject: "Re: Meeting Agenda",
+    text: "Here's the agenda for our meeting next week. I've included all the topics we need to cover, as well as time allocations for each.\n\nIf you have any additional items to discuss or any specific points to address, please let me know, and we can integrate them into the agenda.\n\nIt's essential that our meeting is productive and addresses all relevant matters.\n\nLooking forward to our meeting! Ava",
+    date: "2022-10-10T10:45:00",
+    read: true,
+    active: false,
+    labels: ["meeting", "work"],
+  },
+  {
+    id: "c1a0ecb4-2540-49c5-86f8-21e5ce79e4e6",
+    name: "William Anderson",
+    email: "williamanderson@example.com",
+    subject: "Product Launch Update",
+    text: "The product launch is on track. I'll provide an update during our call. We've made substantial progress in the development and marketing of our new product.\n\nI'm excited to share the latest updates with you during our upcoming call. It's crucial that we coordinate our efforts to ensure a successful launch. Please come prepared with any questions or insights you may have.\n\nLet's make this product launch a resounding success!\n\nBest regards, William",
+    date: "2022-09-20T12:00:00",
+    read: false,
+    active: false,
+    labels: ["meeting", "work", "important"],
+  },
+  {
+    id: "ba54eefd-4097-4949-99f2-2a9ae4d1a836",
+    name: "Mia Harris",
+    email: "miaharris@example.com",
+    subject: "Re: Travel Itinerary",
+    text: "I've received the travel itinerary. It looks great! Thank you for your prompt assistance in arranging the details. I've reviewed the schedule and the accommodations, and everything seems to be in order. I'm looking forward to the trip, and I'm confident it'll be a smooth and enjoyable experience.\n\nIf there are any specific activities or attractions you recommend at our destination, please feel free to share your suggestions.\n\nExcited for the trip! Mia",
+    date: "2022-09-10T13:15:00",
+    read: true,
+    active: false,
+    labels: ["personal", "travel"],
+  },
+  {
+    id: "df09b6ed-28bd-4e0c-85a9-9320ec5179aa",
+    name: "Ethan Clark",
+    email: "ethanclark@example.com",
+    subject: "Team Building Event",
+    text: "Let's plan a team-building event for our department. Team cohesion and morale are vital to our success, and I believe a well-organized team-building event can be incredibly beneficial. I've done some research and have a few ideas for fun and engaging activities.\n\nPlease let me know your thoughts and availability. We want this event to be both enjoyable and productive.\n\nTogether, we'll strengthen our team and boost our performance.\n\nRegards, Ethan",
+    date: "2022-08-25T15:30:00",
+    read: false,
+    active: false,
+    labels: ["meeting", "work"],
+  },
+  {
+    id: "d67c1842-7f8b-4b4b-9be1-1b3b1ab4611d",
+    name: "Chloe Hall",
+    email: "chloehall@example.com",
+    subject: "Re: Budget Approval",
+    text: "The budget has been approved. We can proceed with the project. I'm delighted to inform you that our budget proposal has received the green light from the finance department. This is a significant milestone, and it means we can move forward with the project as planned.\n\nI've attached the finalized budget for your reference. Let's ensure that we stay on track and deliver the project on time and within budget.\n\nIt's an exciting time for us! Chloe",
+    date: "2022-08-10T16:45:00",
+    read: true,
+    active: false,
+    labels: ["work", "budget"],
+  },
+  {
+    id: "6c9a7f94-8329-4d70-95d3-51f68c186ae1",
+    name: "Samuel Turner",
+    email: "samuelturner@example.com",
+    subject: "Weekend Hike",
+    text: "Who's up for a weekend hike in the mountains? I've been craving some outdoor adventure, and a hike in the mountains sounds like the perfect escape. If you're up for the challenge, we can explore some scenic trails and enjoy the beauty of nature.\n\nI've done some research and have a few routes in mind.\n\nLet me know if you're interested, and we can plan the details.\n\nIt's sure to be a memorable experience! Samuel",
+    date: "2022-07-28T17:30:00",
+    read: false,
+    active: false,
+    labels: ["personal"],
+  },
+];
+---
+
+<div class="hidden max-h-[800px] lg:flex">
+  <div class="h-full flex-none lg:w-64 xl:w-72">
+    <div class="h-[52px] border-b border-border">
+      <div class="p-2">
+        <button class="uk-button uk-button-default w-full" type="button">
+          <div class="flex flex-1 items-center gap-2">
+            <svg
+              class="h-4 w-4 flex-none"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              ><title>Vercel</title><path
+                d="M24 22.525H0l12-21.05 12 21.05z"
+                fill="currentColor"></path></svg
+            >
+            <span class="">Alicia Koch</span>
+          </div>
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 flex-none opacity-50"
+            aria-hidden="true"
+            ><path
+              d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+              clip-rule="evenodd"></path></svg
+          >
+        </button>
+
+        <div
+          class="uk-drop uk-dropdown lg:w-[240px] xl:w-[272px]"
+          uk-dropdown="mode: click; pos: bottom-center"
+        >
+          <ul class="uk-dropdown-nav uk-nav">
+            <li class="uk-active">
+              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+                <div class="flex flex-1 items-center gap-2">
+                  <svg
+                    class="h-4 w-4 flex-none"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    ><title>Vercel</title><path
+                      d="M24 22.525H0l12-21.05 12 21.05z"
+                      fill="currentColor"></path></svg
+                  >
+                  <span class="">alicia@example.com</span>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-check"
+                  ><path d="M20 6 9 17l-5-5"></path></svg
+                >
+              </a>
+            </li>
+            <li>
+              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+                <div class="flex flex-1 items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-4 w-4 flex-none"
+                    ><path stroke="none" d="M0 0h24v24H0z" fill="none"
+                    ></path><path d="M3 6l5 0"></path><path d="M7 18l7 0"
+                    ></path><path d="M4.5 6l5.5 7v5"></path><path
+                      d="M10 13l6 -5"></path><path d="M12.5 8l5 0"></path><path
+                      d="M20 11l0 4"></path><path d="M20 18l0 .01"></path></svg
+                  >
+                  <span class="">alicia@yahoo.com</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+                <div class="flex flex-1 items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="h-4 w-4 flex-none"
+                    ><path stroke="none" d="M0 0h24v24H0z" fill="none"
+                    ></path><path
+                      d="M10.04 4.305c2.195 -.667 4.615 -.224 6.36 1.176c1.386 1.108 2.188 2.686 2.252 4.34l.003 .212l.091 .003c2.3 .107 4.143 1.961 4.25 4.27l.004 .211c0 2.407 -1.885 4.372 -4.255 4.482l-.21 .005h-11.878l-.222 -.008c-2.94 -.11 -5.317 -2.399 -5.43 -5.263l-.005 -.216c0 -2.747 2.08 -5.01 4.784 -5.417l.114 -.016l.07 -.181c.663 -1.62 2.056 -2.906 3.829 -3.518l.244 -.08z"
+                    ></path></svg
+                  >
+                  <span class="">alicia@cloud.com</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <ul class="uk-nav uk-nav-primary mt-2">
+      <li class="uk-active">
+        <a class="justify-between" href="#demo" uk-toggle>
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-inbox"
+              ><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"
+              ></polyline><path
+                d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+              ></path></svg
+            >
+            <span>Inbox</span>
+          </div>
+          <span>128</span>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-sticky-note"
+              ><path
+                d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"
+              ></path><path d="M15 3v4a2 2 0 0 0 2 2h4"></path></svg
+            >
+            <span>Draft</span>
+          </div>
+          <span>9</span>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-send"
+              ><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"
+              ></path></svg
+            >
+            <span>Sent</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-archive-x"
+              ><rect width="20" height="5" x="2" y="3" rx="1"></rect><path
+                d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path><path
+                d="m9.5 17 5-5"></path><path d="m9.5 12 5 5"></path></svg
+            >
+            <span>Junk</span>
+          </div>
+          <span>23</span>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-trash-2"
+              ><path d="M3 6h18"></path><path
+                d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path
+                d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line
+                x1="10"
+                x2="10"
+                y1="11"
+                y2="17"></line><line x1="14" x2="14" y1="11" y2="17"
+              ></line></svg
+            >
+            <span>Trash</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-archive"
+              ><rect width="20" height="5" x="2" y="3" rx="1"></rect><path
+                d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path><path
+                d="M10 12h4"></path></svg
+            >
+            <span>Archive</span>
+          </div>
+        </a>
+      </li>
+      <li class="uk-nav-divider"></li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-users-round"
+              ><path d="M18 21a8 8 0 0 0-16 0"></path><circle
+                cx="10"
+                cy="8"
+                r="5"></circle><path
+                d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path></svg
+            >
+            <span>Social</span>
+          </div>
+          <span>972</span>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-octagon-alert"
+              ><polygon
+                points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"
+              ></polygon><line x1="12" x2="12" y1="8" y2="12"></line><line
+                x1="12"
+                x2="12.01"
+                y1="16"
+                y2="16"></line></svg
+            >
+            <span>Updates</span>
+          </div>
+          <span>342</span>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-messages-square"
+              ><path
+                d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"
+              ></path><path
+                d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"
+              ></path></svg
+            >
+            <span>Forums</span>
+          </div>
+          <span>128</span>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-shopping-cart"
+              ><circle cx="8" cy="21" r="1"></circle><circle
+                cx="19"
+                cy="21"
+                r="1"></circle><path
+                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+              ></path></svg
+            >
+            <span>Shopping</span>
+          </div>
+          <span>8</span>
+        </a>
+      </li>
+      <li>
+        <a href="#demo" uk-toggle class="justify-between">
+          <div class="flex items-center gap-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-archive"
+              ><rect width="20" height="5" x="2" y="3" rx="1"></rect><path
+                d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path><path
+                d="M10 12h4"></path></svg
+            >
+            <span>Promotions</span>
+          </div>
+          <span>21</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="grid flex-1 grid-cols-2 border-l border-border">
+    <div class="">
+      <div class="flex h-[52px] items-center border-b border-border px-4 py-2">
+        <div class="flex flex-1 items-center justify-between">
+          <div class="flex-1">
+            <h1 class="text-xl font-bold">Inbox</h1>
+          </div>
+          <div class="flex-none">
+            <ul class="uk-tab-alt">
+              <li class="uk-active">
+                <a href="#demo" uk-toggle uk-toggle>All mail</a>
+              </li>
+              <li>
+                <a href="#demo" uk-toggle>Unread</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4">
+        <div class="uk-inline w-full">
+          <span class="uk-form-icon text-muted-foreground">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-search"
+              ><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"
+              ></path></svg
+            >
+          </span>
+          <input class="uk-input" type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="h-[479px] space-y-2 overflow-auto p-4 pt-0">
+        {mails.map((mail) => <Mail mail={mail} />)}
+      </div>
+    </div>
+
+    <div class="border-l border-border">
+      <div class="flex h-[52px] items-center border-b border-border p-2">
+        <div class="flex w-full justify-between">
+          <div class="flex gap-x-2 divide-x divide-border">
+            <ul class="uk-iconnav">
+              <li>
+                <a href="#demo" uk-toggle uk-tooltip="Archive">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-archive"
+                    ><rect width="20" height="5" x="2" y="3" rx="1"></rect><path
+                      d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path><path
+                      d="M10 12h4"></path></svg
+                  >
+                </a>
+              </li>
+              <li>
+                <a href="#demo" uk-toggle uk-tooltip="Move to junk">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-archive-x"
+                    ><rect width="20" height="5" x="2" y="3" rx="1"></rect><path
+                      d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path><path
+                      d="m9.5 17 5-5"></path><path d="m9.5 12 5 5"></path></svg
+                  >
+                </a>
+              </li>
+              <li>
+                <a href="#demo" uk-toggle uk-tooltip="Move to trash">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-trash-2"
+                    ><path d="M3 6h18"></path><path
+                      d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path
+                      d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line
+                      x1="10"
+                      x2="10"
+                      y1="11"
+                      y2="17"></line><line x1="14" x2="14" y1="11" y2="17"
+                    ></line></svg
+                  >
+                </a>
+              </li>
+            </ul>
+            <ul class="uk-iconnav pl-2">
+              <li>
+                <a href="#demo" uk-toggle uk-tooltip="Snooze">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-clock"
+                    ><circle cx="12" cy="12" r="10"></circle><polyline
+                      points="12 6 12 12 16 14"></polyline></svg
+                  >
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex gap-x-2 divide-x divide-border">
+            <ul class="uk-iconnav">
+              <li>
+                <a href="#demo" uk-toggle uk-tooltip="Reply">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-reply"
+                    ><polyline points="9 17 4 12 9 7"></polyline><path
+                      d="M20 18v-2a4 4 0 0 0-4-4H4"></path></svg
+                  >
+                </a>
+              </li>
+              <li>
+                <a href="#demo" uk-toggle uk-tooltip="Reply all">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-reply-all"
+                    ><polyline points="7 17 2 12 7 7"></polyline><polyline
+                      points="12 17 7 12 12 7"></polyline><path
+                      d="M22 18v-2a4 4 0 0 0-4-4H7"></path></svg
+                  >
+                </a>
+              </li>
+              <li>
+                <a href="#demo" uk-toggle uk-tooltip="Forward">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-forward"
+                    ><polyline points="15 17 20 12 15 7"></polyline><path
+                      d="M4 18v-2a4 4 0 0 1 4-4h12"></path></svg
+                  >
+                </a>
+              </li>
+            </ul>
+            <ul class="uk-iconnav pl-2">
+              <li>
+                <a href="#demo" uk-toggle>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-ellipsis-vertical"
+                    ><circle cx="12" cy="12" r="1"></circle><circle
+                      cx="12"
+                      cy="5"
+                      r="1"></circle><circle cx="12" cy="19" r="1"
+                    ></circle></svg
+                  >
+                </a>
+                <div
+                  class="uk-drop uk-dropdown"
+                  uk-dropdown="pos: bottom-right; mode: click"
+                >
+                  <ul class="uk-dropdown-nav uk-nav">
+                    <li>
+                      <a href="#demo" uk-toggle>Mark as unread</a>
+                    </li>
+                    <li>
+                      <a href="#demo" uk-toggle>Star thread</a>
+                    </li>
+                    <li>
+                      <a href="#demo" uk-toggle>Add label</a>
+                    </li>
+                    <li>
+                      <a href="#demo" uk-toggle>Mute thread</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex h-[547px] flex-col">
+        <div class="flex-1">
+          <div class="flex items-start p-4">
+            <div class="flex items-start gap-4 text-sm">
+              <span
+                class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"
+                ><span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                  >WS</span
+                ></span
+              ><div class="grid gap-1">
+                <div class="font-semibold">William Smith</div><div
+                  class="line-clamp-1 text-xs"
+                >
+                  Meeting Tomorrow
+                </div><div class="line-clamp-1 text-xs">
+                  <span class="font-medium">Reply-To:</span>
+                  williamsmith@example.com
+                </div>
+              </div>
+            </div><div class="ml-auto text-xs text-muted-foreground">
+              Oct 22, 2023, 9:00:00 AM
+            </div>
+          </div>
+
+          <div class="flex-1 space-y-4 border-t border-border p-4 text-sm">
+            <p>
+              Hi, let's have a meeting tomorrow to discuss the project. I've
+              been reviewing the project details and have some ideas I'd like to
+              share. It's crucial that we align on our next steps to ensure the
+              project's success.
+            </p>
+
+            <p>
+              Please come prepared with any questions or insights you may have.
+              Looking forward to our meeting!
+            </p>
+
+            <p>Best regards, William</p>
+          </div>
+        </div>
+        <div class="flex-none space-y-4 border-t border-border p-4">
+          <div class="">
+            <textarea class="uk-textarea" placeholder="Reply William Smith"
+            ></textarea>
+          </div>
+          <div class="flex justify-between">
+            <label class="inline-flex items-center gap-x-2 text-xs" for="mute">
+              <input
+                class="uk-toggle-switch uk-toggle-switch-primary"
+                id="mute"
+                type="checkbox"
+              />
+              Mute this thread
+            </label>
+
+            <button class="uk-button uk-button-primary" uk-toggle="#demo"
+              >Send</button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lg:hidden">
+  <img class="dark:hidden" src="/images/screenshots/mail-light.png" alt="" />
+  <img
+    class="hidden dark:block"
+    src="/images/screenshots/mail-dark.png"
+    alt=""
+  />
+</div>

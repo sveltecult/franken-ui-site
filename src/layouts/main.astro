@@ -1,0 +1,21 @@
+---
+import Master from "./master.astro";
+import Navbar from "./partials/navbar.astro";
+import Footer from "./partials/footer.astro";
+
+const { doc } = Astro.props;
+---
+
+<Master doc={doc}>
+  <div class="flex min-h-screen flex-col">
+    <div class="flex-1">
+      <Navbar />
+
+      <slot />
+    </div>
+
+    <div class="flex-none">
+      <Footer />
+    </div>
+  </div>
+</Master>

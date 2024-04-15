@@ -1,0 +1,87 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, getEntry } from "astro:content";
+import Docs from "layouts/docs.astro";
+import marked from "lib/marked";
+
+const { slug } = Astro.params;
+
+const e = await getEntry("docs", slug);
+
+export const getStaticPaths = (async () => {
+  const docs = await getCollection("docs");
+
+  return docs.map((a: any) => {
+    return {
+      params: {
+        slug: a.slug,
+      },
+      props: a,
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const m = await marked(e?.body || "");
+---
+
+<Docs
+  doc={{
+    title: e?.data.title,
+    meta: e?.data.meta,
+  }}
+  tbc={m.tbc}
+  slug={e?.slug}
+>
+  {
+    e?.data.javascript !== "none" ? (
+      <div class="mb-5">
+        <a
+          href="/docs/javascript"
+          class="inline-flex items-center justify-between rounded-full bg-accent px-1 py-1 pr-4 text-sm text-accent-foreground"
+        >
+          <span
+            class={`mr-3 rounded-full px-3 py-1.5 text-xs ${e?.data.javascript === "full" ? "bg-destructive text-destructive-foreground" : "bg-primary text-primary-foreground"}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-javascript"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z" />
+              <path d="M7.5 8h3v8l-2 -1" />
+              <path d="M16.5 8h-2.5a.5 .5 0 0 0 -.5 .5v3a.5 .5 0 0 0 .5 .5h1.423a.5 .5 0 0 1 .495 .57l-.418 2.93l-2 .5" />
+            </svg>
+          </span>
+          <span class="text-sm font-medium">Requires JS</span>
+          <svg
+            class="ml-2.5 h-2.5 w-2.5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 9 4-4-4-4"
+            />
+          </svg>
+        </a>
+      </div>
+    ) : (
+      ""
+    )
+  }
+
+  <Fragment set:html={m.html} />
+</Docs>

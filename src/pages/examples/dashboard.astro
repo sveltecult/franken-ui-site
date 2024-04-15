@@ -1,0 +1,490 @@
+---
+import Sale from "examples/dashboard/sale.astro";
+import Example from "layouts/example.astro";
+
+const doc = {
+  title: "Dashboard",
+  meta: {
+    description: "",
+  },
+};
+
+const sales = [
+  {
+    name: "Olivia Martin",
+    email: "olivia.martin@email.com",
+    amount: "+$1,999.00",
+  },
+  { name: "Jackson Lee", email: "jackson.lee@email.com", amount: "+$39.00" },
+  {
+    name: "Isabella Nguyen",
+    email: "isabella.nguyen@email.com",
+    amount: "+$299.00",
+  },
+  { name: "William Kim", email: "will@email.com", amount: "+$99.00" },
+  { name: "Sofia Davis", email: "sofia.davis@email.com", amount: "+$39.00" },
+];
+---
+
+<Example active="dashboard" doc={doc}>
+  <div class="hidden max-h-[800px] lg:block">
+    <div class="border-b border-border px-4">
+      <nav class="uk-navbar" uk-navbar>
+        <div class="uk-navbar-left gap-x-6">
+          <div class="uk-navbar-item w-[200px]">
+            <button class="uk-button uk-button-default w-full" type="button">
+              <div class="flex flex-1 items-center gap-2">
+                <span
+                  class="relative flex h-5 w-5 shrink-0 overflow-hidden rounded-full"
+                >
+                  <img
+                    class="aspect-square h-full w-full grayscale"
+                    alt="Alicia Koch"
+                    src="https://avatar.vercel.sh/personal.png"
+                  />
+                </span>
+                <span class="">Alicia Koch</span>
+              </div>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 flex-none opacity-50"
+                aria-hidden="true"
+                ><path
+                  d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"></path></svg
+              >
+            </button>
+            <div
+              class="uk-drop uk-dropdown w-[200px]"
+              uk-dropdown="mode: click; pos: bottom-center"
+            >
+              <ul class="uk-dropdown-nav uk-nav">
+                <li class="uk-nav-header">Personal Account</li>
+                <li class="uk-active">
+                  <a
+                    class="uk-drop-close justify-between"
+                    href="#demo"
+                    uk-toggle
+                  >
+                    <div class="flex flex-1 items-center gap-2">
+                      <span
+                        class="relative flex h-5 w-5 shrink-0 overflow-hidden rounded-full"
+                      >
+                        <img
+                          class="aspect-square h-full w-full grayscale"
+                          alt="Alicia Koch"
+                          src="https://avatar.vercel.sh/personal.png"
+                        />
+                      </span>
+                      <span class="">Alicha Koch</span>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-check"
+                      ><path d="M20 6 9 17l-5-5"></path></svg
+                    >
+                  </a>
+                </li>
+                <li class="mt-3"></li>
+                <li class="uk-nav-header">Teams</li>
+                <li>
+                  <a
+                    class="uk-drop-close justify-between"
+                    href="#demo"
+                    uk-toggle
+                  >
+                    <div class="flex flex-1 items-center gap-2">
+                      <span
+                        class="relative flex h-5 w-5 shrink-0 overflow-hidden rounded-full"
+                      >
+                        <img
+                          class="aspect-square h-full w-full grayscale"
+                          alt="Alicia Koch"
+                          src="https://avatar.vercel.sh/personal.png"
+                        />
+                      </span>
+                      <span class="">Acme Inc.</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="uk-drop-close justify-between"
+                    href="#demo"
+                    uk-toggle
+                  >
+                    <div class="flex flex-1 items-center gap-2">
+                      <span
+                        class="relative flex h-5 w-5 shrink-0 overflow-hidden rounded-full"
+                      >
+                        <img
+                          class="aspect-square h-full w-full grayscale"
+                          alt="Alicia Koch"
+                          src="https://avatar.vercel.sh/personal.png"
+                        />
+                      </span>
+                      <span class="">Monster Inc.</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="uk-nav-divider"></li>
+                <li>
+                  <a class="uk-drop-close" href="#demo" uk-toggle>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-circle-plus mr-2"
+                      ><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"
+                      ></path><path d="M12 8v8"></path></svg
+                    >
+                    Create a Team
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="uk-navbar-nav gap-x-6">
+            <li class="uk-active">
+              <a href="#demo" uk-toggle>Overview</a>
+            </li>
+            <li>
+              <a href="#demo" uk-toggle>Customers</a>
+            </li>
+            <li>
+              <a href="#demo" uk-toggle>Products</a>
+            </li>
+            <li>
+              <a href="#demo" uk-toggle>Settings</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="uk-navbar-right gap-x-6">
+          <div class="uk-navbar-item w-[300px]">
+            <input class="uk-input" placeholder="Search" type="text" />
+          </div>
+          <div class="uk-navbar-item">
+            <a
+              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent ring-ring focus:outline-none focus-visible:ring-1"
+              href="#"
+            >
+              <span
+                class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-full"
+              >
+                <img
+                  class="aspect-square h-full w-full"
+                  alt="@shadcn"
+                  src="https://api.dicebear.com/8.x/lorelei/svg?seed=sveltecult"
+                />
+              </span>
+            </a>
+            <div
+              class="uk-drop uk-dropdown"
+              uk-dropdown="mode: click; pos: bottom-right"
+            >
+              <ul class="uk-dropdown-nav uk-nav">
+                <li class="px-2 py-1.5 text-sm">
+                  <div class="flex flex-col space-y-1">
+                    <p class="text-sm font-medium leading-none">sveltecult</p>
+                    <p class="text-xs leading-none text-muted-foreground">
+                      leader@sveltecult.com
+                    </p>
+                  </div>
+                </li>
+                <li class="uk-nav-divider"></li>
+                <li>
+                  <a
+                    class="uk-drop-close justify-between"
+                    href="#demo"
+                    uk-toggle
+                  >
+                    Profile
+                    <span class="ml-auto text-xs tracking-widest opacity-60">
+                      ⇧⌘P
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="uk-drop-close justify-between"
+                    href="#demo"
+                    uk-toggle
+                  >
+                    Billing
+                    <span class="ml-auto text-xs tracking-widest opacity-60">
+                      ⌘B
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="uk-drop-close justify-between"
+                    href="#demo"
+                    uk-toggle
+                  >
+                    Settings
+                    <span class="ml-auto text-xs tracking-widest opacity-60">
+                      ⌘S
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="uk-drop-close justify-between"
+                    href="#demo"
+                    uk-toggle
+                  >
+                    New Team
+                  </a>
+                </li>
+                <li class="uk-nav-divider"></li>
+                <li>
+                  <a
+                    class="uk-drop-close justify-between"
+                    href="#demo"
+                    uk-toggle
+                  >
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="flex-1 space-y-4 p-8 pt-6">
+      <div class="flex items-center justify-between space-y-2">
+        <h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
+        <div class="flex items-center space-x-2">
+          <button class="uk-button uk-button-default w-[260px]">
+            <div class="flex gap-x-2" uk-toggle="#demo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-calendar-days"
+                ><path d="M8 2v4"></path><path d="M16 2v4"></path><rect
+                  width="18"
+                  height="18"
+                  x="3"
+                  y="4"
+                  rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"
+                ></path><path d="M12 14h.01"></path><path d="M16 14h.01"
+                ></path><path d="M8 18h.01"></path><path d="M12 18h.01"
+                ></path><path d="M16 18h.01"></path></svg
+              >
+              Jan 20, 2024 - Feb 09, 2024
+            </div>
+          </button>
+          <button class="uk-button uk-button-primary" uk-toggle="#demo">
+            Download
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <ul class="uk-tab-alt max-w-96">
+          <li class="uk-active">
+            <a href="#demo" uk-toggle>Overview</a>
+          </li>
+          <li>
+            <a href="#demo" uk-toggle>Analytics</a>
+          </li>
+          <li>
+            <a href="#demo" uk-toggle>Reports</a>
+          </li>
+          <li>
+            <a href="#demo" uk-toggle>Notifications</a>
+          </li>
+        </ul>
+
+        <div class="grid grid-cols-4 gap-4">
+          <div class="uk-card">
+            <div
+              class="uk-card-header flex flex-row items-center justify-between"
+            >
+              <h3 class="text-sm font-medium tracking-tight">Total Revenue</h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="h-4 w-4 text-muted-foreground"
+                ><path
+                  d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                ></path></svg
+              >
+            </div>
+            <div class="uk-card-body pt-0">
+              <div class="text-2xl font-bold">$45,231.89</div>
+              <p class="text-xs text-muted-foreground">
+                +20.1% from last month
+              </p>
+            </div>
+          </div>
+
+          <div class="uk-card">
+            <div
+              class="uk-card-header flex flex-row items-center justify-between"
+            >
+              <h3 class="text-sm font-medium tracking-tight">Subscriptions</h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="h-4 w-4 text-muted-foreground"
+                ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                ></path><circle cx="9" cy="7" r="4"></circle><path
+                  d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
+                ></path></svg
+              >
+            </div>
+            <div class="uk-card-body pt-0">
+              <div class="text-2xl font-bold">+2350</div>
+              <p class="text-xs text-muted-foreground">
+                +180.1% from last month
+              </p>
+            </div>
+          </div>
+
+          <div class="uk-card">
+            <div
+              class="uk-card-header flex flex-row items-center justify-between"
+            >
+              <h3 class="text-sm font-medium tracking-tight">Sales</h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="h-4 w-4 text-muted-foreground"
+                ><rect width="20" height="14" x="2" y="5" rx="2"></rect><path
+                  d="M2 10h20"></path></svg
+              >
+            </div>
+            <div class="uk-card-body pt-0">
+              <div class="text-2xl font-bold">+12,234</div>
+              <p class="text-xs text-muted-foreground">+19% from last month</p>
+            </div>
+          </div>
+
+          <div class="uk-card">
+            <div
+              class="uk-card-header flex flex-row items-center justify-between"
+            >
+              <h3 class="text-sm font-medium tracking-tight">Active Now</h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="h-4 w-4 text-muted-foreground"
+                ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg
+              >
+            </div>
+            <div class="uk-card-body pt-0">
+              <div class="text-2xl font-bold">+573</div>
+              <p class="text-xs text-muted-foreground">+201 since last hour</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-7 gap-4">
+          <div class="uk-card col-span-4 flex items-center justify-center">
+            <div
+              class="flex flex-1 items-center justify-center gap-x-2 text-destructive"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-alert"
+                ><circle cx="12" cy="12" r="10"></circle><line
+                  x1="12"
+                  x2="12"
+                  y1="8"
+                  y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"
+                ></line></svg
+              >
+              Graph not available
+            </div>
+          </div>
+
+          <div class="uk-card col-span-3">
+            <div class="uk-card-header">
+              <h3 class="font-semibold leading-none tracking-tight">
+                Recent Sales
+              </h3>
+              <p class="text-sm text-muted-foreground">
+                You made 265 sales this month.
+              </p>
+            </div>
+            <div class="uk-card-body pt-0">
+              <div class="space-y-8">
+                {sales.map((a) => <Sale sale={a} />)}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lg:hidden">
+    <img class="dark:hidden" src="/images/screenshots/dashboard-light.png" alt="" />
+    <img
+      class="hidden dark:block"
+      src="/images/screenshots/dashboard-dark.png"
+      alt=""
+    />
+  </div>
+</Example>

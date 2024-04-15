@@ -1,0 +1,183 @@
+---
+import "css/app.css";
+
+const { doc } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{doc.title}</title>
+    <link
+      rel="preload"
+      href="/fonts/geist-font/fonts/GeistVariableVF.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/geist-font/fonts/GeistMonoVariableVF.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://KQL185RMX1-dsn.algolia.net"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/css/hljs.css" />
+    <link rel="stylesheet" href="/fonts/geist-font/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+    />
+    <script is:inline>
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
+    {
+      doc.meta &&
+        Object.keys(doc.meta).map((key) => (
+          <meta name={key} content={doc.meta[key]} />
+        ))
+    }
+
+    <link rel="shortcut icon" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script is:inline src="/js/uikit@3.19.4/uikit.js"></script>
+    <script is:inline src="/js/uikit@3.19.4/icons.min.js"></script>
+  </head>
+  <body class="bg-background font-geist-sans text-foreground antialiased">
+    <div class="uk-modal uk-flex-top" id="not-available" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <span class="uk-modal-title">Coming Soon</span>
+        <p class="mt-4">
+          We're sorry, but this feature is not yet available. We are working
+          hard to make it happen as soon as possible. Thank you for your
+          patience and understanding. Please check back later for updates.
+        </p>
+        <div class="mt-5">
+          <button class="uk-modal-close uk-button uk-button-primary">Ok</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-modal uk-flex-top" id="demo" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <span class="uk-modal-title">Just a demo</span>
+        <p class="mt-4">
+          The element you clicked is for demonstration purposes only and does
+          not lead to actual content. Everything you see here is a simulation
+          intended to demonstrate how the UI elements might look and behave in a
+          real application.
+        </p>
+        <div class="mt-5">
+          <button class="uk-modal-close uk-button uk-button-primary">Ok</button>
+        </div>
+      </div>
+    </div>
+
+    <slot />
+
+    <div class="hidden" id="docsearch" hidden></div>
+
+    <script is:inline>
+      document
+        .getElementById("docsearch-toggle")
+        .addEventListener("click", function () {
+          document.getElementsByClassName("DocSearch-Button")[0].click();
+        });
+
+      var container = document.getElementById("docs");
+
+      if (container) {
+        container.addEventListener("click", function (event) {
+          if (event.target.classList.contains("codespan")) {
+            let text = event.target.textContent || event.target.innerText;
+
+            navigator.clipboard
+              .writeText(text)
+              .then(() => {
+                UIkit.notification({
+                  message: "Copied to clipboard",
+                  pos: "bottom-center",
+                });
+              })
+              .catch((e) => {});
+          }
+
+          if (event.target.classList.contains("copy")) {
+            let target = event.target.closest("div");
+
+            if (target) {
+              const code = target.querySelector("code");
+
+              if (code) {
+                navigator.clipboard
+                  .writeText(code.textContent)
+                  .then(() => {
+                    UIkit.notification({
+                      message: "Copied to clipboard",
+                      pos: "bottom-center",
+                    });
+                  })
+                  .catch((e) => {});
+              }
+            }
+          }
+        });
+      }
+
+      var themeToggleBtn = document.getElementById("theme-toggle");
+
+      themeToggleBtn.addEventListener("click", function () {
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+    </script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"
+    ></script>
+
+    <script is:inline type="text/javascript">
+      docsearch({
+        appId: "KQL185RMX1",
+        apiKey: "788145c26d003ecf83072bf98a309693",
+        indexName: "franken-ui-sveltecult",
+        container: "#docsearch",
+        debug: false,
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.DocSearch-Container {
+  z-index: 990 !important;
+}
+
+.copy {
+  @apply absolute right-0 top-[13.3px] text-muted-foreground hover:text-foreground;
+}
+
+.copy::before {
+  content: "";
+  @apply absolute inset-0 z-[1];
+}
