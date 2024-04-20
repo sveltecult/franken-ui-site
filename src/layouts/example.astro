@@ -46,8 +46,8 @@ const { doc, active } = Astro.props;
         <li class={active === "dashboard" ? "uk-active" : ""}>
           <a class="h-7" href="/examples/dashboard">Dashboard</a>
         </li>
-        <li>
-          <a class="h-7" href="#not-available" uk-toggle>Cards</a>
+        <li class={active === "cards" ? "uk-active" : ""}>
+          <a class="h-7" href="/examples/cards">Cards</a>
         </li>
         <li>
           <a class="h-7" href="#not-available" uk-toggle>Tasks</a>
@@ -67,7 +67,7 @@ const { doc, active } = Astro.props;
       </ul>
     </div>
 
-    <div class="mt-4 rounded-lg border border-border shadow-lg">
+    <div class="mt-4 overflow-hidden rounded-lg border border-border shadow-lg">
       <slot />
     </div>
   </main>
