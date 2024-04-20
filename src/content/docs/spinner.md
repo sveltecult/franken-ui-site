@@ -11,13 +11,6 @@ javascript: full
 
 <p class="mt-2 text-xl text-muted-foreground">Create an animated loading spinner.</p>
 
-```render
-<div class="mt-6 uk-alert">
-    <p class="mb-1 font-medium">Attribution</p>
-    <p>This documentation code was initially created by UIkit. It has been modified and adapted for use with Franken UI.</p>
-</div>
-```
-
 ## Usage
 
 On your `tailwind.config.js` file, add the Spinner component within the `ui()` plugin.
