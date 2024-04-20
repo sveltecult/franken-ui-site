@@ -1,5 +1,4 @@
 ---
-import Sale from "examples/dashboard/sale.astro";
 import Example from "layouts/example.astro";
 
 const doc = {
@@ -8,22 +7,6 @@ const doc = {
     description: "",
   },
 };
-
-const sales = [
-  {
-    name: "Olivia Martin",
-    email: "olivia.martin@email.com",
-    amount: "+$1,999.00",
-  },
-  { name: "Jackson Lee", email: "jackson.lee@email.com", amount: "+$39.00" },
-  {
-    name: "Isabella Nguyen",
-    email: "isabella.nguyen@email.com",
-    amount: "+$299.00",
-  },
-  { name: "William Kim", email: "will@email.com", amount: "+$99.00" },
-  { name: "Sofia Davis", email: "sofia.davis@email.com", amount: "+$39.00" },
-];
 ---
 
 <Example active="dashboard" doc={doc}>
@@ -470,7 +453,50 @@ const sales = [
             </div>
             <div class="uk-card-body pt-0">
               <div class="space-y-8">
-                {sales.map((a) => <Sale sale={a} />)}
+                {
+                  [
+                    {
+                      name: "Olivia Martin",
+                      email: "olivia.martin@email.com",
+                      amount: "+$1,999.00",
+                    },
+                    {
+                      name: "Jackson Lee",
+                      email: "jackson.lee@email.com",
+                      amount: "+$39.00",
+                    },
+                    {
+                      name: "Isabella Nguyen",
+                      email: "isabella.nguyen@email.com",
+                      amount: "+$299.00",
+                    },
+                    {
+                      name: "William Kim",
+                      email: "will@email.com",
+                      amount: "+$99.00",
+                    },
+                    {
+                      name: "Sofia Davis",
+                      email: "sofia.davis@email.com",
+                      amount: "+$39.00",
+                    },
+                  ].map((a) => (
+                    <div class="flex items-center">
+                      <span class="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-full bg-accent">
+                        <img
+                          class="aspect-square h-full w-full"
+                          alt="Avatar"
+                          src={`https://api.dicebear.com/8.x/lorelei/svg?seed=${a.name}`}
+                        />
+                      </span>
+                      <div class="ml-4 space-y-1">
+                        <p class="text-sm font-medium leading-none">{a.name}</p>
+                        <p class="text-sm text-muted-foreground">{a.email}</p>
+                      </div>
+                      <div class="ml-auto font-medium">{a.amount}</div>
+                    </div>
+                  ))
+                }
               </div>
             </div>
           </div>
