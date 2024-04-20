@@ -49,8 +49,8 @@ const { doc, active } = Astro.props;
         <li class={active === "cards" ? "uk-active" : ""}>
           <a class="h-7" href="/examples/cards">Cards</a>
         </li>
-        <li>
-          <a class="h-7" href="#not-available" uk-toggle>Tasks</a>
+        <li class={active === "tasks" ? "uk-active" : ""}>
+          <a class="h-7" href="/examples/tasks">Tasks</a>
         </li>
         <li>
           <a class="h-7" href="#not-available" uk-toggle>Playground</a>
