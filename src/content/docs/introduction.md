@@ -83,6 +83,8 @@ export default {
 
 Franken UI embraces modularity, allowing you to selectively include only the components you need within the `ui()` function. This granular approach ensures that your application remains lightweight and efficient, tailored to your specific requirements.
 
+However, some components are dependent on others. We are aware of this problem, and if you encounter errors, we provided a [`tailwind.config.js`](tailwind-config-js.md) file than you can use as a starting point. Just adjust the `safelist` and `content` according to your needs.
+
 ```javascript
 import preset from "franken-ui/shadcn-ui/preset";
 import variables from "franken-ui/shadcn-ui/variables";
