@@ -32,7 +32,7 @@ const { pathname } = Astro.url;
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
       .map((a) => (
         <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
-          <a href={a.slug}>{a.data.name}</a>
+          <a href={`/docs/${a.slug}`}>{a.data.name}</a>
         </li>
       ))
   }
@@ -45,7 +45,7 @@ const { pathname } = Astro.url;
       .filter((a) => a.data.group === "components")
       .map((a) => (
         <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
-          <a class="justify-between" href={a.slug}>
+          <a class="justify-between" href={`/docs/${a.slug}`}>
             <span>{a.data.name}</span>
             {a.data.icon ? (
               <span uk-icon={`icon: ${a.data.icon}; ratio: 0.8`} />
@@ -65,7 +65,7 @@ const { pathname } = Astro.url;
       .filter((a) => a.data.group === "compatibility")
       .map((a) => (
         <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
-          <a class="justify-between" href={a.slug}>
+          <a class="justify-between" href={`/docs/${a.slug}`}>
             {a.data.name}
           </a>
         </li>
