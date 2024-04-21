@@ -1001,7 +1001,17 @@ const data = [
             class="uk-drop uk-dropdown"
             uk-drop="mode: click; pos: bottom-left"
           >
+            <div class="m-1 flex items-center px-2 py-1.5">
+              <span class="opacity-50" uk-icon="icon: search; ratio: 0.8"
+              ></span>
+              <input
+                class="block w-full pl-2 text-sm focus:outline-none"
+                placeholder="Status"
+                type="text"
+              />
+            </div>
             <ul class="uk-dropdown-nav">
+              <li class="uk-nav-divider"></li>
               {
                 [
                   { status: "backlog", count: 21 },
@@ -1164,6 +1174,7 @@ const data = [
                 onclick="return false"
               />
             </th>
+            <th class="p-2">Task</th>
             <th class="uk-table-expand p-2">Title</th>
             <th class="p-2">Status</th>
             <th class="p-2">Priority</th>
@@ -1182,6 +1193,7 @@ const data = [
                     checked={a.selected}
                   />
                 </td>
+                <td class="p-2">{a.id}</td>
                 <td class="uk-table-expand max-w-[500px] truncate p-2">
                   <span class="uk-label capitalize">{a.label}</span>
                   <span class="font-medium">{a.title}</span>

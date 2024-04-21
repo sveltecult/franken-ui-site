@@ -52,8 +52,8 @@ const { doc, active } = Astro.props;
         <li class={active === "tasks" ? "uk-active" : ""}>
           <a class="h-7" href="/examples/tasks">Tasks</a>
         </li>
-        <li>
-          <a class="h-7" href="#not-available" uk-toggle>Playground</a>
+        <li class={active === "playground" ? "uk-active" : ""}>
+          <a class="h-7" href="/examples/playground">Playground</a>
         </li>
         <li>
           <a class="h-7" href="#not-available" uk-toggle>Forms</a>

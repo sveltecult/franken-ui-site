@@ -252,7 +252,19 @@ const doc = {
                     class="uk-drop uk-dropdown w-[252px]"
                     uk-drop="mode: click; pos: bottom-right"
                   >
+                    <div class="m-1 flex items-center px-2 py-1.5">
+                      <span
+                        class="opacity-50"
+                        uk-icon="icon: search; ratio: 0.8"
+                      />
+                      <input
+                        class="block w-full pl-2 text-sm focus:outline-none"
+                        placeholder="Select a new role"
+                        type="text"
+                      />
+                    </div>
                     <ul class="uk-dropdown-nav">
+                      <li class="uk-nav-divider"> </li>
                       <li>
                         <a class="uk-drop-close" href="#demo" uk-toggle>
                           <div>
