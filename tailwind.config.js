@@ -51,7 +51,21 @@ export default {
     "./md/**/*.md",
   ],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+      },
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      maxWidth: {
+        "8xl": "90rem",
+      },
+    },
   },
   plugins: [
     variables(),

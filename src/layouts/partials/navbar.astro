@@ -8,7 +8,7 @@ const { pathname } = Astro.url;
   uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;"
 >
   <nav class="uk-navbar-container">
-    <div class="mx-auto max-w-7xl px-4 md:px-8 xl:px-0">
+    <div class="container max-w-screen-2xl">
       <div class="uk-navbar" uk-navbar="mode: click">
         <div class="uk-navbar-left hidden gap-6 md:flex">
           <a class="uk-navbar-item text-primary" href="/">
@@ -36,7 +36,7 @@ const { pathname } = Astro.url;
                 stroke-linejoin="round"
                 stroke-width="16"></line></svg
             >
-            <span class="font-bold">franken/ui</span>
+            <span class="text-base font-bold">franken/ui</span>
           </a>
           <ul class="uk-navbar-nav hidden gap-6 lg:flex">
             <li class={pathname.startsWith("/docs") ? "uk-active" : ""}>
