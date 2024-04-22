@@ -258,7 +258,7 @@ const doc = {
                         uk-icon="icon: search; ratio: 0.8"
                       />
                       <input
-                        class="block w-full pl-2 text-sm focus:outline-none"
+                        class="block w-full bg-transparent pl-2 text-sm focus:outline-none"
                         placeholder="Select a new role"
                         type="text"
                       />
@@ -403,7 +403,7 @@ const doc = {
                         uk-drop="mode: click; pos: bottom-right"
                       >
                         <ul class="uk-dropdown-nav">
-                          <li>
+                          <li class={a.role === "Can edit" ? "uk-active" : ""}>
                             <a class="uk-drop-close" href="#demo" uk-toggle>
                               <div class="flex flex-1 items-center justify-between">
                                 Can edit
@@ -428,7 +428,7 @@ const doc = {
                               </div>
                             </a>
                           </li>
-                          <li>
+                          <li class={a.role === "Can view" ? "uk-active" : ""}>
                             <a class="uk-drop-close" href="#demo" uk-toggle>
                               <div class="flex flex-1 items-center justify-between">
                                 Can view
@@ -639,7 +639,7 @@ const doc = {
                         "Deployment",
                         "Support",
                       ].map((a) => (
-                        <li>
+                        <li class={a === "Billing" ? "uk-active" : ""}>
                           <a class="uk-drop-close" href="#demo" uk-toggle>
                             <div class="flex flex-1 items-center justify-between">
                               {a}
@@ -708,7 +708,7 @@ const doc = {
                         "Severity 3",
                         "Severity 4 (Lowest)",
                       ].map((a) => (
-                        <li>
+                        <li class={a === "Severity 2" ? "uk-active" : ""}>
                           <a class="uk-drop-close" href="#demo" uk-toggle>
                             <div class="flex flex-1 items-center justify-between">
                               {a}
