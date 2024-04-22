@@ -56,8 +56,8 @@ const { doc, active } = Astro.props;
         <li class={active === "forms" ? "uk-active" : ""}>
           <a class="h-7" href="/examples/forms">Forms</a>
         </li>
-        <li>
-          <a class="h-7" href="#not-available" uk-toggle>Music</a>
+        <li class={active === "music" ? "uk-active" : ""}>
+          <a class="h-7" href="/examples/music">Music</a>
         </li>
         <li class={active === "authentication" ? "uk-active" : ""}>
           <a class="h-7" href="/examples/authentication">Authentication</a>
