@@ -16,6 +16,8 @@ Some components are dependent on other components. So, to ensure a seamless deve
 
 Feel free to adjust this according to your needs.
 
+Please note that this may be updated periodically. For the most recent version, please refer to the [documentation repository](https://github.com/sveltecult/franken-ui-site/blob/master/tailwind.config.js) to get the latest configuration.
+
 ```javascript
 import preset from "franken-ui/shadcn-ui/preset";
 import variables from "franken-ui/shadcn-ui/variables";
@@ -45,6 +47,7 @@ export default {
     "uk-lightbox-button",
     "uk-lightbox-caption",
     "uk-lightbox-iframe",
+    "uk-lightbox-caption:empty",
 
     "uk-notification",
     "uk-notification-top-right",
@@ -64,13 +67,78 @@ export default {
     "uk-offcanvas-reveal",
     "uk-offcanvas-container-animation",
     "uk-offcanvas-bar-animation",
+
+    "uk-position-top",
+    "uk-position-bottom",
+    "uk-position-left",
+    "uk-position-right",
+    "uk-position-top-left",
+    "uk-position-top-right",
+    "uk-position-bottom-left",
+    "uk-position-bottom-right",
+    "uk-position-center",
+    "uk-position-center-left",
+    "uk-position-center-right",
+    "uk-position-center-left-out",
+    "uk-position-center-right-out",
+    "uk-position-top-center",
+    "uk-position-bottom-center",
+    "uk-position-cover",
+    "uk-position-small",
+    "uk-position-medium",
+    "uk-position-large",
+    "uk-position-relative",
+    "uk-position-absolute",
+    "uk-position-fixed",
+    "uk-position-sticky",
+    "uk-position-z-index",
+    "uk-position-z-index-zero",
+    "uk-position-z-index-negative",
+    "uk-position-z-index-high",
+
+    "uk-text-right",
+
+    "uk-transition-fade",
+    "uk-transition-toggle",
+    "uk-transition-active",
+    "uk-transition-scale-up",
+    "uk-transition-scale-down",
+    "uk-transition-slide-top",
+    "uk-transition-slide-bottom",
+    "uk-transition-slide-left",
+    "uk-transition-slide-right",
+    "uk-transition-slide-top-small",
+    "uk-transition-slide-bottom-small",
+    "uk-transition-slide-left-small",
+    "uk-transition-slide-right-small",
+    "uk-transition-slide-top-medium",
+    "uk-transition-slide-bottom-medium",
+    "uk-transition-slide-left-medium",
+    "uk-transition-slide-right-medium",
+    "uk-transition-opaque",
+    "uk-transition-slow",
+    "uk-transition-disable",
   ],
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     "./md/**/*.md",
   ],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+      },
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      maxWidth: {
+        "8xl": "90rem",
+      },
+    },
   },
   plugins: [
     variables(),
@@ -197,7 +265,9 @@ export default {
         pagination: {
           hooks: shadcn.pagination,
         },
-        placeholder: {},
+        placeholder: {
+          hooks: shadcn.placeholder,
+        },
         position: {
           media: false,
         },
@@ -226,9 +296,9 @@ export default {
           hooks: shadcn.table,
           media: true,
         },
-        // text: {
-        //   media: false,
-        // },
+        text: {
+          media: false,
+        },
         thumbnav: {},
         // tile: {
         //   media: false,
