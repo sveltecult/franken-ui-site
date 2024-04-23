@@ -26,6 +26,7 @@ export default {
     "uk-lightbox-button",
     "uk-lightbox-caption",
     "uk-lightbox-iframe",
+    "uk-lightbox-caption:empty",
 
     "uk-notification",
     "uk-notification-top-right",
@@ -192,7 +193,9 @@ export default {
         pagination: {
           hooks: shadcn.pagination,
         },
-        placeholder: {},
+        placeholder: {
+          hooks: shadcn.placeholder,
+        },
         position: {
           media: false,
         },
