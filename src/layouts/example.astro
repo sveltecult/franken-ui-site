@@ -2,7 +2,7 @@
 import Main from "layouts/main.astro";
 import Announcement from "./partials/announcement.astro";
 
-const { doc, active } = Astro.props;
+const { doc, active, caption = { light: "", dark: "" } } = Astro.props;
 ---
 
 <Main doc={doc}>
@@ -66,7 +66,29 @@ const { doc, active } = Astro.props;
     </div>
 
     <div class="mt-4 overflow-hidden rounded-lg border border-border shadow-lg">
-      <slot />
+      <div class="hidden lg:block">
+        <slot />
+      </div>
+
+      <div class="lg:hidden">
+        <div class="dark:hidden" uk-lightbox>
+          <a
+            href={`/images/screenshots/${active}-light.png`}
+            data-caption={caption.light}
+          >
+            <img src={`/images/screenshots/${active}-light.png`} />
+          </a>
+        </div>
+
+        <div class="hidden dark:block" uk-lightbox>
+          <a
+            href={`/images/screenshots/${active}-dark.png`}
+            data-caption={caption.dark}
+          >
+            <img src={`/images/screenshots/${active}-dark.png`} />
+          </a>
+        </div>
+      </div>
     </div>
   </main>
 </Main>

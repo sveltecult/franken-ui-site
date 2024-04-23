@@ -9,16 +9,339 @@ const doc = {
 };
 ---
 
-<Example active="playground" doc={doc}>
-  <div class="hidden lg:block">
-    <div
-      class="flex h-16 items-center justify-between border-b border-border px-8 py-4"
-    >
-      <h2 class="text-lg font-semibold">Playground</h2>
-      <div class="flex w-full flex-1 items-center justify-end space-x-2">
-        <button class="uk-button uk-button-default w-[300px]" type="button">
+<Example
+  active="playground"
+  doc={doc}
+  caption={{
+    light: "Demo of Playground in light mode using Franken UI components",
+    dark: "Demo of Playground in dark mode using Franken UI components",
+  }}
+>
+  <div
+    class="flex h-16 items-center justify-between border-b border-border px-8 py-4"
+  >
+    <h2 class="text-lg font-semibold">Playground</h2>
+    <div class="flex w-full flex-1 items-center justify-end space-x-2">
+      <button class="uk-button uk-button-default w-[300px]" type="button">
+        <div class="flex flex-1 items-center justify-between">
+          Load a preset
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="ml-2 h-4 w-4 opacity-50"
+            aria-hidden="true"
+          >
+            <path
+              d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+              clip-rule="evenodd"></path>
+          </svg>
+        </div>
+      </button>
+
+      <div
+        class="uk-drop uk-dropdown w-[300px]"
+        uk-drop="mode: click; pos: bottom-center"
+      >
+        <div class="m-1 flex items-center px-2 py-1.5">
+          <span class="opacity-50" uk-icon="icon: search; ratio: 0.8"></span>
+          <input
+            class="block w-full bg-transparent pl-2 text-sm focus:outline-none"
+            placeholder="Search presets"
+            type="text"
+          />
+        </div>
+        <ul class="uk-dropdown-nav">
+          <li class="uk-nav-divider"></li>
+          <li class="uk-nav-header text-xs text-muted-foreground">Examples</li>
+          {
+            [
+              "Grammatical Standard English",
+              "Summarize for a 2nd grader",
+              "Text to command",
+              "Q&A",
+              "English to other languages",
+              "Parse unstructured data",
+              "Classification",
+              "Natural language to Python",
+              "Explain code",
+              "Chat",
+              "More examples",
+            ].map((a) => (
+              <li>
+                <a class="uk-drop-close" href="#demo" uk-toggle>
+                  <div class="flex flex-1 items-center justify-between">
+                    {a}
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <button class="uk-button uk-button-secondary" uk-toggle="#save">
+        Save
+      </button>
+      <div class="uk-modal uk-flex-top" id="save" uk-modal>
+        <div class="uk-modal-dialog uk-margin-auto-vertical">
+          <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Save preset</h2>
+            <p class="mt-1.5 text-sm text-muted-foreground">
+              This will save the current playground state as a preset which you
+              can access later or share with others.
+            </p>
+          </div>
+          <div class="uk-modal-body space-y-4 py-0">
+            <div class="space-y-2">
+              <label class="uk-form-label" for="name">Name</label>
+              <input class="uk-input" id="name" type="text" />
+            </div>
+
+            <div class="space-y-2">
+              <label class="uk-form-label" for="description">Description</label>
+              <input class="uk-input" id="description" type="text" />
+            </div>
+          </div>
+          <div class="uk-modal-footer text-right">
+            <button class="uk-modal-close uk-button uk-button-primary">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button class="uk-button uk-button-secondary" uk-toggle="#demo">
+        View Code
+      </button>
+
+      <button class="uk-button uk-button-secondary"> Share </button>
+      <div
+        class="uk-drop uk-dropdown w-[520px] p-4"
+        uk-drop="mode: click; pos: bottom-right;"
+      >
+        <h3 class="text-lg font-semibold">Share preset</h3>
+        <p class="mt-1.5 text-sm text-muted-foreground">
+          Anyone who has this link and an OpenAI account will be able to view
+          this.
+        </p>
+
+        <div class="flex items-center space-x-2 pt-4">
+          <div class="flex-1">
+            <input
+              class="uk-input"
+              readonly
+              type="text"
+              value="https://platform.openai.com/playground/p/7bbKYQvsVkNmVb8NGcdUOLae?model=text-davinci-003"
+            />
+          </div>
+          <div class="flex-none">
+            <button
+              class="uk-drop-close uk-button uk-button-primary"
+              uk-toggle="#demo"
+            >
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                ><path
+                  d="M1 9.50006C1 10.3285 1.67157 11.0001 2.5 11.0001H4L4 10.0001H2.5C2.22386 10.0001 2 9.7762 2 9.50006L2 2.50006C2 2.22392 2.22386 2.00006 2.5 2.00006L9.5 2.00006C9.77614 2.00006 10 2.22392 10 2.50006V4.00002H5.5C4.67158 4.00002 4 4.67159 4 5.50002V12.5C4 13.3284 4.67158 14 5.5 14H12.5C13.3284 14 14 13.3284 14 12.5V5.50002C14 4.67159 13.3284 4.00002 12.5 4.00002H11V2.50006C11 1.67163 10.3284 1.00006 9.5 1.00006H2.5C1.67157 1.00006 1 1.67163 1 2.50006V9.50006ZM5 5.50002C5 5.22388 5.22386 5.00002 5.5 5.00002H12.5C12.7761 5.00002 13 5.22388 13 5.50002V12.5C13 12.7762 12.7761 13 12.5 13H5.5C5.22386 13 5 12.7762 5 12.5V5.50002Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"></path></svg
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button class="uk-button uk-button-secondary">
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          ><path
+            d="M3.625 7.5C3.625 8.12132 3.12132 8.625 2.5 8.625C1.87868 8.625 1.375 8.12132 1.375 7.5C1.375 6.87868 1.87868 6.375 2.5 6.375C3.12132 6.375 3.625 6.87868 3.625 7.5ZM8.625 7.5C8.625 8.12132 8.12132 8.625 7.5 8.625C6.87868 8.625 6.375 8.12132 6.375 7.5C6.375 6.87868 6.87868 6.375 7.5 6.375C8.12132 6.375 8.625 6.87868 8.625 7.5ZM12.5 8.625C13.1213 8.625 13.625 8.12132 13.625 7.5C13.625 6.87868 13.1213 6.375 12.5 6.375C11.8787 6.375 11.375 6.87868 11.375 7.5C11.375 8.12132 11.8787 8.625 12.5 8.625Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+            clip-rule="evenodd"></path></svg
+        >
+      </button>
+      <div class="uk-drop uk-dropdown" uk-drop="mode: click; pos: bottom-right">
+        <ul class="uk-dropdown-nav">
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle
+              >Content filter preferences</a
+            >
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close text-destructive" href="#demo" uk-toggle
+              >Delete preset</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex h-[700px] gap-x-6 px-8 py-6">
+    <div class="flex-1">
+      <textarea
+        class="uk-textarea h-full p-4"
+        placeholder="Write a tagline for an ice cream shop"
+        readonly></textarea>
+    </div>
+
+    <div class="w-[200px] flex-none">
+      <span class="uk-form-label"> Mode </span>
+      <ul class="uk-tab-alt mt-2 h-auto">
+        <li class="uk-active">
+          <a href="#demo" uk-toggle uk-tooltip="Full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="none"
+              class="h-5 w-5"
+              ><rect
+                x="4"
+                y="3"
+                width="12"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="4"
+                y="7"
+                width="12"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="4"
+                y="11"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="4"
+                y="15"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="8.5"
+                y="11"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="8.5"
+                y="15"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="13"
+                y="11"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect></svg
+            >
+          </a>
+        </li>
+        <li>
+          <a href="#demo" uk-toggle uk-tooltip="Split">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="none"
+              class="h-5 w-5"
+              ><path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M14.491 7.769a.888.888 0 0 1 .287.648.888.888 0 0 1-.287.648l-3.916 3.667a1.013 1.013 0 0 1-.692.268c-.26 0-.509-.097-.692-.268L5.275 9.065A.886.886 0 0 1 5 8.42a.889.889 0 0 1 .287-.64c.181-.17.427-.267.683-.269.257-.002.504.09.69.258L8.903 9.87V3.917c0-.243.103-.477.287-.649.183-.171.432-.268.692-.268.26 0 .509.097.692.268a.888.888 0 0 1 .287.649V9.87l2.245-2.102c.183-.172.432-.269.692-.269.26 0 .508.097.692.269Z"
+                fill="currentColor"></path><rect
+                x="4"
+                y="15"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="8.5"
+                y="15"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="13"
+                y="15"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect></svg
+            >
+          </a>
+        </li>
+        <li>
+          <a href="#demo" uk-toggle uk-tooltip="Interactive">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="none"
+              class="h-5 w-5"
+              ><rect
+                x="4"
+                y="3"
+                width="12"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="4"
+                y="7"
+                width="12"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="4"
+                y="11"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="4"
+                y="15"
+                width="4"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><rect
+                x="8.5"
+                y="11"
+                width="3"
+                height="2"
+                rx="1"
+                fill="currentColor"></rect><path
+                d="M17.154 11.346a1.182 1.182 0 0 0-1.671 0L11 15.829V17.5h1.671l4.483-4.483a1.182 1.182 0 0 0 0-1.671Z"
+                fill="currentColor"></path></svg
+            >
+          </a>
+        </li>
+      </ul>
+
+      <div class="mt-4 space-y-2">
+        <span class="uk-form-label block">Model</span>
+        <button class="uk-button uk-button-default w-[200px]" type="button">
           <div class="flex flex-1 items-center justify-between">
-            Load a preset
+            text-davinci-003
             <svg
               width="15"
               height="15"
@@ -38,36 +361,58 @@ const doc = {
         </button>
 
         <div
-          class="uk-drop uk-dropdown w-[300px]"
+          class="uk-drop uk-dropdown w-[200px]"
           uk-drop="mode: click; pos: bottom-center"
         >
           <div class="m-1 flex items-center px-2 py-1.5">
             <span class="opacity-50" uk-icon="icon: search; ratio: 0.8"></span>
             <input
               class="block w-full bg-transparent pl-2 text-sm focus:outline-none"
-              placeholder="Search presets"
+              placeholder="Search models"
               type="text"
             />
           </div>
           <ul class="uk-dropdown-nav">
             <li class="uk-nav-divider"></li>
-            <li class="uk-nav-header text-xs text-muted-foreground">
-              Examples
-            </li>
+            <li class="uk-nav-header text-xs text-muted-foreground">GPT-3</li>
             {
               [
-                "Grammatical Standard English",
-                "Summarize for a 2nd grader",
-                "Text to command",
-                "Q&A",
-                "English to other languages",
-                "Parse unstructured data",
-                "Classification",
-                "Natural language to Python",
-                "Explain code",
-                "Chat",
-                "More examples",
+                "text-davinci-003",
+                "text-curie-001",
+                "text-babbage-001",
+                "text-ada-001",
               ].map((a) => (
+                <li class={a === "text-davinci-003" ? "uk-active" : ""}>
+                  <a class="uk-drop-close" href="#demo" uk-toggle>
+                    <div class="flex flex-1 items-center justify-between">
+                      {a}
+                      {a === "text-davinci-003" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check"
+                        >
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+            <li class="mt-3"></li>
+            <li class="uk-nav-header text-xs text-muted-foreground">Codex</li>
+            {
+              ["code-davinci-002", "code-cushman-001"].map((a) => (
                 <li>
                   <a class="uk-drop-close" href="#demo" uk-toggle>
                     <div class="flex flex-1 items-center justify-between">
@@ -79,439 +424,76 @@ const doc = {
             }
           </ul>
         </div>
-
-        <button class="uk-button uk-button-secondary" uk-toggle="#save">
-          Save
-        </button>
-        <div class="uk-modal uk-flex-top" id="save" uk-modal>
-          <div class="uk-modal-dialog uk-margin-auto-vertical">
-            <div class="uk-modal-header">
-              <h2 class="uk-modal-title">Save preset</h2>
-              <p class="mt-1.5 text-sm text-muted-foreground">
-                This will save the current playground state as a preset which
-                you can access later or share with others.
-              </p>
-            </div>
-            <div class="uk-modal-body space-y-4 py-0">
-              <div class="space-y-2">
-                <label class="uk-form-label" for="name">Name</label>
-                <input class="uk-input" id="name" type="text" />
-              </div>
-
-              <div class="space-y-2">
-                <label class="uk-form-label" for="description"
-                  >Description</label
-                >
-                <input class="uk-input" id="description" type="text" />
-              </div>
-            </div>
-            <div class="uk-modal-footer text-right">
-              <button class="uk-modal-close uk-button uk-button-primary">
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <button class="uk-button uk-button-secondary" uk-toggle="#demo">
-          View Code
-        </button>
-
-        <button class="uk-button uk-button-secondary"> Share </button>
-        <div
-          class="uk-drop uk-dropdown w-[520px] p-4"
-          uk-drop="mode: click; pos: bottom-right;"
-        >
-          <h3 class="text-lg font-semibold">Share preset</h3>
-          <p class="mt-1.5 text-sm text-muted-foreground">
-            Anyone who has this link and an OpenAI account will be able to view
-            this.
-          </p>
-
-          <div class="flex items-center space-x-2 pt-4">
-            <div class="flex-1">
-              <input
-                class="uk-input"
-                readonly
-                type="text"
-                value="https://platform.openai.com/playground/p/7bbKYQvsVkNmVb8NGcdUOLae?model=text-davinci-003"
-              />
-            </div>
-            <div class="flex-none">
-              <button
-                class="uk-drop-close uk-button uk-button-primary"
-                uk-toggle="#demo"
-              >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  ><path
-                    d="M1 9.50006C1 10.3285 1.67157 11.0001 2.5 11.0001H4L4 10.0001H2.5C2.22386 10.0001 2 9.7762 2 9.50006L2 2.50006C2 2.22392 2.22386 2.00006 2.5 2.00006L9.5 2.00006C9.77614 2.00006 10 2.22392 10 2.50006V4.00002H5.5C4.67158 4.00002 4 4.67159 4 5.50002V12.5C4 13.3284 4.67158 14 5.5 14H12.5C13.3284 14 14 13.3284 14 12.5V5.50002C14 4.67159 13.3284 4.00002 12.5 4.00002H11V2.50006C11 1.67163 10.3284 1.00006 9.5 1.00006H2.5C1.67157 1.00006 1 1.67163 1 2.50006V9.50006ZM5 5.50002C5 5.22388 5.22386 5.00002 5.5 5.00002H12.5C12.7761 5.00002 13 5.22388 13 5.50002V12.5C13 12.7762 12.7761 13 12.5 13H5.5C5.22386 13 5 12.7762 5 12.5V5.50002Z"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"></path></svg
-                >
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <button class="uk-button uk-button-secondary">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            ><path
-              d="M3.625 7.5C3.625 8.12132 3.12132 8.625 2.5 8.625C1.87868 8.625 1.375 8.12132 1.375 7.5C1.375 6.87868 1.87868 6.375 2.5 6.375C3.12132 6.375 3.625 6.87868 3.625 7.5ZM8.625 7.5C8.625 8.12132 8.12132 8.625 7.5 8.625C6.87868 8.625 6.375 8.12132 6.375 7.5C6.375 6.87868 6.87868 6.375 7.5 6.375C8.12132 6.375 8.625 6.87868 8.625 7.5ZM12.5 8.625C13.1213 8.625 13.625 8.12132 13.625 7.5C13.625 6.87868 13.1213 6.375 12.5 6.375C11.8787 6.375 11.375 6.87868 11.375 7.5C11.375 8.12132 11.8787 8.625 12.5 8.625Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-              clip-rule="evenodd"></path></svg
-          >
-        </button>
-        <div
-          class="uk-drop uk-dropdown"
-          uk-drop="mode: click; pos: bottom-right"
-        >
-          <ul class="uk-dropdown-nav">
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle
-                >Content filter preferences</a
-              >
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close text-destructive" href="#demo" uk-toggle
-                >Delete preset</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex h-[700px] gap-x-6 px-8 py-6">
-      <div class="flex-1">
-        <textarea
-          class="uk-textarea h-full p-4"
-          placeholder="Write a tagline for an ice cream shop"
-          readonly></textarea>
       </div>
 
-      <div class="w-[200px] flex-none">
-        <span class="uk-form-label"> Mode </span>
-        <ul class="uk-tab-alt mt-2 h-auto">
-          <li class="uk-active">
-            <a href="#demo" uk-toggle uk-tooltip="Full">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="none"
-                class="h-5 w-5"
-                ><rect
-                  x="4"
-                  y="3"
-                  width="12"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="4"
-                  y="7"
-                  width="12"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="4"
-                  y="11"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="4"
-                  y="15"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="8.5"
-                  y="11"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="8.5"
-                  y="15"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="13"
-                  y="11"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect></svg
-              >
-            </a>
-          </li>
-          <li>
-            <a href="#demo" uk-toggle uk-tooltip="Split">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="none"
-                class="h-5 w-5"
-                ><path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M14.491 7.769a.888.888 0 0 1 .287.648.888.888 0 0 1-.287.648l-3.916 3.667a1.013 1.013 0 0 1-.692.268c-.26 0-.509-.097-.692-.268L5.275 9.065A.886.886 0 0 1 5 8.42a.889.889 0 0 1 .287-.64c.181-.17.427-.267.683-.269.257-.002.504.09.69.258L8.903 9.87V3.917c0-.243.103-.477.287-.649.183-.171.432-.268.692-.268.26 0 .509.097.692.268a.888.888 0 0 1 .287.649V9.87l2.245-2.102c.183-.172.432-.269.692-.269.26 0 .508.097.692.269Z"
-                  fill="currentColor"></path><rect
-                  x="4"
-                  y="15"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="8.5"
-                  y="15"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="13"
-                  y="15"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect></svg
-              >
-            </a>
-          </li>
-          <li>
-            <a href="#demo" uk-toggle uk-tooltip="Interactive">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="none"
-                class="h-5 w-5"
-                ><rect
-                  x="4"
-                  y="3"
-                  width="12"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="4"
-                  y="7"
-                  width="12"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="4"
-                  y="11"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="4"
-                  y="15"
-                  width="4"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><rect
-                  x="8.5"
-                  y="11"
-                  width="3"
-                  height="2"
-                  rx="1"
-                  fill="currentColor"></rect><path
-                  d="M17.154 11.346a1.182 1.182 0 0 0-1.671 0L11 15.829V17.5h1.671l4.483-4.483a1.182 1.182 0 0 0 0-1.671Z"
-                  fill="currentColor"></path></svg
-              >
-            </a>
-          </li>
-        </ul>
-
-        <div class="mt-4 space-y-2">
-          <span class="uk-form-label block">Model</span>
-          <button class="uk-button uk-button-default w-[200px]" type="button">
-            <div class="flex flex-1 items-center justify-between">
-              text-davinci-003
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 15 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="ml-2 h-4 w-4 opacity-50"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-          </button>
-
-          <div
-            class="uk-drop uk-dropdown w-[200px]"
-            uk-drop="mode: click; pos: bottom-center"
-          >
-            <div class="m-1 flex items-center px-2 py-1.5">
-              <span class="opacity-50" uk-icon="icon: search; ratio: 0.8"
-              ></span>
-              <input
-                class="block w-full bg-transparent pl-2 text-sm focus:outline-none"
-                placeholder="Search models"
-                type="text"
-              />
-            </div>
-            <ul class="uk-dropdown-nav">
-              <li class="uk-nav-divider"></li>
-              <li class="uk-nav-header text-xs text-muted-foreground">GPT-3</li>
-              {
-                [
-                  "text-davinci-003",
-                  "text-curie-001",
-                  "text-babbage-001",
-                  "text-ada-001",
-                ].map((a) => (
-                  <li class={a === "text-davinci-003" ? "uk-active" : ""}>
-                    <a class="uk-drop-close" href="#demo" uk-toggle>
-                      <div class="flex flex-1 items-center justify-between">
-                        {a}
-                        {a === "text-davinci-003" ? (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-check"
-                          >
-                            <path d="M20 6 9 17l-5-5" />
-                          </svg>
-                        ) : (
-                          ""
-                        )}
-                      </div>
-                    </a>
-                  </li>
-                ))
-              }
-              <li class="mt-3"></li>
-              <li class="uk-nav-header text-xs text-muted-foreground">Codex</li>
-              {
-                ["code-davinci-002", "code-cushman-001"].map((a) => (
-                  <li>
-                    <a class="uk-drop-close" href="#demo" uk-toggle>
-                      <div class="flex flex-1 items-center justify-between">
-                        {a}
-                      </div>
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+      <div class="mt-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="uk-form-label">Temperature</span>
+          <span class="text-sm text-muted-foreground">0.7</span>
         </div>
-
-        <div class="mt-4 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="uk-form-label">Temperature</span>
-            <span class="text-sm text-muted-foreground">0.7</span>
-          </div>
-          <input
-            class="uk-range"
-            type="range"
-            value="0.7"
-            min="0"
-            max="1"
-            step="0.1"
-            disabled
-          />
-        </div>
-
-        <div class="mt-4 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="uk-form-label">Maximum Length</span>
-            <span class="text-sm text-muted-foreground">256</span>
-          </div>
-          <input
-            class="uk-range"
-            type="range"
-            value="256"
-            min="0"
-            max="4000"
-            step="100"
-            disabled
-          />
-        </div>
-
-        <div class="mt-4 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="uk-form-label">Top P</span>
-            <span class="text-sm text-muted-foreground">0.9</span>
-          </div>
-          <input
-            class="uk-range"
-            type="range"
-            value="0.9"
-            min="0"
-            max="1"
-            step="0.1"
-            disabled
-          />
-        </div>
+        <input
+          class="uk-range"
+          type="range"
+          value="0.7"
+          min="0"
+          max="1"
+          step="0.1"
+          disabled
+        />
       </div>
-    </div>
 
-    <div class="flex gap-x-2 px-8 py-6 pt-0">
-      <button class="uk-button uk-button-primary" uk-toggle="#demo">
-        Submit
-      </button>
-      <button class="uk-button uk-button-secondary" uk-toggle="#demo">
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 15 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4"
-          ><path
-            d="M13.15 7.49998C13.15 4.66458 10.9402 1.84998 7.50002 1.84998C4.72167 1.84998 3.34849 3.9064 2.76335 5H4.5C4.77614 5 5 5.22386 5 5.5C5 5.77614 4.77614 6 4.5 6H1.5C1.22386 6 1 5.77614 1 5.5V2.5C1 2.22386 1.22386 2 1.5 2C1.77614 2 2 2.22386 2 2.5V4.31318C2.70453 3.07126 4.33406 0.849976 7.50002 0.849976C11.5628 0.849976 14.15 4.18537 14.15 7.49998C14.15 10.8146 11.5628 14.15 7.50002 14.15C5.55618 14.15 3.93778 13.3808 2.78548 12.2084C2.16852 11.5806 1.68668 10.839 1.35816 10.0407C1.25306 9.78536 1.37488 9.49315 1.63024 9.38806C1.8856 9.28296 2.17781 9.40478 2.2829 9.66014C2.56374 10.3425 2.97495 10.9745 3.4987 11.5074C4.47052 12.4963 5.83496 13.15 7.50002 13.15C10.9402 13.15 13.15 10.3354 13.15 7.49998ZM7.5 4.00001C7.77614 4.00001 8 4.22387 8 4.50001V7.29291L9.85355 9.14646C10.0488 9.34172 10.0488 9.65831 9.85355 9.85357C9.65829 10.0488 9.34171 10.0488 9.14645 9.85357L7.14645 7.85357C7.05268 7.7598 7 7.63262 7 7.50001V4.50001C7 4.22387 7.22386 4.00001 7.5 4.00001Z"
-            fill="currentColor"
-            fill-rule="evenodd"
-            clip-rule="evenodd"></path></svg
-        >
-      </button>
+      <div class="mt-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="uk-form-label">Maximum Length</span>
+          <span class="text-sm text-muted-foreground">256</span>
+        </div>
+        <input
+          class="uk-range"
+          type="range"
+          value="256"
+          min="0"
+          max="4000"
+          step="100"
+          disabled
+        />
+      </div>
+
+      <div class="mt-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="uk-form-label">Top P</span>
+          <span class="text-sm text-muted-foreground">0.9</span>
+        </div>
+        <input
+          class="uk-range"
+          type="range"
+          value="0.9"
+          min="0"
+          max="1"
+          step="0.1"
+          disabled
+        />
+      </div>
     </div>
   </div>
 
-  <div class="lg:hidden">
-    <img
-      class="dark:hidden"
-      loading="lazy"
-      src="/images/screenshots/playground-light.png"
-      alt=""
-    />
-    <img
-      class="hidden dark:block"
-      loading="lazy"
-      src="/images/screenshots/playground-dark.png"
-      alt=""
-    />
+  <div class="flex gap-x-2 px-8 py-6 pt-0">
+    <button class="uk-button uk-button-primary" uk-toggle="#demo">
+      Submit
+    </button>
+    <button class="uk-button uk-button-secondary" uk-toggle="#demo">
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 15 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4"
+        ><path
+          d="M13.15 7.49998C13.15 4.66458 10.9402 1.84998 7.50002 1.84998C4.72167 1.84998 3.34849 3.9064 2.76335 5H4.5C4.77614 5 5 5.22386 5 5.5C5 5.77614 4.77614 6 4.5 6H1.5C1.22386 6 1 5.77614 1 5.5V2.5C1 2.22386 1.22386 2 1.5 2C1.77614 2 2 2.22386 2 2.5V4.31318C2.70453 3.07126 4.33406 0.849976 7.50002 0.849976C11.5628 0.849976 14.15 4.18537 14.15 7.49998C14.15 10.8146 11.5628 14.15 7.50002 14.15C5.55618 14.15 3.93778 13.3808 2.78548 12.2084C2.16852 11.5806 1.68668 10.839 1.35816 10.0407C1.25306 9.78536 1.37488 9.49315 1.63024 9.38806C1.8856 9.28296 2.17781 9.40478 2.2829 9.66014C2.56374 10.3425 2.97495 10.9745 3.4987 11.5074C4.47052 12.4963 5.83496 13.15 7.50002 13.15C10.9402 13.15 13.15 10.3354 13.15 7.49998ZM7.5 4.00001C7.77614 4.00001 8 4.22387 8 4.50001V7.29291L9.85355 9.14646C10.0488 9.34172 10.0488 9.65831 9.85355 9.85357C9.65829 10.0488 9.34171 10.0488 9.14645 9.85357L7.14645 7.85357C7.05268 7.7598 7 7.63262 7 7.50001V4.50001C7 4.22387 7.22386 4.00001 7.5 4.00001Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+          clip-rule="evenodd"></path></svg
+      >
+    </button>
   </div>
 </Example>

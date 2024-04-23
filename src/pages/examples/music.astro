@@ -9,789 +9,765 @@ const doc = {
 };
 ---
 
-<Example active="music" doc={doc}>
-  <div class="hidden lg:block">
-    <div
-      class="flex h-9 items-center border-b border-border px-2 py-1 shadow-sm"
-    >
-      <nav class="flex space-x-1 text-sm">
-        <a class="px-3 py-1 font-bold" href="#"> Music </a>
-        <div
-          class="uk-drop uk-dropdown"
-          uk-dropdown="mode: click; pos: bottom-left"
-        >
-          <ul class="uk-dropdown-nav uk-nav">
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                About Music
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Preferences
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘,
-                </span>
-              </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Hide Music
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘H
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Hide Others
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⇧⌘H
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Quit Music
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘Q
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
+<Example
+  active="music"
+  doc={doc}
+  caption={{
+    light: "Demo of Music in light mode using Franken UI components",
+    dark: "Demo of Music in dark mode using Franken UI components",
+  }}
+>
+  <div class="flex h-9 items-center border-b border-border px-2 py-1 shadow-sm">
+    <nav class="flex space-x-1 text-sm">
+      <a class="px-3 py-1 font-bold" href="#"> Music </a>
+      <div
+        class="uk-drop uk-dropdown"
+        uk-dropdown="mode: click; pos: bottom-left"
+      >
+        <ul class="uk-dropdown-nav uk-nav">
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              About Music
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Preferences
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘,
+              </span>
+            </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Hide Music
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘H
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Hide Others
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⇧⌘H
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Quit Music
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘Q
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-        <a class="px-3 py-1" href="#">File</a>
-        <div
-          class="uk-drop uk-dropdown"
-          uk-dropdown="mode: click; pos: bottom-left"
-        >
-          <ul class="uk-dropdown-nav uk-nav">
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                New
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Open Stream URL
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘U
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Close Window
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘W
-                </span>
-              </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Library
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Import
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘O
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="opacity-50"> Burn Playlist to Disc </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Show in Finder
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⇧⌘R
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Convert
-              </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Page Setup
-              </a>
-            </li>
-            <li>
-              <a class="opacity-50">Print</a>
-            </li>
-          </ul>
-        </div>
+      <a class="px-3 py-1" href="#">File</a>
+      <div
+        class="uk-drop uk-dropdown"
+        uk-dropdown="mode: click; pos: bottom-left"
+      >
+        <ul class="uk-dropdown-nav uk-nav">
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              New
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Open Stream URL
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘U
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Close Window
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘W
+              </span>
+            </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Library
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Import
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘O
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="opacity-50"> Burn Playlist to Disc </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Show in Finder
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⇧⌘R
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Convert
+            </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Page Setup
+            </a>
+          </li>
+          <li>
+            <a class="opacity-50">Print</a>
+          </li>
+        </ul>
+      </div>
 
-        <a class="px-3 py-1" href="#">Edit</a>
-        <div
-          class="uk-drop uk-dropdown"
-          uk-dropdown="mode: click; pos: bottom-left"
-        >
-          <ul class="uk-dropdown-nav uk-nav">
-            <li>
-              <a class="opacity-50">
-                Undo
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘Z
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="opacity-50">
-                Redo
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⇧⌘Z
-                </span>
-              </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="opacity-50">
-                Cut
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘X
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="opacity-50">
-                Copy
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘C
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="opacity-50">
-                Paste
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘V
-                </span>
-              </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Select All
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⌘A
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="opacity-50">
-                Deselect All
-                <span class="ml-auto text-xs tracking-widest opacity-60">
-                  ⇧⌘A
-                </span>
-              </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Smart Dictation
-                <span class="ml-auto text-muted-foreground">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    class="h-4 w-4"
-                    viewBox="0 0 24 24"
-                    ><path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"
-                    ></path><circle cx="17" cy="7" r="5"></circle></svg
-                  >
-                </span>
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
-                Emojis & Symbols
-                <span class="ml-auto text-muted-foreground">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    class="h-4 w-4"
-                    viewBox="0 0 24 24"
-                    ><circle cx="12" cy="12" r="10"></circle><path
-                      d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                    ></path></svg
-                  >
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <a class="px-3 py-1" href="#">View</a>
-        <div
-          class="uk-drop uk-dropdown"
-          uk-drop="mode: click; pos: bottom-left"
-        >
-          <ul class="uk-dropdown-nav">
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle>
-                <span class="ml-6">Show Playing Next</span>
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle>
+      <a class="px-3 py-1" href="#">Edit</a>
+      <div
+        class="uk-drop uk-dropdown"
+        uk-dropdown="mode: click; pos: bottom-left"
+      >
+        <ul class="uk-dropdown-nav uk-nav">
+          <li>
+            <a class="opacity-50">
+              Undo
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘Z
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="opacity-50">
+              Redo
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⇧⌘Z
+              </span>
+            </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="opacity-50">
+              Cut
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘X
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="opacity-50">
+              Copy
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘C
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="opacity-50">
+              Paste
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘V
+              </span>
+            </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Select All
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⌘A
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="opacity-50">
+              Deselect All
+              <span class="ml-auto text-xs tracking-widest opacity-60">
+                ⇧⌘A
+              </span>
+            </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Smart Dictation
+              <span class="ml-auto text-muted-foreground">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  ><path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"
+                  ></path><circle cx="17" cy="7" r="5"></circle></svg
+                >
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close justify-between" href="#demo" uk-toggle>
+              Emojis & Symbols
+              <span class="ml-auto text-muted-foreground">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  ><circle cx="12" cy="12" r="10"></circle><path
+                    d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                  ></path></svg
+                >
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="px-3 py-1" href="#">View</a>
+      <div class="uk-drop uk-dropdown" uk-drop="mode: click; pos: bottom-left">
+        <ul class="uk-dropdown-nav">
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle>
+              <span class="ml-6">Show Playing Next</span>
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-check mr-2"
+              >
+                <path d="M20 6 9 17l-5-5"></path>
+              </svg>
+              Show Lyrics
+            </a>
+          </li>
+          <li>
+            <a class="opacity-50">
+              <span class="ml-6">Show Status Bar</span>
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle>
+              <span class="ml-6">Hide Sidebar</span>
+            </a>
+          </li>
+          <li>
+            <a class="opacity-50">
+              <span class="ml-6">Enter Full Screen</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="px-3 py-1" href="#">Account</a>
+      <div class="uk-drop uk-dropdown" uk-drop="mode: click; pos: bottom-left">
+        <ul class="uk-dropdown-nav">
+          <li class="uk-nav-header">
+            <span class="ml-6"> Switch Account </span>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle>
+              <span class="ml-6">Andy</span>
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="mr-2 h-4 w-4 fill-current"
+                ><path
+                  d="M9.875 7.5C9.875 8.81168 8.81168 9.875 7.5 9.875C6.18832 9.875 5.125 8.81168 5.125 7.5C5.125 6.18832 6.18832 5.125 7.5 5.125C8.81168 5.125 9.875 6.18832 9.875 7.5Z"
+                  fill="currentColor"></path></svg
+              >
+              Benoit
+            </a>
+          </li>
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle>
+              <span class="ml-6">Luis</span>
+            </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle>
+              <span class="ml-6">Manage Family</span>
+            </a>
+          </li>
+          <li class="uk-nav-divider"></li>
+          <li>
+            <a class="uk-drop-close" href="#demo" uk-toggle>
+              <span class="ml-6">Add Account</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="grid grid-cols-5">
+    <div class="">
+      <div class="space-y-4 py-4">
+        <div class="px-3 py-2">
+          <h2 class="mb-2 px-3 text-lg font-semibold tracking-tight">
+            Discover
+          </h2>
+          <ul class="uk-nav uk-nav-secondary">
+            <li class="uk-active">
+              <a class="font-medium" href="#demo" uk-toggle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-check mr-2"
-                >
-                  <path d="M20 6 9 17l-5-5"></path>
-                </svg>
-                Show Lyrics
-              </a>
-            </li>
-            <li>
-              <a class="opacity-50">
-                <span class="ml-6">Show Status Bar</span>
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle>
-                <span class="ml-6">Hide Sidebar</span>
-              </a>
-            </li>
-            <li>
-              <a class="opacity-50">
-                <span class="ml-6">Enter Full Screen</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <a class="px-3 py-1" href="#">Account</a>
-        <div
-          class="uk-drop uk-dropdown"
-          uk-drop="mode: click; pos: bottom-left"
-        >
-          <ul class="uk-dropdown-nav">
-            <li class="uk-nav-header">
-              <span class="ml-6"> Switch Account </span>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle>
-                <span class="ml-6">Andy</span>
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle>
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="mr-2 h-4 w-4 fill-current"
-                  ><path
-                    d="M9.875 7.5C9.875 8.81168 8.81168 9.875 7.5 9.875C6.18832 9.875 5.125 8.81168 5.125 7.5C5.125 6.18832 6.18832 5.125 7.5 5.125C8.81168 5.125 9.875 6.18832 9.875 7.5Z"
-                    fill="currentColor"></path></svg
-                >
-                Benoit
-              </a>
-            </li>
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle>
-                <span class="ml-6">Luis</span>
-              </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle>
-                <span class="ml-6">Manage Family</span>
-              </a>
-            </li>
-            <li class="uk-nav-divider"></li>
-            <li>
-              <a class="uk-drop-close" href="#demo" uk-toggle>
-                <span class="ml-6">Add Account</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <div class="grid grid-cols-5">
-      <div class="">
-        <div class="space-y-4 py-4">
-          <div class="px-3 py-2">
-            <h2 class="mb-2 px-3 text-lg font-semibold tracking-tight">
-              Discover
-            </h2>
-            <ul class="uk-nav uk-nav-secondary">
-              <li class="uk-active">
-                <a class="font-medium" href="#demo" uk-toggle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mr-2 h-4 w-4"
-                    ><circle cx="12" cy="12" r="10"></circle><polygon
-                      points="10 8 16 12 10 16 10 8"></polygon></svg
-                  >
-                  Listen Now
-                </a>
-              </li>
-              <li>
-                <a class="font-medium" href="#demo" uk-toggle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mr-2 h-4 w-4"
-                    ><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect
-                      width="7"
-                      height="7"
-                      x="14"
-                      y="3"
-                      rx="1"></rect><rect
-                      width="7"
-                      height="7"
-                      x="14"
-                      y="14"
-                      rx="1"></rect><rect
-                      width="7"
-                      height="7"
-                      x="3"
-                      y="14"
-                      rx="1"></rect></svg
-                  >
-                  Browse
-                </a>
-              </li>
-              <li>
-                <a class="font-medium" href="#demo" uk-toggle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mr-2 h-4 w-4"
-                    ><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"></path><path
-                      d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"></path><circle
-                      cx="12"
-                      cy="12"
-                      r="2"></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"
-                    ></path><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"
-                    ></path></svg
-                  >
-                  Radio
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="px-3 py-2">
-            <h2 class="mb-2 px-3 text-lg font-semibold tracking-tight">
-              Library
-            </h2>
-            <ul class="uk-nav uk-nav-secondary">
-              <li>
-                <a class="font-medium" href="#demo" uk-toggle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mr-2 h-4 w-4"
-                    ><path d="M21 15V6"></path><path
-                      d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
-                    ></path><path d="M12 12H3"></path><path d="M16 6H3"
-                    ></path><path d="M12 18H3"></path></svg
-                  >
-                  Playlists
-                </a>
-              </li>
-              <li>
-                <a class="font-medium" href="#demo" uk-toggle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mr-2 h-4 w-4"
-                    ><circle cx="8" cy="18" r="4"></circle><path
-                      d="M12 18V2l7 4"></path></svg
-                  >
-                  Songs
-                </a>
-              </li>
-              <li>
-                <a class="font-medium" href="#demo" uk-toggle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mr-2 h-4 w-4"
-                    ><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
-                    ></path><circle cx="12" cy="7" r="4"></circle></svg
-                  >
-                  Made for You
-                </a>
-              </li>
-              <li>
-                <a class="font-medium" href="#demo" uk-toggle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mr-2 h-4 w-4"
-                    ><path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"
-                    ></path><circle cx="17" cy="7" r="5"></circle></svg
-                  >
-                  Artists
-                </a>
-              </li>
-              <li>
-                <a class="font-medium" href="#demo" uk-toggle>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="mr-2 h-4 w-4"
-                    ><path d="m16 6 4 14"></path><path d="M12 6v14"></path><path
-                      d="M8 8v12"></path><path d="M4 4v16"></path></svg
-                  >
-                  Albums
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="px-3 py-2">
-            <h2 class="mb-2 px-3 text-lg font-semibold tracking-tight">
-              Playlists
-            </h2>
-            <div class="max-h-60 overflow-y-auto">
-              <ul class="uk-nav uk-nav-secondary">
-                {
-                  [
-                    "Recently Added",
-                    "Recently Played",
-                    "Top Songs",
-                    "Top Albums",
-                    "Top Artists",
-                    "Logic Discography",
-                    "Bedtime Beats",
-                    "I miss Y2K Pop",
-                  ].map((a) => (
-                    <li>
-                      <a class="font-medium" href="#demo" uk-toggle>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="mr-2 h-4 w-4"
-                        >
-                          <>
-                            <path d="M21 15V6" />
-                            <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                            <path d="M12 12H3" />
-                            <path d="M16 6H3" />
-                            <path d="M12 18H3" />
-                          </>
-                        </svg>
-                        {a}
-                      </a>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-span-4 border-l border-border">
-        <div class="px-8 py-6">
-          <div class="flex items-center justify-between">
-            <div class="max-w-80">
-              <ul
-                class="uk-tab-alt"
-                uk-switcher="connect: #component-nav; animation: uk-animation-fade"
-              >
-                <li class="uk-active">
-                  <a href="#">Music</a>
-                </li>
-                <li>
-                  <a href="#">Podcasts</a>
-                </li>
-                <li class="uk-disabled">
-                  <a class="opacity-50">Live</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="">
-              <button class="uk-button uk-button-primary" uk-toggle="#demo">
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
                   class="mr-2 h-4 w-4"
-                  ><path
-                    d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM7.50003 4C7.77617 4 8.00003 4.22386 8.00003 4.5V7H10.5C10.7762 7 11 7.22386 11 7.5C11 7.77614 10.7762 8 10.5 8H8.00003V10.5C8.00003 10.7761 7.77617 11 7.50003 11C7.22389 11 7.00003 10.7761 7.00003 10.5V8H4.50003C4.22389 8 4.00003 7.77614 4.00003 7.5C4.00003 7.22386 4.22389 7 4.50003 7H7.00003V4.5C7.00003 4.22386 7.22389 4 7.50003 4Z"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"></path></svg
+                  ><circle cx="12" cy="12" r="10"></circle><polygon
+                    points="10 8 16 12 10 16 10 8"></polygon></svg
                 >
-                Add music
-              </button>
-            </div>
-          </div>
-
-          <ul id="component-nav" class="uk-switcher mt-6">
-            <li>
-              <div class="space-y-1">
-                <h2 class="text-2xl font-semibold tracking-tight">
-                  Listen Now
-                </h2>
-                <p class="text-sm text-muted-foreground">
-                  Top picks for you. Updated daily.
-                </p>
-              </div>
-
-              <div class="my-4 h-[1px] w-full bg-border"></div>
-
-              <div class="grid grid-cols-4 gap-x-4">
-                {
-                  [
-                    {
-                      title: "Tequila Rose",
-                      artist: "HELLMERRY, Al James",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/44/e9/82/44e98212-27cb-cb8f-b207-c4ec2a05d6bf/196871890304.jpg/316x316bb.webp",
-                    },
-                    {
-                      title: "Deserve",
-                      artist: "Skusta Clee, Flow G",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ed/70/e9/ed70e938-f128-75f4-aef8-ec4e42543610/859785268446_cover.jpg/316x316bb.webp",
-                    },
-                    {
-                      title: "We Made It",
-                      artist: "Nik Makino, Flow G",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/96/63/00/96630083-9042-6c46-d309-d5987b635956/cover.jpg/316x316bb.webp",
-                    },
-                    {
-                      title: "Pamanggulo",
-                      artist: "LOONIE, JRLDM",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/61/0c/bc/610cbc47-95c9-7c37-c3c7-c3a546fcad2c/cover.jpg/316x316bb.webp",
-                    },
-                  ].map((a) => (
-                    <div class="space-y-3">
-                      <div class="overflow-hidden rounded-md">
-                        <img
-                          class="transition-transform duration-200 hover:scale-105"
-                          src={a.cover}
-                          alt=""
-                        />
-                      </div>
-
-                      <div class="space-y-1 text-sm">
-                        <h3 class="font-medium leading-none">{a.title}</h3>
-                        <p class="text-xs text-muted-foreground">{a.artist}</p>
-                      </div>
-                    </div>
-                  ))
-                }
-              </div>
-
-              <div class="mt-6 space-y-1">
-                <h2 class="text-2xl font-semibold tracking-tight">
-                  Made for You
-                </h2>
-                <p class="text-sm text-muted-foreground">
-                  Your personal playlists. Updated daily.
-                </p>
-              </div>
-
-              <div class="my-4 h-[1px] w-full bg-border"></div>
-
-              <div class="grid grid-cols-6 gap-x-4">
-                {
-                  [
-                    {
-                      title: "Patiwakal",
-                      artist: "JRLDM",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/3a/e1/20/3ae12007-442a-2843-1e48-5e1b25960dec/artwork.jpg/316x316bb.webp",
-                    },
-                    {
-                      title: "Bad Type",
-                      artist: "Shanti Dope",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/f8/6f/6f/f86f6f29-c44e-d346-e404-0de067d9cedf/196922636868_Cover.jpg/316x316bb.webp",
-                    },
-                    {
-                      title: "Solo",
-                      artist: "Skusta Clee",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/c5/04/8b/c5048bca-b746-1c91-3cab-137bc4c763f1/859768043503_cover.jpg/316x316bb.webp",
-                    },
-                    {
-                      title: "Lagabog",
-                      artist: "Skusta Clee, Illest Morena",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/97/55/29/97552992-eaf5-f15e-7fa1-6de7f7a9286f/859781748287_cover.jpg/316x316bb.webp",
-                    },
-                    {
-                      title: "Soju",
-                      artist: "Austin Lee, Al James",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/d2/15/45/d21545bd-592d-b9ad-90f3-d7b72b1d8eef/artwork.jpg/316x316bb.webp",
-                    },
-                    {
-                      title: "Young Gaddy",
-                      artist: "Shanti Dope",
-                      cover:
-                        "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/02/66/ec/0266ecb8-7faf-3510-aeec-d81c971ef616/196922482007_Cover.jpg/316x316bb.webp",
-                    },
-                  ].map((a) => (
-                    <div class="space-y-3">
-                      <div class="overflow-hidden rounded-md">
-                        <img
-                          class="transition-transform duration-200 hover:scale-105"
-                          src={a.cover}
-                          alt=""
-                        />
-                      </div>
-
-                      <div class="space-y-1 text-sm">
-                        <h3 class="font-medium leading-none">{a.title}</h3>
-                        <p class="text-xs text-muted-foreground">{a.artist}</p>
-                      </div>
-                    </div>
-                  ))
-                }
-              </div>
+                Listen Now
+              </a>
             </li>
-
             <li>
-              <div class="space-y-1">
-                <h2 class="text-2xl font-semibold tracking-tight">
-                  New Episodes
-                </h2>
-                <p class="text-sm text-muted-foreground">
-                  Your favorite podcasts. Updated daily.
-                </p>
-              </div>
-
-              <div class="my-4 h-[1px] w-full bg-border"></div>
-
-              <div
-                class="uk-placeholder flex h-[450px] items-center justify-center rounded-md"
-              >
-                <div
-                  class="mx-auto flex max-w-[420px] flex-col items-center justify-center text-center"
+              <a class="font-medium" href="#demo" uk-toggle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-2 h-4 w-4"
+                  ><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect
+                    width="7"
+                    height="7"
+                    x="14"
+                    y="3"
+                    rx="1"></rect><rect
+                    width="7"
+                    height="7"
+                    x="14"
+                    y="14"
+                    rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"
+                  ></rect></svg
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    class="h-10 w-10 text-muted-foreground"
-                    viewBox="0 0 24 24"
-                    ><circle cx="12" cy="11" r="1"></circle><path
-                      d="M11 17a1 1 0 0 1 2 0c0 .5-.34 3-.5 4.5a.5.5 0 0 1-1 0c-.16-1.5-.5-4-.5-4.5ZM8 14a5 5 0 1 1 8 0"
-                    ></path><path d="M17 18.5a9 9 0 1 0-10 0"></path></svg
-                  >
-                  <h3 class="mt-4 text-lg font-semibold">No episodes added</h3>
-                  <p class="mb-4 mt-2 text-sm text-muted-foreground">
-                    You have not added any podcasts. Add one below.
-                  </p>
-                  <button class="uk-button uk-button-primary" uk-toggle="#demo">
-                    Add Podcast
-                  </button>
-                </div>
-              </div>
+                Browse
+              </a>
+            </li>
+            <li>
+              <a class="font-medium" href="#demo" uk-toggle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-2 h-4 w-4"
+                  ><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"></path><path
+                    d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"></path><circle
+                    cx="12"
+                    cy="12"
+                    r="2"></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"
+                  ></path><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"
+                  ></path></svg
+                >
+                Radio
+              </a>
             </li>
           </ul>
         </div>
+
+        <div class="px-3 py-2">
+          <h2 class="mb-2 px-3 text-lg font-semibold tracking-tight">
+            Library
+          </h2>
+          <ul class="uk-nav uk-nav-secondary">
+            <li>
+              <a class="font-medium" href="#demo" uk-toggle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-2 h-4 w-4"
+                  ><path d="M21 15V6"></path><path
+                    d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
+                  ></path><path d="M12 12H3"></path><path d="M16 6H3"
+                  ></path><path d="M12 18H3"></path></svg
+                >
+                Playlists
+              </a>
+            </li>
+            <li>
+              <a class="font-medium" href="#demo" uk-toggle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-2 h-4 w-4"
+                  ><circle cx="8" cy="18" r="4"></circle><path d="M12 18V2l7 4"
+                  ></path></svg
+                >
+                Songs
+              </a>
+            </li>
+            <li>
+              <a class="font-medium" href="#demo" uk-toggle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-2 h-4 w-4"
+                  ><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                  ></path><circle cx="12" cy="7" r="4"></circle></svg
+                >
+                Made for You
+              </a>
+            </li>
+            <li>
+              <a class="font-medium" href="#demo" uk-toggle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-2 h-4 w-4"
+                  ><path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"
+                  ></path><circle cx="17" cy="7" r="5"></circle></svg
+                >
+                Artists
+              </a>
+            </li>
+            <li>
+              <a class="font-medium" href="#demo" uk-toggle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="mr-2 h-4 w-4"
+                  ><path d="m16 6 4 14"></path><path d="M12 6v14"></path><path
+                    d="M8 8v12"></path><path d="M4 4v16"></path></svg
+                >
+                Albums
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="px-3 py-2">
+          <h2 class="mb-2 px-3 text-lg font-semibold tracking-tight">
+            Playlists
+          </h2>
+          <div class="max-h-60 overflow-y-auto">
+            <ul class="uk-nav uk-nav-secondary">
+              {
+                [
+                  "Recently Added",
+                  "Recently Played",
+                  "Top Songs",
+                  "Top Albums",
+                  "Top Artists",
+                  "Logic Discography",
+                  "Bedtime Beats",
+                  "I miss Y2K Pop",
+                ].map((a) => (
+                  <li>
+                    <a class="font-medium" href="#demo" uk-toggle>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="mr-2 h-4 w-4"
+                      >
+                        <>
+                          <path d="M21 15V6" />
+                          <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                          <path d="M12 12H3" />
+                          <path d="M16 6H3" />
+                          <path d="M12 18H3" />
+                        </>
+                      </svg>
+                      {a}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="lg:hidden">
-    <img
-      class="dark:hidden"
-      loading="lazy"
-      src="/images/screenshots/music-light.png"
-      alt=""
-    />
-    <img
-      class="hidden dark:block"
-      loading="lazy"
-      src="/images/screenshots/music-dark.png"
-      alt=""
-    />
+    <div class="col-span-4 border-l border-border">
+      <div class="px-8 py-6">
+        <div class="flex items-center justify-between">
+          <div class="max-w-80">
+            <ul
+              class="uk-tab-alt"
+              uk-switcher="connect: #component-nav; animation: uk-animation-fade"
+            >
+              <li class="uk-active">
+                <a href="#">Music</a>
+              </li>
+              <li>
+                <a href="#">Podcasts</a>
+              </li>
+              <li class="uk-disabled">
+                <a class="opacity-50">Live</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="">
+            <button class="uk-button uk-button-primary" uk-toggle="#demo">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="mr-2 h-4 w-4"
+                ><path
+                  d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM7.50003 4C7.77617 4 8.00003 4.22386 8.00003 4.5V7H10.5C10.7762 7 11 7.22386 11 7.5C11 7.77614 10.7762 8 10.5 8H8.00003V10.5C8.00003 10.7761 7.77617 11 7.50003 11C7.22389 11 7.00003 10.7761 7.00003 10.5V8H4.50003C4.22389 8 4.00003 7.77614 4.00003 7.5C4.00003 7.22386 4.22389 7 4.50003 7H7.00003V4.5C7.00003 4.22386 7.22389 4 7.50003 4Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"></path></svg
+              >
+              Add music
+            </button>
+          </div>
+        </div>
+
+        <ul id="component-nav" class="uk-switcher mt-6">
+          <li>
+            <div class="space-y-1">
+              <h2 class="text-2xl font-semibold tracking-tight">Listen Now</h2>
+              <p class="text-sm text-muted-foreground">
+                Top picks for you. Updated daily.
+              </p>
+            </div>
+
+            <div class="my-4 h-[1px] w-full bg-border"></div>
+
+            <div class="grid grid-cols-4 gap-x-4">
+              {
+                [
+                  {
+                    title: "Tequila Rose",
+                    artist: "HELLMERRY, Al James",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/44/e9/82/44e98212-27cb-cb8f-b207-c4ec2a05d6bf/196871890304.jpg/316x316bb.webp",
+                  },
+                  {
+                    title: "Deserve",
+                    artist: "Skusta Clee, Flow G",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ed/70/e9/ed70e938-f128-75f4-aef8-ec4e42543610/859785268446_cover.jpg/316x316bb.webp",
+                  },
+                  {
+                    title: "We Made It",
+                    artist: "Nik Makino, Flow G",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/96/63/00/96630083-9042-6c46-d309-d5987b635956/cover.jpg/316x316bb.webp",
+                  },
+                  {
+                    title: "Pamanggulo",
+                    artist: "LOONIE, JRLDM",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/61/0c/bc/610cbc47-95c9-7c37-c3c7-c3a546fcad2c/cover.jpg/316x316bb.webp",
+                  },
+                ].map((a) => (
+                  <div class="space-y-3">
+                    <div class="overflow-hidden rounded-md">
+                      <img
+                        class="transition-transform duration-200 hover:scale-105"
+                        src={a.cover}
+                        alt=""
+                      />
+                    </div>
+
+                    <div class="space-y-1 text-sm">
+                      <h3 class="font-medium leading-none">{a.title}</h3>
+                      <p class="text-xs text-muted-foreground">{a.artist}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+
+            <div class="mt-6 space-y-1">
+              <h2 class="text-2xl font-semibold tracking-tight">
+                Made for You
+              </h2>
+              <p class="text-sm text-muted-foreground">
+                Your personal playlists. Updated daily.
+              </p>
+            </div>
+
+            <div class="my-4 h-[1px] w-full bg-border"></div>
+
+            <div class="grid grid-cols-6 gap-x-4">
+              {
+                [
+                  {
+                    title: "Patiwakal",
+                    artist: "JRLDM",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/3a/e1/20/3ae12007-442a-2843-1e48-5e1b25960dec/artwork.jpg/316x316bb.webp",
+                  },
+                  {
+                    title: "Bad Type",
+                    artist: "Shanti Dope",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/f8/6f/6f/f86f6f29-c44e-d346-e404-0de067d9cedf/196922636868_Cover.jpg/316x316bb.webp",
+                  },
+                  {
+                    title: "Solo",
+                    artist: "Skusta Clee",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/c5/04/8b/c5048bca-b746-1c91-3cab-137bc4c763f1/859768043503_cover.jpg/316x316bb.webp",
+                  },
+                  {
+                    title: "Lagabog",
+                    artist: "Skusta Clee, Illest Morena",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/97/55/29/97552992-eaf5-f15e-7fa1-6de7f7a9286f/859781748287_cover.jpg/316x316bb.webp",
+                  },
+                  {
+                    title: "Soju",
+                    artist: "Austin Lee, Al James",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/d2/15/45/d21545bd-592d-b9ad-90f3-d7b72b1d8eef/artwork.jpg/316x316bb.webp",
+                  },
+                  {
+                    title: "Young Gaddy",
+                    artist: "Shanti Dope",
+                    cover:
+                      "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/02/66/ec/0266ecb8-7faf-3510-aeec-d81c971ef616/196922482007_Cover.jpg/316x316bb.webp",
+                  },
+                ].map((a) => (
+                  <div class="space-y-3">
+                    <div class="overflow-hidden rounded-md">
+                      <img
+                        class="transition-transform duration-200 hover:scale-105"
+                        src={a.cover}
+                        alt=""
+                      />
+                    </div>
+
+                    <div class="space-y-1 text-sm">
+                      <h3 class="font-medium leading-none">{a.title}</h3>
+                      <p class="text-xs text-muted-foreground">{a.artist}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </li>
+
+          <li>
+            <div class="space-y-1">
+              <h2 class="text-2xl font-semibold tracking-tight">
+                New Episodes
+              </h2>
+              <p class="text-sm text-muted-foreground">
+                Your favorite podcasts. Updated daily.
+              </p>
+            </div>
+
+            <div class="my-4 h-[1px] w-full bg-border"></div>
+
+            <div
+              class="uk-placeholder flex h-[450px] items-center justify-center rounded-md"
+            >
+              <div
+                class="mx-auto flex max-w-[420px] flex-col items-center justify-center text-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="h-10 w-10 text-muted-foreground"
+                  viewBox="0 0 24 24"
+                  ><circle cx="12" cy="11" r="1"></circle><path
+                    d="M11 17a1 1 0 0 1 2 0c0 .5-.34 3-.5 4.5a.5.5 0 0 1-1 0c-.16-1.5-.5-4-.5-4.5ZM8 14a5 5 0 1 1 8 0"
+                  ></path><path d="M17 18.5a9 9 0 1 0-10 0"></path></svg
+                >
+                <h3 class="mt-4 text-lg font-semibold">No episodes added</h3>
+                <p class="mb-4 mt-2 text-sm text-muted-foreground">
+                  You have not added any podcasts. Add one below.
+                </p>
+                <button class="uk-button uk-button-primary" uk-toggle="#demo">
+                  Add Podcast
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </Example>
