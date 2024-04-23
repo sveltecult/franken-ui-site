@@ -60,7 +60,9 @@ const m = await marked(e?.body || "");
               <path d="M16.5 8h-2.5a.5 .5 0 0 0 -.5 .5v3a.5 .5 0 0 0 .5 .5h1.423a.5 .5 0 0 1 .495 .57l-.418 2.93l-2 .5" />
             </svg>
           </span>
-          <span class="text-sm font-medium">Requires JS</span>
+          <span class="text-sm font-medium">
+            {e?.data.javascript === "full" ? "Requires JS" : "JS is Optional"}
+          </span>
           <svg
             class="ml-2.5 h-2.5 w-2.5"
             aria-hidden="true"
