@@ -4,7 +4,7 @@ name: Visibility
 title: Visibility Component
 meta:
     robots: noindex
-javascript: full
+javascript: none
 ---
 
 # Visibility

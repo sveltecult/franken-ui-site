@@ -4,7 +4,7 @@ name: Utility
 title: Utility Component
 meta:
     robots: noindex
-javascript: full
+javascript: none
 ---
 
 # Utility

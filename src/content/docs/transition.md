@@ -4,7 +4,7 @@ name: Transition
 title: Transition Component
 meta:
     robots: noindex
-javascript: full
+javascript: none
 ---
 
 # Transition

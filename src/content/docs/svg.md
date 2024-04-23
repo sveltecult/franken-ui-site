@@ -4,7 +4,7 @@ name: SVG
 title: SVG Component
 meta:
     robots: noindex
-javascript: full
+javascript: none
 ---
 
 # SVG

@@ -4,7 +4,7 @@ name: Thumbnav
 title: Thumbnav Component
 meta:
     robots: noindex
-javascript: full
+javascript: none
 ---
 
 # Thumbnav
