@@ -166,7 +166,7 @@ A lightbox is not restricted to images. Other media, like videos, can be display
 ```
 
 ```example
-<div uk-lightbox>
+<div class="flex flex-wrap gap-3" uk-lightbox>
     <a class="uk-button uk-button-default" href="/images/photo.jpg" data-caption="Image">Image</a>
     <a class="uk-button uk-button-default" href="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" data-caption="Video">Video</a>
     <a class="uk-button uk-button-default" href="https://www.youtube.com/watch?v=aqz-KE-bpKQ" data-caption="YouTube">YouTube</a>

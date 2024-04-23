@@ -8411,7 +8411,7 @@
     function install({ modal }) {
       modal.dialog = function(content, options) {
         const dialog = modal(
-          `<div class="uk-modal"> <div class="uk-modal-dialog">${content}</div> </div>`,
+          `<div class="uk-modal p-6"> <div class="uk-modal-dialog">${content}</div> </div>`,
           { stack: true, role: "alertdialog", ...options }
         );
         dialog.show();
@@ -8441,7 +8441,7 @@
       };
       modal.prompt = function(message, value, options) {
         const promise = openDialog(
-          ({ i18n }) => `<form class="uk-form-stacked"> <div class="uk-modal-body"> <label>${isString(message) ? message : html(message)}</label> <input class="uk-input" value="${value || ""}" autofocus> </div> <div class="uk-modal-footer uk-text-right"> <button class="uk-button uk-button-default uk-modal-close" type="button">${i18n.cancel}</button> <button class="uk-button uk-button-primary">${i18n.ok}</button> </div> </form>`,
+          ({ i18n }) => `<form class="uk-form-stacked"> <div class="uk-modal-body"> <label class="uk-form-label">${isString(message) ? message : html(message)}</label> <input class="uk-input" value="${value || ""}" autofocus> </div> <div class="uk-modal-footer uk-text-right"> <button class="uk-button uk-button-default uk-modal-close" type="button">${i18n.cancel}</button> <button class="uk-button uk-button-primary">${i18n.ok}</button> </div> </form>`,
           options,
           () => null,
           () => input.value

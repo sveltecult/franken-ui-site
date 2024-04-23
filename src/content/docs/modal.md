@@ -4,11 +4,590 @@ name: Modal
 title: Tailwind CSS Modal Component
 meta:
     description: Create modal dialogs with different styles and transitions.
-    robots: noindex
 javascript: full
-icon: warning
 ---
 
 # Tailwind CSS Modal
 
-<p class="mt-2 text-xl text-muted-foreground">This documentation is not yet available. Please check back later.</p>
+<p class="mt-2 text-xl text-muted-foreground">
+    Create modal dialogs with different styles and transitions.
+</p>
+
+## Usage
+
+On your `tailwind.config.js` file, add the Modal component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        modal: {
+            hooks: {},
+            media: false
+        }
+    }
+}),
+```
+
+The Modal component consists of an overlay, a dialog and an optional close button. You can use any element to toggle a modal dialog. To enable the necessary JavaScript, add the `uk-toggle` attribute. An `<a>` element needs to be linked to the modal's id. If you are using another element, like a button, just add the `uk-toggle="target: #ID"` attribute to target the id of the modal container.
+
+Add the `uk-modal` attribute to a `<div>` element to create the modal container and an overlay that blanks out the page. It is important to add an `id` to indicate the element for toggling. Use the following classes to define the modal's sections.
+
+| Class              | Description                                                                                             |
+|--------------------|---------------------------------------------------------------------------------------------------------|
+| `.uk-modal-dialog` | Add this class to a child `<div>` element to create the dialog                                          |
+| `.uk-modal-body`   | Add this class to create padding between the modal and its content.                                     |
+| `.uk-modal-title`  | Add this class to a heading element to create the modal title.                                          |
+| `.uk-modal-close`  | Add this class to an `<a>` or `<button>` element to create a close button and enable its functionality. |
+
+```html
+<!-- This is a button toggling the modal -->
+<button uk-toggle="target: #my-id" type="button"></button>
+
+<!-- This is the modal -->
+<div class="uk-modal p-6" id="my-id" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title"></h2>
+        <button class="uk-modal-close" type="button"></button>
+    </div>
+</div>
+```
+
+```example
+<!-- This is a button toggling the modal -->
+<button class="uk-button uk-button-default mr-2" type="button" uk-toggle="target: #modal-example">Open</button>
+
+<!-- This is an anchor toggling the modal -->
+<a href="#modal-example" uk-toggle>Open</a>
+
+<!-- This is the modal -->
+<div class="uk-modal p-6" id="modal-example" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body space-y-6">
+        <h2 class="uk-modal-title">Headline</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close mr-2" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+        </p>
+    </div>
+</div>
+```
+
+
+## Close button
+
+To create a close button, enable its functionality and add proper styling and positioning, add the `.uk-modal-close-default` class to an `<a>` or `<button>` element. To place the close button outside the modal, add the `.uk-modal-close-outside` class.
+
+Add the `uk-close` attribute from the [Close component](close.md), to apply a close icon.
+
+```html
+<div>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+    </div>
+</div>
+
+<div>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+    </div>
+</div>
+```
+
+```example
+<!-- This is a button toggling the modal with the default close button -->
+<button class="uk-button uk-button-default mr-2" type="button" uk-toggle="target: #modal-close-default">Default</button>
+
+<!-- This is the modal with the default close button -->
+<div class="uk-modal p-6" id="modal-close-default" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title mb-6">Default</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</div>
+
+<!-- This is a button toggling the modal with the outside close button -->
+<button class="uk-button uk-button-default mr-2" type="button" uk-toggle="target: #modal-close-outside">Outside</button>
+
+<!-- This is the modal with the outside close button -->
+<div class="uk-modal p-6" id="modal-close-outside" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <h2 class="uk-modal-title mb-6">Outside</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</div>
+```
+
+
+## Center modal
+
+To vertically center the modal dialog, you can use the `.uk-margin-auto-vertical` class from the [Margin component](margin.md).
+
+```html
+<div class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-margin-auto-vertical"></div>
+</div>
+```
+
+```example
+<a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Open</a>
+
+<div id="modal-center" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    </div>
+</div>
+```
+
+**Note** `.uk-flex-top` on the modal container is needed to support IE 11.
+
+
+## Header and footer
+
+To divide the modal into different content sections, use the following classes.
+
+| Class              | Description                                                     |
+|--------------------|-----------------------------------------------------------------|
+| `.uk-modal-header` | Add this class to a `<div>` element to create the modal header. |
+| `.uk-modal-footer` | Add this class to a `<div>` element to create the modal footer. |
+
+```html
+<div uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title"></h2>
+        </div>
+        <div class="uk-modal-body"></div>
+        <div class="uk-modal-footer"></div>
+    </div>
+</div>
+```
+
+```example
+<a class="uk-button uk-button-default" href="#modal-sections" uk-toggle>Open</a>
+
+<div class="uk-modal p-6" id="modal-sections" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Modal Title</h2>
+        </div>
+        <div class="uk-modal-body py-0">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+        </div>
+    </div>
+</div>
+```
+
+
+
+## Container modifier
+
+Add the `.container` class from Tailwind CSS to expand the modal dialog to follow its width.
+
+```html
+<div class="uk-modal-container" uk-modal>...</div>
+```
+
+```example
+<a class="uk-button uk-button-default" href="#modal-container" uk-toggle>Open</a>
+
+<div id="modal-container" class="uk-modal p-6" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body container">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title mb-6">Headline</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</div>
+```
+
+
+## Full modifier
+
+To create a modal, that fills the entire page, add the `.uk-modal-full` class. It is also recommended adding the `.uk-modal-close-full` class to the close button, so that it adapts its styling.
+
+```html
+<div class="uk-modal uk-modal-full" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+    </div>
+</div>
+```
+
+Using the [grid](grid.md) and [width](width.md) classes, you can create a nice, split fullscreen modal.
+
+```example
+<a class="uk-button uk-button-default" href="#modal-full" uk-toggle>Open</a>
+
+<div id="modal-full" class="uk-modal uk-modal-full" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="h-screen overflow-hidden">
+                <img class="h-full w-full object-cover" src="/images/photo.jpg" />
+            </div>
+            <div class="h-full w-full flex justify-center items-center">
+                <div class="flex-1 p-10">
+                    <h1 class="uk-modal-title mb-6">Headline</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+
+## Overflow
+
+By default, the page will scroll with the modal, if its content exceeds the window height. To apply a scrollbar inside the modal, add the `uk-overflow-auto` attribute from the [Utility component](utility.md#overflow-auto) to the modal body.
+
+```html
+<div uk-modal>
+    <div class="uk-modal-dialog" uk-overflow-auto></div>
+</div>
+```
+
+```example
+<a class="uk-button uk-button-default" href="#modal-overflow" uk-toggle>Open</a>
+
+<div class="uk-modal p-6" id="modal-overflow" uk-modal>
+    <div class="uk-modal-dialog">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Headline</h2>
+        </div>
+
+        <div class="uk-modal-body py-0" uk-overflow-auto>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        </div>
+
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+        </div>
+
+    </div>
+</div>
+```
+
+<!-- 
+## Media
+
+If you want to display media, you should first check, if the [Lightbox component](lightbox.md) doesn't already offer everything you need. However, you can also use the modal to have more control over the markup to wrap your media in.
+
+**Note** Use the `uk-video` attribute from the [Video component](video.md) to make sure videos are stopped when the modal is closed.
+
+```html
+<div uk-modal>
+    <div class="uk-modal-dialog uk-width-auto">
+        <iframe src="" uk-video></iframe>
+    </div>
+</div>
+```
+
+```example
+ <p class="flex flex-wrap gap-3">
+    <a class="uk-button uk-button-default" href="#modal-media-image" uk-toggle>Image</a>
+    <a class="uk-button uk-button-default" href="#modal-media-video" uk-toggle>Video</a>
+    <a class="uk-button uk-button-default" href="#modal-media-youtube" uk-toggle>YouTube</a>
+    <a class="uk-button uk-button-default" href="#modal-media-vimeo" uk-toggle>Vimeo</a>
+</p>
+
+<div id="modal-media-image" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <img src="/images/photo.jpg" width="1800" height="1200" alt="">
+    </div>
+</div>
+
+<div id="modal-media-video" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" width="1920" height="1080" controls playsinline uk-video></video>
+    </div>
+</div>
+
+<div id="modal-media-youtube" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA" width="1920" height="1080" uk-video uk-responsive></iframe>
+    </div>
+</div>
+
+<div id="modal-media-vimeo" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <iframe src="https://player.vimeo.com/video/1084537" width="1280" height="720" uk-video uk-responsive></iframe>
+    </div>
+</div>
+``` -->
+
+
+## Groups
+
+You can group multiple modals by linking from one to the other and back. Use this to create multistep wizards inside your modals.
+
+```html
+<div id="modal-group-1" uk-modal>
+    <div class="uk-modal-dialog">
+        <a href="#modal-group-2" uk-toggle>Next</a>
+    </div>
+</div>
+
+<div id="modal-group-2" uk-modal>
+    <div class="uk-modal-dialog">
+        <a href="#modal-group-1" uk-toggle>Previous</a>
+    </div>
+</div>
+```
+
+```example
+<p uk-margin>
+    <a class="uk-button uk-button-default mr-2" href="#modal-group-1" uk-toggle>Modal 1</a>
+    <a class="uk-button uk-button-default" href="#modal-group-2" uk-toggle>Modal 2</a>
+</p>
+
+<div class="uk-modal p-6" id="modal-group-1" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Headline 1</h2>
+        </div>
+        <div class="uk-modal-body py-0">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close mr-2" type="button">Cancel</button>
+            <a href="#modal-group-2" class="uk-button uk-button-primary" uk-toggle>Next</a>
+        </div>
+    </div>
+</div>
+
+<div class="uk-modal p-6" id="modal-group-2" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Headline 2</h2>
+        </div>
+        <div class="uk-modal-body py-0">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close mr-2" type="button">Cancel</button>
+            <a href="#modal-group-1" class="uk-button uk-button-primary" uk-toggle>Previous</a>
+        </div>
+    </div>
+</div>
+```
+
+## Available hooks
+
+Learn more about [using hooks](/docs/introduction#using-hooks).
+
+| Hook Name                  | Affected Classes                   |
+|----------------------------|------------------------------------|
+| `hook-modal`               | `.uk-modal`                        |
+| `hook-dialog`              | `.uk-modal-dialog`                 |
+| `hook-full`                | `.uk-modal-full .uk-modal-dialog`  |
+| `hook-body`                | `.uk-modal-body`                   |
+| `hook-header`              | `.uk-modal-header`                 |
+| `hook-footer`              | `.uk-modal-footer`                 |
+| `hook-title`               | `.uk-modal-title`                  |
+| `hook-close`               | `[class*='uk-modal-close-']`       |
+| `hook-close-hover`         | `[class*='uk-modal-close-']:hover` |
+| `hook-close-default`       | `.uk-modal-close-default`          |
+| `hook-close-default-hover` | `.uk-modal-close-default:hover`    |
+| `hook-close-outside`       | `.uk-modal-close-outside`          |
+| `hook-close-outside-hover` | `.uk-modal-close-outside:hover`    |
+| `hook-close-full`          | `.uk-modal-close-full`             |
+| `hook-close-full-hover`    | `.uk-modal-close-full:hover`       |
+| `hook-misc`                | `*`                                |
+
+## Component options
+
+Any of these options can be applied to the component attribute. Separate multiple options with a semicolon. [Learn more](javascript.md#component-configuration)
+
+| Option      | Value   | Default                                                                                   | Description                                                                                                                                          |
+|-------------|---------|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `esc-close` | Boolean | `true`                                                                                    | Close the modal when the _Esc_ key is pressed.                                                                                                       |
+| `bg-close`  | Boolean | `true`                                                                                    | Close the modal when the background is clicked.                                                                                                      |
+| `stack`     | Boolean | `false`                                                                                   | Stack modals, when more than one is open. By default, the previous modal will be hidden.                                                             |
+| `container` | String  | `true`                                                                                    | Define a target container via a selector to specify where the modal should be appended in the DOM. Setting it to `false` will prevent this behavior. |
+| `cls-page`  | String  | `uk-modal-page`                                                                           | Class to add to `<html>` when modal is active                                                                                                        |
+| `cls-panel` | String  | `uk-modal-dialog`                                                                         | Class of the element to be considered the panel of the modal                                                                                         |
+| `sel-close` | String  | `.uk-modal-close, .uk-modal-close-default, .uk-modal-close-outside, .uk-modal-close-full` | CSS selector for all elements that should trigger the closing of the modal                                                                           |
+
+
+## JavaScript
+
+Learn more about [JavaScript components](javascript.md#programmatic-use).
+
+### Initialization
+
+```javascript
+UIkit.modal(element, options);
+```
+
+### Events
+
+The following events will be triggered on elements with this component attached:
+
+| Name         | Description                                          |
+|--------------|------------------------------------------------------|
+| `beforeshow` | Fires before an item is shown.                       |
+| `show`       | Fires after an item is shown.                        |
+| `shown`      | Fires after the item's show animation has completed. |
+| `beforehide` | Fires before an item is hidden.                      |
+| `hide`       | Fires after an item's hide animation has started.    |
+| `hidden`     | Fires after an item is hidden.                       |
+
+### Methods
+
+The following methods are available for the component:
+
+#### Show
+
+```javascript
+UIkit.modal(element).show();
+```
+
+Shows the Modal.
+
+#### Hide
+
+```javascript
+UIkit.modal(element).hide();
+```
+
+Hides the Modal.
+
+
+## Modal dialogs
+
+The component comes with a number of prepared modal dialogs that you can use for user interaction. You can call the dialog directly from JavaScript and use callback functions to process the user input.
+
+| Code                                          | Description                                              |
+|-----------------------------------------------|----------------------------------------------------------|
+| `UIkit.modal.alert('UIkit alert!')`           | Show an alert box with one button.                       |
+| `UIkit.modal.confirm('UIkit confirm!')`       | Show a confirm dialog with your message and two buttons. |
+| `UIkit.modal.prompt('Name:', 'Your name')`    | Show a dialog asking for a text input.                   |
+| `UIkit.modal.dialog('<p>UIkit dialog!</p>');` | Show dialog with any HTML content.                       |
+
+To process the user input, the modal uses a promise based interface which provides a `then()` function to register your callback functions. The `UIkit.modal.dialog` function however will return the modal itself.
+
+```javascript
+UIkit.modal.confirm('UIkit confirm!').then(function() {
+    console.log('Confirmed.')
+}, function () {
+    console.log('Rejected.')
+});
+```
+
+The returned promise has a property `dialog`, which holds a reference to the modal itself. This lets you manipulate e.g. the markup of the modal's element.
+
+To translate the button labels, the dialog functions accepts an optional `options` object parameter. This has a key `i18n` and two properties `ok` and `cancel`.
+
+```javascript
+const modal = UIkit.modal.confirm('UIkit confirm!', {i18n: {ok: 'okay'}}).dialog; // The modal component
+const el = modal.$el; // The modal element
+```
+
+```example
+<p uk-margin>
+
+    <a id="js-modal-dialog" class="uk-button uk-button-default" href="#">Dialog</a>
+
+    <a id="js-modal-alert" class="uk-button uk-button-default" href="#">Alert</a>
+
+    <a id="js-modal-confirm" class="uk-button uk-button-default" href="#">Confirm</a>
+
+    <a id="js-modal-prompt" class="uk-button uk-button-default" href="#">Prompt</a>
+
+    <script>
+
+       UIkit.util.on('#js-modal-dialog', 'click', function (e) {
+           e.preventDefault();
+           e.target.blur();
+           UIkit.modal.dialog('<p class="uk-modal-body">UIkit dialog!</p>');
+       });
+
+       UIkit.util.on('#js-modal-alert', 'click', function (e) {
+           e.preventDefault();
+           e.target.blur();
+           UIkit.modal.alert('UIkit alert!').then(function () {
+               console.log('Alert closed.')
+           });
+       });
+
+       UIkit.util.on('#js-modal-confirm', 'click', function (e) {
+           e.preventDefault();
+           e.target.blur();
+           UIkit.modal.confirm('UIkit confirm!').then(function () {
+               console.log('Confirmed.')
+           }, function () {
+               console.log('Rejected.')
+           });
+       });
+
+       UIkit.util.on('#js-modal-prompt', 'click', function (e) {
+           e.preventDefault();
+           e.target.blur();
+           UIkit.modal.prompt('Name:', 'Your name').then(function (name) {
+               console.log('Prompted:', name)
+           });
+       });
+
+    </script>
+
+</p>
+```
+
+
+## Accessibility
+
+The Modal component adheres to the [Dialog (Modal) WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/) and automatically sets the appropriate WAI-ARIA roles and properties.
+
+- The *modal* has the `dialog` role and the `aria-modal` property.
+
+The Close component automatically sets the appropriate WAI-ARIA roles and properties.
+
+- The *close icon* has the `aria-label` property, and if an `<a>` element is used, the `button` role.
+
+### Keyboard interaction
+
+The Modal component can be accessed through keyboard using the following keys.
+
+- The <kbd>esc</kbd> key closes the modal. This behaviour is disabled if the `bg-close: false` option is set.
