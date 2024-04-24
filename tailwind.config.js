@@ -257,7 +257,9 @@ export default {
         // section: {
         //   media: false,
         // },
-        slidenav: {},
+        slidenav: {
+          hooks: shadcn.slidenav,
+        },
         slider: {},
         slideshow: {},
         sortable: {},
