@@ -14,7 +14,14 @@ javascript: none
 
 Franken UI is an HTML-first, open-source library of UI components based on the utility-first Tailwind CSS with [UIkit 3](https://getuikit.com) compatibility. The design is based on [shadcn/ui](https://ui.shadcn.com) ported to be framework-agnostic.
 
-## Installation
+## Franken UI Templates
+
+Supercharge your development by using minimally pre-configured templates below. If your stack is not listed, you can follow the manual installation.
+
+- [Astro](https://github.com/sveltecult/franken-ui-template-astro/)
+- [HTML (Non-NPM)](https://github.com/sveltecult/franken-ui-template-html/)
+
+## Manual Installation
 
 Franken UI is a Tailwind CSS plugin and can be included into any existing Tailwind CSS project. To get started, you first need to make sure that you have a working Tailwind CSS project installed and that you also have Node and NPM installed on your machine.
 
