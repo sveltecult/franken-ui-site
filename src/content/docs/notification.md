@@ -102,30 +102,14 @@ UIkit.notification("...", {pos: 'top-right'})
 </p>
 ```
 
-
-
-## Style
-
-A notification can be styled by adding a status to the message to indicate a primary, success, warning or a danger status.
+## Danger modifier
 
 ```javascript
-UIkit.notification("...", {status: 'primary'})
+UIkit.notification("...", {status: 'danger'})
 ```
 
-| Style     | Code                                            |
-|-----------|-------------------------------------------------|
-| `primary` | `UIkit.notification("...", {status:'primary'})` |
-| `success` | `UIkit.notification("...", {status:'success'})` |
-| `warning` | `UIkit.notification("...", {status:'warning'})` |
-| `danger`  | `UIkit.notification("...", {status:'danger'})`  |
-
 ```example
-<p uk-margin>
-    <button class="uk-button uk-button-default demo" type="button" onclick="UIkit.notification({message: 'Primary message...', status: 'primary'})">Primary</button>
-    <button class="uk-button uk-button-default demo" type="button" onclick="UIkit.notification({message: 'Success message...', status: 'success'})">Success</button>
-    <button class="uk-button uk-button-default demo" type="button" onclick="UIkit.notification({message: 'Warning message...', status: 'warning'})">Warning</button>
-    <button class="uk-button uk-button-default demo" type="button" onclick="UIkit.notification({message: 'Danger message...', status: 'danger'})">Danger</button>
-</p>
+<button class="uk-button uk-button-default demo" type="button" onclick="UIkit.notification({message: 'Danger message...', status: 'danger'})">Danger</button>
 ```
 
 

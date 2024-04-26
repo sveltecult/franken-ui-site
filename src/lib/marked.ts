@@ -46,8 +46,8 @@ export default async function (md: string) {
           </a>
   
           <ul class="mt-6 uk-switcher">
-            <li class="rounded-md border border-border flex min-h-[350px] w-full justify-center p-10 items-center">
-              <div class="flex-1">${code}</div>
+            <li>
+              ${code}
             </li>
             <li class="border border-border overflow-x-auto font-geist-mono hljs rounded-md">
               <pre class="p-4"><code>${

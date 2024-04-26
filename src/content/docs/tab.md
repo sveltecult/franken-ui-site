@@ -96,7 +96,7 @@ When using the vertical alignment, you will usually create a grid to apply the l
 ```example
 <div class="grid grid-cols-2 gap-3">
     <div>
-        <ul class="uk-tab-left" uk-tab>
+        <ul class="uk-tab flex-col uk-tab-left">
             <li class="uk-active"><a class="py-2" href="#">Left</a></li>
             <li><a class="py-2" href="#">Item</a></li>
             <li><a class="py-2" href="#">Item</a></li>
@@ -104,7 +104,7 @@ When using the vertical alignment, you will usually create a grid to apply the l
     </div>
 
     <div>
-        <ul class="uk-tab-right" uk-tab>
+        <ul class="uk-tab uk-tab-right">
             <li class="uk-active"><a class="px-4 py-2" href="#">Right</a></li>
             <li><a class="px-4 py-2" href="#">Item</a></li>
             <li><a class="px-4 py-2" href="#">Item</a></li>
