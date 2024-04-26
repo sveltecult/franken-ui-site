@@ -113,7 +113,7 @@ export default async function (md: string) {
       },
 
       list: (text) => {
-        return `<ul class="mt-6 uk-list uk-list-disc">${text}</ul>`;
+        return `<ul class="mt-6 ml-6 list-disc [&>li]:mt-2">${text}</ul>`;
       },
 
       paragraph: (text) => {

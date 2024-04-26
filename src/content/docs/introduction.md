@@ -16,9 +16,10 @@ Franken UI is an HTML-first, open-source library of UI components based on the u
 
 ## Franken UI Templates
 
-Supercharge your development by using minimally pre-configured templates below. If your stack is not listed, you can follow the manual installation.
+Supercharge your development by using minimally pre-configured templates below, so you can start coding right away. If your stack is not listed, you can follow the manual installation.
 
 - [Astro](https://github.com/sveltecult/franken-ui-template-astro/)
+- [Laravel](https://github.com/sveltecult/franken-ui-template-laravel/)
 - [HTML (Non-NPM)](https://github.com/sveltecult/franken-ui-template-html/)
 
 ## Manual Installation
