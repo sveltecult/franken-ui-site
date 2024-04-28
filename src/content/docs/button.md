@@ -64,15 +64,18 @@ There are several style modifiers available. Just add one of the following class
 ```
 
 ```example
-<p class="flex flex-wrap gap-3">
+<div class="flex flex-wrap gap-3">
     <button class="uk-button uk-button-default">Default</button>
     <button class="uk-button uk-button-ghost">Ghost</button>
     <button class="uk-button uk-button-primary">Primary</button>
     <button class="uk-button uk-button-secondary">Secondary</button>
     <button class="uk-button uk-button-danger">Danger</button>
+</div>
+
+<div class="mt-5 flex gap-3">
     <button class="uk-button uk-button-text">Text</button>
     <button class="uk-button uk-button-link">Link</button>
-</p>
+</div>
 ```
 
 ## Width modifiers
