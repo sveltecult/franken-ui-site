@@ -2,6 +2,7 @@
 import Mail from "examples/mail.astro";
 import Main from "layouts/main.astro";
 import Announcement from "layouts/partials/announcement.astro";
+import { Image } from "astro:assets";
 
 const doc = {
   title:
@@ -11,6 +12,12 @@ const doc = {
       "HTML-first, framework-agnostic, beautifully designed components that you can truly copy and paste into your site.",
   },
 };
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/examples/screenshots/*.{jpeg,jpg,png,gif}",
+);
+const image = (await images["/src/examples/screenshots/mail-light.png"]())
+  .default;
 ---
 
 <Main doc={doc}>
@@ -96,17 +103,22 @@ const doc = {
     </div>
 
     <div class="mt-4 overflow-hidden rounded-lg border border-border shadow-lg">
-      <div class="hidden lg:block">
+      <div class="hidden md:block">
         <Mail />
       </div>
 
-      <div class="lg:hidden">
+      <div class="md:hidden">
         <div class="dark:hidden" uk-lightbox>
           <a
             href="/images/screenshots/mail-light.png"
             data-caption="Demo of Mail in light mode using Franken UI components"
           >
-            <img src="/images/screenshots/mail-light.png" />
+            <Image
+              alt="Demo of Mail in light mode using Franken UI components"
+              sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${image.width}px`}
+              src={images["/src/examples/screenshots/mail-light.png"]()}
+              widths={[240, 540, 720, image.width]}
+            />
           </a>
         </div>
 
@@ -115,7 +127,12 @@ const doc = {
             href="/images/screenshots/mail-dark.png"
             data-caption="Demo of Mail in dark mode using Franken UI components"
           >
-            <img src="/images/screenshots/mail-dark.png" />
+            <Image
+              alt="Demo of Mail in dark mode using Franken UI components"
+              sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${image.width}px`}
+              src={images["/src/examples/screenshots/mail-dark.png"]()}
+              widths={[240, 540, 720, image.width]}
+            />
           </a>
         </div>
       </div>
