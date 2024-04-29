@@ -170,6 +170,94 @@ There are several style modifiers available. Just add one of the following class
 </div>
 ```
 
+## Tag input
+
+Tag inputs render tags inside an input, followed by an actual text input.
+
+| Class                 | Description                                                 |
+|-----------------------|-------------------------------------------------------------|
+| `.uk-tag-input`       | Add this class to hold tags and the actual text input.      |
+| `.uk-tag`             | Add this class to a `span` to display the tag.              |
+
+```example
+<div class="uk-tag-input">
+    <span class="uk-tag">
+        Apple
+        <span class="uk-close" uk-close></span>
+    </span>
+    <span class="uk-tag">
+        Banana
+        <span class="uk-close" uk-close></span>
+    </span>
+    <span class="uk-tag">
+        Mango
+        <span class="uk-close" uk-close></span>
+    </span>
+
+    <input placeholder="Fruits"/>
+</div>
+```
+
+## Pin input
+
+Allows users to input a sequence of one-character alphanumeric inputs.
+
+| Class                 | Description                                                 |
+|-----------------------|-------------------------------------------------------------|
+| `.uk-pin-input`       | Add this class to hold all the inputs.                      |
+| `.uk-pin-separated`   | Add this modifier separate all the inputs.                  |
+| `.uk-disabled`        | Add this class to disable all the inputs.                   |
+
+```example
+<div>
+    <div class="uk-pin-input">
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+    </div>
+</div>
+
+<div class="mt-5">
+    <div class="uk-pin-input uk-disabled">
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+    </div>
+</div>
+```
+
+### Separated
+
+```example
+<div>
+    <div class="uk-pin-input uk-pin-separated">
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+    </div>
+</div>
+
+<div class="mt-5">
+    <div class="uk-pin-input uk-pin-separated uk-disabled">
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+    </div>
+</div>
+```
+
 ## Help block
 
 Form text can be created using `.uk-form-help`.
