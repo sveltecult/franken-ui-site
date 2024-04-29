@@ -161,13 +161,11 @@ There are several style modifiers available. Just add one of the following class
 | Class                         | Description               |
 | ----------------------------- | ------------------------- |
 | `.uk-toggle-swtich-primary`   | Adds a primary style.     |
-| `.uk-toggle-switch-secondary` | Adds a secondary style.   |
 | `.uk-toggle-switch-danger`    | Adds a destructive style. |
 
 ```example
 <div class="flex flex-wrap gap-3">
     <input class="uk-toggle-switch uk-toggle-switch-primary" checked type="checkbox" />
-    <input class="uk-toggle-switch uk-toggle-switch-secondary" checked type="checkbox" />
     <input class="uk-toggle-switch uk-toggle-switch-danger" checked type="checkbox" />
 </div>
 ```
