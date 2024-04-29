@@ -5,6 +5,7 @@ title: Tailwind CSS Form Component
 meta:
     description: Easily create nice looking forms with different styles and layouts.
 javascript: partial
+badge: 'Updated'
 ---
 
 # Tailwind CSS Form

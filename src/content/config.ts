@@ -14,6 +14,7 @@ const docs = defineCollection({
       z.literal("none"),
     ]),
     icon: z.optional(z.string()),
+    badge: z.optional(z.string()),
   }),
 });
 

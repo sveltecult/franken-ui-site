@@ -107,7 +107,16 @@ const { pathname } = Astro.url;
       .map((a) => (
         <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
           <a class="justify-between" href={`/docs/${a.slug}`}>
-            <span>{a.data.name}</span>
+            <span>
+              {a.data.name}
+              {a.data.badge ? (
+                <span class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000]">
+                  {a.data.badge}
+                </span>
+              ) : (
+                ""
+              )}
+            </span>
             {a.data.icon ? (
               <span uk-icon={`icon: ${a.data.icon}; ratio: 0.8`} />
             ) : (
