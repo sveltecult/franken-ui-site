@@ -92,25 +92,6 @@ const { doc } = Astro.props;
       </div>
     </div>
 
-    <div class="uk-modal uk-flex-top" id="non-npm" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-        <span class="uk-modal-title">Warning</span>
-        <p class="mt-4">
-          This template is not a proper way of using Franken UI in a production
-          environment. It's meant for quick prototyping or very small projects.
-          If you're working on a larger project, it's recommended to set up
-          Tailwind CSS properly with a build process to optimize for production.
-        </p>
-        <div class="mt-5">
-          <a
-            href="https://github.com/sveltecult/franken-ui-template-html"
-            class="uk-button uk-button-danger"
-            target="_blank">Proceed Anyway</a
-          >
-        </div>
-      </div>
-    </div>
-
     <slot />
 
     <div class="hidden" id="docsearch" hidden></div>

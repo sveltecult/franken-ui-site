@@ -79,7 +79,18 @@ const { pathname } = Astro.url;
             </div>
             <ul class="uk-iconnav flex-none">
               <li>
-                <a id="theme-toggle">
+                <a
+                  class="font-medium underline underline-offset-4"
+                  href="https://mas.to/@sveltecult"
+                  target="_blank"
+                >
+                  <span class="sr-only">Follow @sveltecult on Mastodon</span>
+                  <span uk-icon="icon: mastodon; ratio: 0.8"></span>
+                </a>
+              </li>
+              <li>
+                <a class="cursor-pointer" id="theme-toggle">
+                  <span class="sr-only">Toggle light or dark mode</span>
                   <svg
                     id="theme-toggle-light-icon"
                     xmlns="http://www.w3.org/2000/svg"
@@ -118,6 +129,7 @@ const { pathname } = Astro.url;
               </li>
               <li class="lg:hidden">
                 <a href="#menu" uk-toggle>
+                  <span class="sr-only">Toggle menu</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

@@ -20,7 +20,6 @@ Supercharge your development by using minimally pre-configured templates below, 
 
 - [Astro](https://github.com/sveltecult/franken-ui-template-astro/)
 - [Laravel](https://github.com/sveltecult/franken-ui-template-laravel/)
-- [HTML (Non-NPM)](https://github.com/sveltecult/franken-ui-template-html/)
 
 ## Manual Installation
 
@@ -59,8 +58,8 @@ For convenience, CSS variables, fonts and color palettes from shadcn/ui are auto
 3\. Once you have installed Franken UI, include the JavaScript files on your page by adding them to the `<head>` section. You can also choose to use the `defer` attribute to delay script execution. Or, you can place the code before the end of your `<body>` tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit-icons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
 ```
 
 ## Theming

@@ -173,7 +173,7 @@ There are several style modifiers available. Just add one of the following class
 
 ## Tag input
 
-Tag inputs render tags inside an input, followed by an actual text input.
+<span class="uk-badge uk-badge-danger">v0.0.9+</span> Tag inputs render tags inside an input, followed by an actual text input.
 
 | Class                 | Description                                                 |
 |-----------------------|-------------------------------------------------------------|
@@ -201,7 +201,7 @@ Tag inputs render tags inside an input, followed by an actual text input.
 
 ## Pin input
 
-Allows users to input a sequence of one-character alphanumeric inputs.
+<span class="uk-badge uk-badge-danger">v0.0.9+</span> Allows users to input a sequence of one-character alphanumeric inputs.
 
 | Class                 | Description                                                 |
 |-----------------------|-------------------------------------------------------------|
