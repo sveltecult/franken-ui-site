@@ -497,6 +497,8 @@ Hides the Modal.
 
 ## Modal dialogs
 
+**Note** While the modal dialogs work perfectly, customizing padding requires a custom-compiled UIkit JavaScript. If you're unfamiliar with compiling your JavaScript, it's advisable to build the modal using HTML.
+
 The component comes with a number of prepared modal dialogs that you can use for user interaction. You can call the dialog directly from JavaScript and use callback functions to process the user input.
 
 | Code                                          | Description                                              |
@@ -525,7 +527,7 @@ const modal = UIkit.modal.confirm('UIkit confirm!', {i18n: {ok: 'okay'}}).dialog
 const el = modal.$el; // The modal element
 ```
 
-```example
+<!-- ```example
 <p uk-margin>
 
     <a id="js-modal-dialog" class="uk-button uk-button-default" href="#">Dialog</a>
@@ -573,7 +575,7 @@ const el = modal.$el; // The modal element
     </script>
 
 </p>
-```
+``` -->
 
 
 ## Accessibility
