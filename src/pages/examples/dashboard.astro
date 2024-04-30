@@ -19,7 +19,7 @@ const doc = {
 >
   <div class="border-b border-border px-4">
     <nav class="uk-navbar" uk-navbar>
-      <div class="uk-navbar-left gap-x-6">
+      <div class="uk-navbar-left gap-x-4 lg:gap-x-6">
         <div class="uk-navbar-item w-[200px]">
           <button class="uk-button uk-button-default w-full" type="button">
             <div class="flex flex-1 items-center gap-2">
@@ -142,7 +142,7 @@ const doc = {
           </div>
         </div>
 
-        <ul class="uk-navbar-nav gap-x-6">
+        <ul class="uk-navbar-nav gap-x-4 lg:gap-x-6">
           <li class="uk-active">
             <a href="#demo" uk-toggle>Overview</a>
           </li>
@@ -158,8 +158,8 @@ const doc = {
         </ul>
       </div>
 
-      <div class="uk-navbar-right gap-x-6">
-        <div class="uk-navbar-item w-[300px]">
+      <div class="uk-navbar-right gap-x-4 lg:gap-x-6">
+        <div class="uk-navbar-item w-[150px] lg:w-[300px]">
           <input class="uk-input" placeholder="Search" type="text" />
         </div>
         <div class="uk-navbar-item">
@@ -285,7 +285,7 @@ const doc = {
         </li>
       </ul>
 
-      <div class="grid grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <div class="uk-card">
           <div
             class="uk-card-header flex flex-row items-center justify-between"
@@ -385,8 +385,10 @@ const doc = {
         </div>
       </div>
 
-      <div class="grid grid-cols-7 gap-4">
-        <div class="uk-card col-span-4 flex items-center justify-center">
+      <div class="grid gap-4 lg:grid-cols-7">
+        <div
+          class="uk-card flex min-h-64 items-center justify-center lg:col-span-4"
+        >
           <div
             class="flex flex-1 items-center justify-center gap-x-2 text-destructive"
           >
@@ -412,7 +414,7 @@ const doc = {
           </div>
         </div>
 
-        <div class="uk-card col-span-3">
+        <div class="uk-card lg:col-span-3">
           <div class="uk-card-header">
             <h3 class="font-semibold leading-none tracking-tight">
               Recent Sales
