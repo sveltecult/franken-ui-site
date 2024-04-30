@@ -173,7 +173,7 @@ There are several style modifiers available. Just add one of the following class
 
 ## Tag input
 
-<span class="uk-badge uk-badge-danger">v0.0.9+</span> Tag inputs render tags inside an input, followed by an actual text input.
+<span class="uk-badge uk-badge-danger">v0.0.9+</span> Tag inputs render tags inside an input, followed by an actual text input. Please note that you have to implement your own JavaScript for removing or adding new tags.
 
 | Class                 | Description                                                 |
 |-----------------------|-------------------------------------------------------------|
@@ -195,13 +195,13 @@ There are several style modifiers available. Just add one of the following class
         <span class="uk-close" uk-close></span>
     </span>
 
-    <input placeholder="Fruits"/>
+    <input placeholder="Fruits" />
 </div>
 ```
 
 ## Pin input
 
-<span class="uk-badge uk-badge-danger">v0.0.9+</span> Allows users to input a sequence of one-character alphanumeric inputs.
+<span class="uk-badge uk-badge-danger">v0.0.9+</span> Allows users to input a sequence of one-character alphanumeric inputs. Please note that you have to implement your own JavaScript to activate the next or previous input when the user types or removes characters.
 
 | Class                 | Description                                                 |
 |-----------------------|-------------------------------------------------------------|
@@ -212,23 +212,23 @@ There are several style modifiers available. Just add one of the following class
 ```example
 <div>
     <div class="uk-pin-input">
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
     </div>
 </div>
 
 <div class="mt-5">
     <div class="uk-pin-input uk-disabled">
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
     </div>
 </div>
 ```
@@ -238,23 +238,23 @@ There are several style modifiers available. Just add one of the following class
 ```example
 <div>
     <div class="uk-pin-input uk-pin-separated">
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
     </div>
 </div>
 
 <div class="mt-5">
     <div class="uk-pin-input uk-pin-separated uk-disabled">
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
     </div>
 </div>
 ```

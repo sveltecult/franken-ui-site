@@ -42,8 +42,8 @@ const { pathname } = Astro.url;
             <li class={pathname.startsWith("/docs") ? "uk-active" : ""}>
               <a href="/docs/introduction">Docs</a>
             </li>
-            <li>
-              <a href="#not-available" uk-toggle>Themes</a>
+            <li class={pathname === "/changelog" ? "uk-active" : ""}>
+              <a href="/changelog">Changelog</a>
             </li>
             <li class={pathname.startsWith("/examples") ? "uk-active" : ""}>
               <a href="/examples/mail">Examples</a>
