@@ -88,7 +88,7 @@ export default async function (md: string) {
             slug: slug,
           });
 
-          return `<h2 class="mt-12 border-b border-border pb-2 text-3xl font-semibold tracking-tight" id="${slug}">${text}</h2>`;
+          return `<div class="mt-12"></div><h2 class="border-b border-border pb-2 text-3xl font-semibold tracking-tight" id="${slug}">${text}</h2>`;
         }
 
         if (level === 3) {

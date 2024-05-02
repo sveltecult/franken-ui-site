@@ -10,7 +10,7 @@ const { pathname } = Astro.props;
   <li class={pathname.startsWith("/docs") ? "uk-active" : ""}>
     <a href="/docs/introduction">Docs</a>
   </li>
-  <li class={pathname === "/changelog" ? "uk-active" : ""}>
+  <li class={pathname === "changelog" ? "uk-active" : ""}>
     <a href="/changelog">Changelog</a>
   </li>
   <li class={pathname.startsWith("/examples") ? "uk-active" : ""}>
@@ -37,7 +37,7 @@ const { pathname } = Astro.props;
         </li>
       ))
   }
-  <li class={pathname === "/changelog" ? "uk-active" : ""}>
+  <li class={pathname === "changelog" ? "uk-active" : ""}>
     <a href="/changelog">Changelog</a>
   </li>
 </ul>
@@ -117,9 +117,38 @@ const { pathname } = Astro.props;
     docs
       .filter((a) => a.data.group === "compatibility")
       .map((a) => (
-        <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
+        <li class={pathname === a.slug ? "uk-active" : ""}>
           <a class="justify-between" href={`/docs/${a.slug}`}>
             {a.data.name}
+          </a>
+        </li>
+      ))
+  }
+</ul>
+
+<ul class="uk-nav-default uk-nav pt-4">
+  <li class="uk-nav-header">Alpine Components</li>
+  {
+    docs
+      .filter((a) => a.data.group === "alpine-components")
+      .map((a) => (
+        <li class={pathname === a.slug ? "uk-active" : ""}>
+          <a class="justify-between" href={`/docs/${a.slug}`}>
+            <span>
+              {a.data.name}
+              {a.data.badge ? (
+                <span class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000]">
+                  {a.data.badge}
+                </span>
+              ) : (
+                ""
+              )}
+            </span>
+            {a.data.icon ? (
+              <span uk-icon={`icon: ${a.data.icon}; ratio: 0.8`} />
+            ) : (
+              ""
+            )}
           </a>
         </li>
       ))
