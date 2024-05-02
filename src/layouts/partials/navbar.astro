@@ -1,6 +1,4 @@
 ---
-import Nav from "layouts/partials/nav.astro";
-
 const { pathname } = Astro.url;
 ---
 
@@ -191,6 +189,6 @@ const { pathname } = Astro.url;
       <span class="font-bold"> franken/ui </span>
     </a>
 
-    <Nav />
+    <slot name="offcanvas" />
   </div>
 </div>

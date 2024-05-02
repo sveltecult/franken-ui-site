@@ -2,14 +2,20 @@
 import Master from "./master.astro";
 import Navbar from "./partials/navbar.astro";
 import Footer from "./partials/footer.astro";
+import Nav from "./partials/nav.astro";
 
 const { doc } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
 <Master doc={doc}>
   <div class="flex min-h-screen flex-col">
     <div class="flex-1">
-      <Navbar />
+      <Navbar>
+        <Fragment slot="offcanvas">
+          <Nav pathname={pathname} />
+        </Fragment>
+      </Navbar>
 
       <slot />
     </div>

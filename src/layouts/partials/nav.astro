@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 const docs = await getCollection("docs");
 
-const { pathname } = Astro.url;
+const { pathname } = Astro.props;
 ---
 
 <ul class="uk-nav-default uk-nav lg:hidden">
@@ -32,7 +32,7 @@ const { pathname } = Astro.url;
       .filter((a) => a.data.group === "getting-started")
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
       .map((a) => (
-        <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
+        <li class={pathname === a.slug ? "uk-active" : ""}>
           <a href={`/docs/${a.slug}`}>{a.data.name}</a>
         </li>
       ))
@@ -88,7 +88,7 @@ const { pathname } = Astro.url;
     docs
       .filter((a) => a.data.group === "components")
       .map((a) => (
-        <li class={pathname === `/docs/${a.slug}` ? "uk-active" : ""}>
+        <li class={pathname === a.slug ? "uk-active" : ""}>
           <a class="justify-between" href={`/docs/${a.slug}`}>
             <span>
               {a.data.name}

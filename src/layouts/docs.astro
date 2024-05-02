@@ -10,7 +10,11 @@ const { doc, tbc, slug } = Astro.props;
 <Master doc={doc}>
   <div class="flex min-h-screen flex-col">
     <div class="flex-1">
-      <Navbar />
+      <Navbar>
+        <Fragment slot="offcanvas">
+          <Nav pathname={slug} />
+        </Fragment>
+      </Navbar>
 
       <div
         class="container flex-none px-4 md:px-8 md:py-0 lg:grid lg:grid-cols-12 lg:gap-10 xl:px-0"
@@ -19,7 +23,7 @@ const { doc, tbc, slug } = Astro.props;
           class="sticky top-14 hidden h-[calc(100vh-3.5rem)] overflow-hidden border-e border-border py-8 lg:col-span-3 lg:block xl:col-span-2"
         >
           <div class="-mr-10 h-full overflow-y-scroll pr-10">
-            <Nav />
+            <Nav pathname={slug} />
           </div>
         </aside>
 
