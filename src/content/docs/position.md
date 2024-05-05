@@ -7,7 +7,7 @@ meta:
 javascript: none
 ---
 
-# Position
+# Tailwind CSS Position
 
 <p class="mt-2 text-xl text-muted-foreground">A collection of utility classes to position content.</p>
 

@@ -265,7 +265,7 @@ To remove the outer padding of the first and last column so that they are flush 
 
 ## Alignment modifier
 
-To vertically center table content, just add the `.uk-table-middle` class. You can also apply the class to `<tr>` or `<td class="p-2">` elements for a more specific selection.
+To vertically center table content, just add the `.uk-table-middle` class. You can also apply the class to `<tr>` or `<td>` elements for a more specific selection.
 
 ```html
 <table class="uk-table uk-table-middle">...</table>

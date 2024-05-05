@@ -7,7 +7,7 @@ meta:
 javascript: none
 ---
 
-# Thumbnav
+# Tailwind CSS Thumbnav
 
 <p class="mt-2 text-xl text-muted-foreground">Create a flexible thumbnail navigation.</p>
 

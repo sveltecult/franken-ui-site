@@ -7,7 +7,7 @@ meta:
 javascript: none
 ---
 
-# Overlay
+# Tailwind CSS Overlay
 
 <p class="mt-2 text-xl text-muted-foreground">Create an image overlay, which comes in different styles.</p>
 

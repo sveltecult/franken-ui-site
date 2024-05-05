@@ -54,10 +54,10 @@ The Tab component consists of clickable tabs, that are aligned side by side in a
 
 ## Alternative layout
 
-Add the `.uk-tab-alt` class to use the alternative layout.
+Use the `.uk-tab-alt` class for the alternative layout.
 
 ```example
-<ul class="uk-tab-alt" uk-tab>
+<ul class="uk-tab-alt">
     <li class="uk-active"><a href="#">Account</a></li>
     <li><a href="#">Password</a></li>
 </ul>
