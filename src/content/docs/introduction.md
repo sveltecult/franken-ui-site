@@ -194,159 +194,165 @@ Keeping track of hooks and configurations can be challenging, but with Franken U
 ## Frequently asked questions
 
 ```render
-<ul class="mt-6 uk-accordion" uk-accordion>
+<ul class="uk-accordion mt-6" uk-accordion>
     <li>
-        <a class="uk-accordion-title" href="#">
-            But why?
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6" /></svg
-                >
-            </span>
-        </a>
-        <div class="uk-accordion-content">
-            <p>
-                The motivation behind Franken UI's development is
-                straightforward: a love for UIkit. With its comprehensive
-                component library, maturity, event-driven nature, and framework
-                agnosticism, UIkit was the ideal choice.
-            </p>
-            <p class="mt-6">
-                It seamlessly integrates with major frameworks like Vue, Svelte,
-                and React, making it a natural fit for projects using these
-                technologies. Additionally, as a fan of Tailwind CSS, creating
-                every component from scratch seemed daunting.
-            </p>
-            <p class="mt-6">
-                Thus, Franken UI was born out of the need to combine the best of
-                both worlds—leveraging UIkit's power while streamlining Tailwind
-                CSS integration into existing projects.
-            </p>
-        </div>
+    <a class="uk-accordion-title" href="#">
+        But why?
+        <span class="uk-accordion-icon">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-down"
+            ><path d="m6 9 6 6 6-6"></path></svg
+        >
+        </span>
+    </a>
+    <div class="uk-accordion-content">
+        <p>
+        The motivation behind Franken UI's development is straightforward: a
+        love for UIkit. With its comprehensive component library, maturity,
+        event-driven nature, and framework agnosticism, UIkit was the ideal
+        choice.
+        </p>
+        <p class="mt-6">
+        It seamlessly integrates with major frameworks like Vue, Svelte, and
+        React, making it a natural fit for projects using these
+        technologies. Additionally, as a fan of Tailwind CSS, creating every
+        component from scratch seemed daunting.
+        </p>
+        <p class="mt-6">
+        Thus, Franken UI was born out of the need to combine the best of
+        both worlds—leveraging UIkit's power while streamlining Tailwind CSS
+        integration into existing projects.
+        </p>
+    </div>
     </li>
     <li>
-        <a class="uk-accordion-title" href="#">
-            Who is Franken UI for?
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6" /></svg
-                >
-            </span>
-        </a>
-        <div class="uk-accordion-content">
-            <p>
-                Franken UI is tailored for small teams and solo developers
-                seeking a beautiful, reliable CSS framework without the
-                complexity of React, Vue, or Svelte. It's designed with an
-                "HTML-first" approach, making it accessible to developers at any
-                skill level.
-            </p>
-        </div>
+    <a class="uk-accordion-title" href="#">
+        Who is Franken UI for?
+        <span class="uk-accordion-icon">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-down"
+            ><path d="m6 9 6 6 6-6"></path></svg
+        >
+        </span>
+    </a>
+    <div class="uk-accordion-content">
+        <p>
+        Franken UI is tailored for small teams and solo developers seeking a
+        beautiful, reliable CSS framework without the complexity of React,
+        Vue, or Svelte. It's designed with an "HTML-first" approach, making
+        it accessible to developers at any skill level.
+        </p>
+    </div>
     </li>
     <li>
-        <a class="uk-accordion-title" href="#">
-            Why shadcn/ui?
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6" /></svg
-                >
-            </span>
-        </a>
-        <div class="uk-accordion-content">
-            <p>
-                The choice of shadcn/ui as the base for Franken UI was driven by
-                its aesthetic appeal. The design language of shadcn/ui aligns
-                well with the vision of Franken UI, making it a natural starting
-                point for further customization.
-            </p>
-        </div>
+    <a class="uk-accordion-title" href="#">
+        Why shadcn/ui?
+        <span class="uk-accordion-icon">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-down"
+            ><path d="m6 9 6 6 6-6"></path></svg
+        >
+        </span>
+    </a>
+    <div class="uk-accordion-content">
+        <p>
+        The choice of shadcn/ui as the base for Franken UI was driven by its
+        aesthetic appeal. The design language of shadcn/ui aligns well with
+        the vision of Franken UI, making it a natural starting point for
+        further customization.
+        </p>
+    </div>
     </li>
     <li>
-        <a class="uk-accordion-title" href="#">
-            Can I opt-out of using shadcn/ui?
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6" /></svg
-                >
-            </span>
-        </a>
-        <div class="uk-accordion-content">
-            <p>
-                Absolutely! Franken UI provides the flexibility to opt-out of
-                using shadcn/ui by simply not setting components' hooks. This
-                allows developers to apply their own customizations as needed.
-                However, by default, Franken UI uses the UIkit theme for a
-                cohesive look and feel.
-            </p>
-        </div>
+    <a class="uk-accordion-title" href="#">
+        Can I opt-out of using shadcn/ui?
+        <span class="uk-accordion-icon">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-down"
+            ><path d="m6 9 6 6 6-6"></path></svg
+        >
+        </span>
+    </a>
+    <div class="uk-accordion-content">
+        <p>
+        Absolutely! Franken UI provides the flexibility to opt-out of using
+        shadcn/ui by simply not setting components' hooks. This allows
+        developers to apply their own customizations as needed. However, by
+        default, Franken UI uses the UIkit theme for a cohesive look and
+        feel.
+        </p>
+    </div>
     </li>
     <li>
-        <a class="uk-accordion-title" href="#">
-            Do you accept donations?
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6" /></svg
-                >
-            </span>
-        </a>
-        <div class="uk-accordion-content">
-            <p>
-                Yes, if Franken UI has been beneficial to you in any way, feel
-                free to reach out via email <a class="font-medium underline underline-offset-4" href="mailto:sveltecult@proton.me">sveltecult@proton.me</a>. We can discuss the details,
-                and I'll be happy to send you an invoice. Your support is
-                greatly appreciated and helps sustain the project.
-            </p>
-        </div>
+    <a class="uk-accordion-title" href="#">
+        Do you accept donations?
+        <span class="uk-accordion-icon">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-down"
+            ><path d="m6 9 6 6 6-6"></path></svg
+        >
+        </span>
+    </a>
+    <div class="uk-accordion-content">
+        <p>
+        Yes, if Franken UI has been beneficial to you in any way, I have
+        setup <a class="font-medium underline underline-offset-4" href="https://ko-fi.com/sveltecult" target="_blank"
+            >Ko-Fi</a
+        > and <a class="font-medium underline underline-offset-4" href="https://liberapay.com/sveltecult" target="_blank"
+            >Liberapay</a
+        >. Or, feel free to reach out via email <a
+            class="font-medium underline underline-offset-4"
+            href="mailto:sveltecult@proton.me">sveltecult@proton.me</a
+        >. We can discuss the details, and I'll be happy to send you an
+        invoice. Your support is greatly appreciated and helps sustain the
+        project.
+        </p>
+    </div>
     </li>
 </ul>
 ```
