@@ -16,7 +16,7 @@ A leader, also known as a dot leader or a tab leader, is a repeating pattern use
 
 ## Usage
 
-On your `tailwind.config.js` file, add the Leader component within the `ui()` plugin.
+<span class="uk-badge uk-badge-danger">v0.0.10+</span> If you are using the `presetQuick()`, you can skip this step. On your `tailwind.config.js` file, add the Leader component within the `ui()` plugin.
 
 ```javascript
 import ui from "franken-ui";
@@ -77,7 +77,7 @@ It's possible to disable the leader for different device widths by applying the 
 
 ## Available hooks
 
-Learn more about [using hooks](/docs/introduction#using-hooks).
+Learn more about [using hooks](hooks.md).
 
 | Hook Name       | Affected Classes |
 |-----------------|------------------|

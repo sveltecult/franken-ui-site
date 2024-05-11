@@ -5,7 +5,6 @@ title: Tailwind CSS Datepicker
 meta:
   description: A date field component that allows users to enter and edit date.
 javascript: partial
-badge: New
 ---
 
 # Datepicker

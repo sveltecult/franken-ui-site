@@ -5,7 +5,6 @@ title: Tailwind CSS Form Component
 meta:
     description: Easily create nice looking forms with different styles and layouts.
 javascript: partial
-badge: 'Updated'
 ---
 
 # Tailwind CSS Form
@@ -14,7 +13,7 @@ badge: 'Updated'
 
 ## Usage
 
-On your `tailwind.config.js` file, add the Form Range and Form components within the `ui()` plugin.
+<span class="uk-badge uk-badge-danger">v0.0.10+</span> If you are using the `presetQuick()`, you can skip this step. On your `tailwind.config.js` file, add the Form Range and Form components within the `ui()` plugin.
 
 ```javascript
 import ui from "franken-ui";
@@ -161,7 +160,7 @@ There are several style modifiers available. Just add one of the following class
 
 | Class                         | Description               |
 | ----------------------------- | ------------------------- |
-| `.uk-toggle-swtich-primary`   | Adds a primary style.     |
+| `.uk-toggle-switch-primary`   | Adds a primary style.     |
 | `.uk-toggle-switch-danger`    | Adds a destructive style. |
 
 ```example
@@ -551,7 +550,7 @@ Use a button, text or a link as a select form. Just add the `target: SELECTOR` o
 
 ## Available hooks
 
-Learn more about [using hooks](/docs/introduction#using-hooks).
+Learn more about [using hooks](hooks.md).
 
 ### Form Range
 

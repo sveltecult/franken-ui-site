@@ -13,7 +13,7 @@ javascript: none
 
 ## Usage
 
-On your `tailwind.config.js` file, add the Iconnav component within the `ui()` plugin.
+<span class="uk-badge uk-badge-danger">v0.0.10+</span> If you are using the `presetQuick()`, you can skip this step. On your `tailwind.config.js` file, add the Iconnav component within the `ui()` plugin.
 
 ```javascript
 import ui from "franken-ui";
@@ -80,7 +80,7 @@ To apply an outline, just add the `.uk-iconnav-outline` class.
 
 ## Available hooks
 
-Learn more about [using hooks](/docs/introduction#using-hooks).
+Learn more about [using hooks](hooks.md).
 
 | Hook Name          | Affected Classes               |
 |--------------------|--------------------------------|

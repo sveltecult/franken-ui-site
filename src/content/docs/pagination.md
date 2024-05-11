@@ -13,7 +13,7 @@ javascript: none
 
 ## Usage
 
-On your `tailwind.config.js` file, add the Pagination component within the `ui()` plugin.
+<span class="uk-badge uk-badge-danger">v0.0.10+</span> If you are using the `presetQuick()`, you can skip this step. On your `tailwind.config.js` file, add the Pagination component within the `ui()` plugin.
 
 ```javascript
 import ui from "franken-ui";
@@ -134,7 +134,7 @@ To apply a previous and next button, add the `uk-pagination-previous` or `uk-pag
 
 ## Available hooks
 
-Learn more about [using hooks](/docs/introduction#using-hooks).
+Learn more about [using hooks](hooks.md).
 
 | Hook Name            | Affected Classes                    |
 |----------------------|-------------------------------------|

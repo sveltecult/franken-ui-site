@@ -15,7 +15,7 @@ The Dropdown component is aim-aware. This means the dropdown stays open as long 
 
 ## Usage
 
-On your `tailwind.config.js` file, add the Dropdown component within the `ui()` plugin.
+<span class="uk-badge uk-badge-danger">v0.0.10+</span> If you are using the `presetQuick()`, you can skip this step. On your `tailwind.config.js` file, add the Dropdown component within the `ui()` plugin.
 
 ```javascript
 import ui from "franken-ui";
@@ -554,7 +554,7 @@ To define a custom offset between the dropdown and its toggle, add the `offset` 
 
 ## Available hooks
 
-Learn more about [using hooks](/docs/introduction#using-hooks).
+Learn more about [using hooks](hooks.md).
 
 | Hook Name             | Affected Classes                                                       |
 |-----------------------|------------------------------------------------------------------------|

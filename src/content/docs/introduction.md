@@ -10,349 +10,226 @@ javascript: none
 
 # Tailwind CSS Component Library
 
-<p class="mt-2 text-xl text-muted-foreground">Get familiar with the basic setup and overview of Franken UI.</p>
+<p class="mt-2 uk-text-lead">Get familiar with Franken UI.</p>
 
-Franken UI is an HTML-first, open-source library of UI components based on the utility-first Tailwind CSS with [UIkit 3](https://getuikit.com) compatibility. The design is based on [shadcn/ui](https://ui.shadcn.com) ported to be framework-agnostic.
+## What is Franken UI
 
-## Franken UI Templates
+Franken UI is an open-source library of UI components based on the utility-first Tailwind CSS, with compatibility for [UIkit 3](https://getuikit.com). The design is influenced by [shadcn/ui](https://ui.shadcn.com).
 
-Supercharge your development by using minimally pre-configured templates below, so you can start coding right away. If your stack is not listed, you can follow the manual installation.
+While it may appear confusing to beginners at first glance, it is actually straightforward. Let's explore Franken UI in detail:
 
-- [Astro](https://github.com/sveltecult/franken-ui-template-astro/)
-- [Laravel](https://github.com/sveltecult/franken-ui-template-laravel/)
+- **Tailwind CSS** - A utility-first CSS framework that offers classes like `flex`, `pt-4`, `text-center`, and `rotate-90`, which can be combined to create any design directly in your markup.
+- **UIkit** - A modular front-end framework for developing fast and powerful web interfaces.
+- **shadcn/ui** - A collection of re-usable components.
 
-## Manual Installation
+Consider this: using Tailwind CSS alone may lead to cluttered HTML with numerous utility classes, which can be a nightmare to maintain. This is where UIkit shines. It provides pre-built components such as inputs, buttons, accordions, and more, along with a mature JavaScript library for modals, popovers, carousels, toast notifications, and other features. So, what is the role of shadcn/ui? Think of it as a "skin" that has a beautiful, opinionated design.
 
-Franken UI is a Tailwind CSS plugin and can be included into any existing Tailwind CSS project. To get started, you first need to make sure that you have a working Tailwind CSS project installed and that you also have Node and NPM installed on your machine.
-
-### Require via NPM
-
-1\. Install the latest version of Franken UI using NPM:
-
-```sh
-npm install franken-ui
-```
-
-2\. Include Franken UI as a plugin inside the `tailwind.config.js` file:
-
-```javascript
-import preset from "franken-ui/shadcn-ui/preset";
-import variables from "franken-ui/shadcn-ui/variables";
-import ui from "franken-ui";
-import hooks from "franken-ui/shadcn-ui/hooks";
-
-const shadcn = hooks();
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  presets: [preset],
-  plugins: [
-    variables(),
-    ui(),
-  ],
-};
-```
-
-For convenience, CSS variables, fonts and color palettes from shadcn/ui are automatically configured using `preset`, `hooks()` and `variables()` plugin. 
-
-3\. Once you have installed Franken UI, include the JavaScript files on your page by adding them to the `<head>` section. You can also choose to use the `defer` attribute to delay script execution. Or, you can place the code before the end of your `<body>` tag.
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
-```
-
-## Theming
-
-Franken UI offers a variety of themes, each carefully crafted and configured for a unique visual experience. Choose from themes such as `zinc`, `slate`, `stone`, `gray`, `neutral`, `red`, `rose`, `orange`, `green`, `blue`, `yellow` and `violet` to tailor the look and feel of your application.
-
-To set a theme, configure the `hooks()` and `variables()` functions to use your desired theme. Here's an example using the green theme:
-
-```javascript
-import preset from "franken-ui/shadcn-ui/preset";
-import variables from "franken-ui/shadcn-ui/variables";
-import ui from "franken-ui";
-import hooks from "franken-ui/shadcn-ui/hooks";
-
-const shadcn = hooks({ theme: 'green' });
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  presets: [preset],
-  plugins: [
-    variables({ theme: 'green' }),
-    ui(),
-  ],
-};
-```
-
-## Picking components
-
-Franken UI embraces modularity, allowing you to selectively include only the components you need within the `ui()` function. This granular approach ensures that your application remains lightweight and efficient, tailored to your specific requirements.
-
-However, some components are dependent on others. We are aware of this problem, and if you encounter errors, we provided a [`tailwind.config.js`](tailwind-config-js.md) file than you can use as a starting point. Just adjust the `safelist` and `content` according to your needs.
-
-```javascript
-import preset from "franken-ui/shadcn-ui/preset";
-import variables from "franken-ui/shadcn-ui/variables";
-import ui from "franken-ui";
-import hooks from "franken-ui/shadcn-ui/hooks";
-
-const shadcn = hooks({ theme: 'green' });
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  presets: [preset],
-  plugins: [
-    variables({ theme: 'green' }),
-    ui({
-        components: {
-            accordion: {
-                hooks: shadcn.accordion,
-            },
-            alert: {
-                hooks: shadcn.alert
-            }
-        }
-    }),
-  ],
-};
-```
-In the example above, each component (e.g., accordion, alert, align) can be customized using the hooks option, providing extensive flexibility. Additionally, the media option allows you to include component-specific media query classes, although it is recommended to use Tailwind CSS for responsiveness.
-
-For those interested, Franken UI also offers UIkit base stylings. However, it is advised to exercise caution when using UIkit alongside other styling frameworks to avoid potential conflicts:
-
-```javascript
-ui({
-    base: true,
-    hooks: {},
-    components: {
-        accordion: {},
-        alert: {}
-    }
-})
-```
-
-## Using hooks
-
-Each component in Franken UI comes with hooks for easy customization, allowing you to tweak the appearance and behavior to suit your needs. These hooks are defined using a simple object structure, where you can specify custom CSS styles:
-
-```javascript
-{
-    'hook-alert': {
-        fontSize: '14px'
-    },
-    'hook-close': {},
-    'hook-close-hover': {},
-    'hook-close-focus': {},
-    'hook-default': {},
-    'hook-primary': {},
-    'hook-success': {},
-    'hook-warning': {},
-    'hook-danger': {},
-    'hook-misc': {}
-}
-```
-
-For your convenience, Franken UI provides pre-configured hooks based on the shadcn/ui design specifications. You can simply use these hooks to achieve a consistent design. However, if you need to add your own customizations, you can do so by passing them to the `hooks()` function:
-
-```javascript
-import ui from "franken-ui";
-import hooks from "franken-ui/shadcn-ui/hooks";
-
-const shadcn = hooks({
-  overrides: {
-    alert: {
-      "hook-alert": {
-        fontSize: '12px',
-        borderRadius: '5px'
-      }
-    }
-  }
-});
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  plugins: [
-    ui({
-        components: {
-            alert: {
-                hooks: shadcn.alert,
-            },
-        }
-    }),
-  ],
-};
-```
-
-You can find the available hooks and their corresponding affected classes in each component's documentation page, making it easy to customize and style your components as needed.
-
-## Editor setup
-
-Keeping track of hooks and configurations can be challenging, but with Franken UI's TypeScript support and a good editor, you can benefit from autocomplete features. If you already have Tailwind CSS IntelliSense installed, you won't need any additional plugins. This not only saves time but also eliminates the need to manually look up and type all UIkit classes.
-
-## Frequently asked questions
+## Frequently Asked Questions
 
 ```render
-<ul class="uk-accordion mt-6" uk-accordion>
+<ul class="uk-accordion" uk-accordion>
     <li>
-    <a class="uk-accordion-title" href="#">
-        But why?
-        <span class="uk-accordion-icon">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-down"
-            ><path d="m6 9 6 6 6-6"></path></svg
-        >
-        </span>
-    </a>
-    <div class="uk-accordion-content">
-        <p>
-        The motivation behind Franken UI's development is straightforward: a
-        love for UIkit. With its comprehensive component library, maturity,
-        event-driven nature, and framework agnosticism, UIkit was the ideal
-        choice.
-        </p>
-        <p class="mt-6">
-        It seamlessly integrates with major frameworks like Vue, Svelte, and
-        React, making it a natural fit for projects using these
-        technologies. Additionally, as a fan of Tailwind CSS, creating every
-        component from scratch seemed daunting.
-        </p>
-        <p class="mt-6">
-        Thus, Franken UI was born out of the need to combine the best of
-        both worlds—leveraging UIkit's power while streamlining Tailwind CSS
-        integration into existing projects.
-        </p>
-    </div>
+        <a class="uk-accordion-title" href>
+        Why?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                While shadcn/ui offers beautifully designed components, it is
+                React-first. Franken UI aims to provide a solution for those who
+                are not comfortable using or do not want to use React.
+            </p>
+            <p class="mt-2">
+                By leveraging existing solutions like UIkit for JavaScript and
+                accessibility, Franken UI avoids the need to create a new solution
+                from scratch, thus sidestepping the need to deal with React or
+                other ports from Vue or Svelte.
+            </p>
+            <p class="mt-2">Simply put, shadcn/ui uses
+                Tailwind CSS for design and Radix UI for behavior, while Franken
+                UI uses Tailwind CSS for design and UIkit JavaScript for behavior.
+            </p>
+        </div>
     </li>
     <li>
-    <a class="uk-accordion-title" href="#">
-        Who is Franken UI for?
-        <span class="uk-accordion-icon">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-down"
-            ><path d="m6 9 6 6 6-6"></path></svg
-        >
-        </span>
-    </a>
-    <div class="uk-accordion-content">
-        <p>
-        Franken UI is tailored for small teams and solo developers seeking a
-        beautiful, reliable CSS framework without the complexity of React,
-        Vue, or Svelte. It's designed with an "HTML-first" approach, making
-        it accessible to developers at any skill level.
-        </p>
-    </div>
+        <a class="uk-accordion-title" href>
+        Do I need to use Tailwind CSS with Franken UI?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                No, Tailwind CSS is not required. However, using it can provide
+                many conveniences, such as Intellisense for class names and
+                automating the removal of unused CSS.
+            </p>
+            <p class="mt-2">
+                If you prefer not to use Tailwind CSS, you can grab the generated CSS
+                from the Franken UI website and reference it in your HTML. However,
+                opting out of Tailwind CSS means missing out on features like setting custom
+                themes or purging unused classes.
+            </p>
+        </div>
     </li>
     <li>
-    <a class="uk-accordion-title" href="#">
-        Why shadcn/ui?
-        <span class="uk-accordion-icon">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-down"
-            ><path d="m6 9 6 6 6-6"></path></svg
-        >
-        </span>
-    </a>
-    <div class="uk-accordion-content">
-        <p>
-        The choice of shadcn/ui as the base for Franken UI was driven by its
-        aesthetic appeal. The design language of shadcn/ui aligns well with
-        the vision of Franken UI, making it a natural starting point for
-        further customization.
-        </p>
-    </div>
+        <a class="uk-accordion-title" href>
+        Do I need TypeScript to use Franken UI?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>No, TypeScript is not required.</p>
+        </div>
     </li>
     <li>
-    <a class="uk-accordion-title" href="#">
-        Can I opt-out of using shadcn/ui?
-        <span class="uk-accordion-icon">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-down"
-            ><path d="m6 9 6 6 6-6"></path></svg
-        >
-        </span>
-    </a>
-    <div class="uk-accordion-content">
-        <p>
-        Absolutely! Franken UI provides the flexibility to opt-out of using
-        shadcn/ui by simply not setting components' hooks. This allows
-        developers to apply their own customizations as needed. However, by
-        default, Franken UI uses the UIkit theme for a cohesive look and
-        feel.
-        </p>
-    </div>
+        <a class="uk-accordion-title" href>
+        Does Franken UI work with HTMX and Alpine?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>Yes, Franken UI is compatible with HTMX and Alpine.</p>
+        </div>
     </li>
     <li>
-    <a class="uk-accordion-title" href="#">
-        Do you accept donations?
-        <span class="uk-accordion-icon">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-down"
-            ><path d="m6 9 6 6 6-6"></path></svg
-        >
-        </span>
-    </a>
-    <div class="uk-accordion-content">
-        <p>
-        Yes, if Franken UI has been beneficial to you in any way, I have
-        setup <a class="font-medium underline underline-offset-4" href="https://ko-fi.com/sveltecult" target="_blank"
-            >Ko-Fi</a
-        > and <a class="font-medium underline underline-offset-4" href="https://liberapay.com/sveltecult" target="_blank"
-            >Liberapay</a
-        >. Or, feel free to reach out via email <a
-            class="font-medium underline underline-offset-4"
-            href="mailto:sveltecult@proton.me">sveltecult@proton.me</a
-        >. We can discuss the details, and I'll be happy to send you an
-        invoice. Your support is greatly appreciated and helps sustain the
-        project.
-        </p>
-    </div>
+        <a class="uk-accordion-title" href>
+        Do I need to master UIkit to use Franken UI?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                No. Not at all. In fact you can create modals, popovers, etc
+                without writing a single JavaScript.
+            </p>
+        </div>
+    </li>
+    <li>
+        <a class="uk-accordion-title" href>
+        Do I need to include UIkit JavaScript with Franken UI?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                Including UIkit JavaScript is optional and depends on your needs
+                for convenience. If you choose not to include it, you will need to
+                handle toggling yourself, either through the server or another
+                JavaScript alternative.
+            </p>
+        </div>
+    </li>
+    <li>
+        <a class="uk-accordion-title" href>
+        What about UIkit icons?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                Excluding UIkit icons is optional. You can use alternatives like
+                Lucide, Heroicons, or icons from Flowbite.
+            </p>
+        </div>
+    </li>
+    <li>
+        <a class="uk-accordion-title" href>
+        What do you mean "framework-agnostic"?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                "Framework-agnostic" means that Franken UI can be used with any major
+                JavaScript framework, such as Vue, React, or Svelte.
+            </p>
+        </div>
+    </li>
+    <li>
+        <a class="uk-accordion-title" href>
+        Who is Franken UI designed for?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                Franken UI is tailored for small teams and solo developers who
+                seek a beautiful, reliable CSS framework without the complexity of
+                React, Vue, or Svelte. It is designed with an "HTML-first"
+                approach, making it accessible to developers at any skill level.
+            </p>
+        </div>
+    </li>
+    <li>
+        <a class="uk-accordion-title" href>
+        I don't like shadcn/ui. Can I remove it from Franken UI?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                Yes, you can remove shadcn/ui from Franken UI by simply not
+                setting components' hooks. This allows you to apply your own
+                customizations as needed. By default, Franken UI uses the UIkit
+                theme.
+            </p>
+        </div>
+    </li>
+    <li>
+        <a class="uk-accordion-title" href>
+        I'm concerned about the build size of Franken UI.
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                The <code class="font-geist-mono">preset-quick</code> option will result
+                in an upfront size of approximately <code class="font-geist-mono">137.83kB</code>
+                (<code class="font-geist-mono">22.56kB</code> minified and gzipped). If you find
+                this too large, you can always <a class="font-medium underline underline-offset-4" href="/docs/optimization#picking-components">turn
+                off components</a> you don't need, significantly
+                reducing the CSS size.
+            </p>
+        </div>
+    </li>
+    <li>
+        <a class="uk-accordion-title" href="#">
+            Do you accept donations?
+            <span
+                class="uk-accordion-icon"
+                uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                Yes, if Franken UI has been beneficial to you in any way, I have
+                setup <a class="font-medium underline underline-offset-4" href="https://ko-fi.com/sveltecult" target="_blank"
+                    >Ko-Fi</a
+                    > and <a class="font-medium underline underline-offset-4" href="https://liberapay.com/sveltecult" target="_blank"
+                    >Liberapay</a
+                    >. Or, feel free to reach out via email <a
+                    class="font-medium underline underline-offset-4"
+                    href="mailto:sveltecult@proton.me">sveltecult@proton.me</a
+                    >. We can discuss the details, and I'll be happy to send you an
+                invoice. Your support is greatly appreciated and helps sustain the
+                project.
+            </p>
+        </div>
     </li>
 </ul>
 ```
+
+## Installation
+
+For installation instructions, please refer to our [installation](installation.md) page.

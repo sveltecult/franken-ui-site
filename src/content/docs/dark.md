@@ -1,6 +1,6 @@
 ---
 group: getting-started
-order: 2
+order: 3
 name: Dark Mode
 title: Tailwind CSS Dark Mode and Dark Mode Switcher
 meta:
@@ -12,31 +12,9 @@ javascript: none
 
 <p class="mt-2 text-xl text-muted-foreground">Learn how to configure and build a dark mode switcher using Franken UI.</p>
 
-Offering a dark version for your website is more of an expected feature rather than a nice to have nowadays. Luckily, Tailwind CSS has a dark mode functionality enabled and the components from Franken UI also support it by using the "class" option.
+Offering a dark version for your website is more of an expected feature rather than a nice to have nowadays. Luckily, Tailwind CSS has a dark mode functionality enabled and the components from Franken UI also support it by using the "class" option. If you are using the `preset-quick`, everything is already setup for you.
 
 Learn how to enable and build a dark version switcher for Tailwind CSS and Franken UI by using JavaScript and the configuration file.
-
-## Enable dark mode
-
-For convenience, dark mode is already setup using the `preset`, `hooks()`, and `variables()` plugin on your `tailwind.config.js` file so you don't have to do anything.
-
-```javascript
-import preset from "franken-ui/shadcn-ui/preset";
-import variables from "franken-ui/shadcn-ui/variables";
-import ui from "franken-ui";
-import hooks from "franken-ui/shadcn-ui/hooks";
-
-const shadcn = hooks();
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  presets: [preset],
-  plugins: [
-    variables(),
-    ui()
-  ],
-};
-```
 
 ## Dark mode switcher
 
@@ -63,39 +41,43 @@ This will first check if you’ve previously set the theme color preference manu
 ```html
 <button id="theme-toggle">
     <svg
-    id="theme-toggle-light-icon"
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    class="lucide lucide-sun dark:hidden"
-    ><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"
-    ></path><path d="M12 20v2"></path><path
-        d="m4.93 4.93 1.41 1.41"></path><path
-        d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"
-    ></path><path d="M20 12h2"></path><path
-        d="m6.34 17.66-1.41 1.41"></path><path
-        d="m19.07 4.93-1.41 1.41"></path></svg
+      id="theme-toggle-light-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-sun dark:hidden"
     >
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.41 1.41"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
     <svg
-    id="theme-toggle-dark-icon"
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    class="lucide lucide-moon hidden dark:block"
-    ><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg
+      id="theme-toggle-dark-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-moon hidden dark:block"
     >
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
 </button>
 ```
 
