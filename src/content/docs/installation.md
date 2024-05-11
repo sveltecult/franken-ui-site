@@ -31,7 +31,7 @@ Because Franken UI is a Tailwind CSS plugin, it can be included into any existin
 npm install franken-ui
 ```
 
-2\. Include Franken UI as a plugin inside the `tailwind.config.js` file:
+2\. Include `presetQuick()` inside the `presets` property on your `tailwind.config.js` file:
 
 ```javascript
 import presetQuick from "franken-ui/shadcn-ui/preset-quick";
@@ -42,7 +42,7 @@ export default {
 };
 ```
 
-For convenience, everything are automatically configured using `presetQuick`. If you want to have total control of what components to use, you can refer to the [optimization](optimization.md) page. 
+For convenience, everything are automatically configured using `presetQuick()`. If you want to have total control of what components to use, you can refer to the [optimization](optimization.md) page. 
 
 3\. Once you have installed Franken UI, include the JavaScript files on your page by adding them to the `<head>` section. You can also choose to use the `defer` attribute to delay script execution. Or, you can place the code before the end of your `<body>` tag.
 

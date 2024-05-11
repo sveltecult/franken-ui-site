@@ -40,7 +40,7 @@ The Accordion component consists of a parent container with the `uk-accordion` a
   <li>
     <a class="uk-accordion-title" href>
       <span>Title</span>
-      <span class="uk-accordion-icon"></span>
+      <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
     </a>
     <div class="uk-accordion-content"></div>
   </li>
@@ -52,21 +52,7 @@ The Accordion component consists of a parent container with the `uk-accordion` a
     <li class="uk-open">
         <a class="uk-accordion-title" href>
             Item 1
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -78,21 +64,7 @@ The Accordion component consists of a parent container with the `uk-accordion` a
     <li>
         <a class="uk-accordion-title" href>
             Item 2
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -105,21 +77,7 @@ The Accordion component consists of a parent container with the `uk-accordion` a
     <li>
         <a class="uk-accordion-title" href>
             Item 3
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -147,21 +105,7 @@ By default, all accordion items can be collapsed. To prevent this behavior and a
     <li class="uk-open">
         <a class="uk-accordion-title" href>
             Item 1
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -173,21 +117,7 @@ By default, all accordion items can be collapsed. To prevent this behavior and a
     <li>
         <a class="uk-accordion-title" href>
             Item 2
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -200,21 +130,7 @@ By default, all accordion items can be collapsed. To prevent this behavior and a
     <li>
         <a class="uk-accordion-title" href>
             Item 3
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -241,21 +157,7 @@ To display multiple content sections at the same time without one collapsing whe
     <li class="uk-open">
         <a class="uk-accordion-title" href>
             Item 1
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -267,21 +169,7 @@ To display multiple content sections at the same time without one collapsing whe
     <li>
         <a class="uk-accordion-title" href>
             Item 2
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -294,21 +182,7 @@ To display multiple content sections at the same time without one collapsing whe
     <li>
         <a class="uk-accordion-title" href>
             Item 3
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -340,21 +214,7 @@ To specify which items should be opened initially, add the `.uk-open` class to t
     <li>
         <a class="uk-accordion-title" href>
             Item 1
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -366,21 +226,7 @@ To specify which items should be opened initially, add the `.uk-open` class to t
     <li class="uk-open">
         <a class="uk-accordion-title" href>
             Item 2
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>
@@ -393,21 +239,7 @@ To specify which items should be opened initially, add the `.uk-open` class to t
     <li>
         <a class="uk-accordion-title" href>
             Item 3
-            <span class="uk-accordion-icon">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-chevron-down"
-                    ><path d="m6 9 6 6 6-6"></path></svg
-                >
-            </span>
+            <span class="uk-accordion-icon" uk-icon="icon: chevron-down; ratio: 0.8"></span>
         </a>
         <div class="uk-accordion-content">
             <p>

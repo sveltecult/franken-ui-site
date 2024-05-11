@@ -301,6 +301,19 @@ In the example above, we first enable the card component and then apply our cust
             </p>
         </div>
     </li>
+    <li>
+        <a class="uk-accordion-title" href>
+        I added some hooks but I don't see any changes
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+              Please restart your development server.
+            </p>
+        </div>
+    </li>
 </ul>
 ```
 
