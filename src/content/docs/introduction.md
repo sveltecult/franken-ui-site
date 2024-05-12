@@ -112,6 +112,21 @@ Consider this: using Tailwind CSS alone may lead to cluttered HTML with numerous
     </li>
     <li>
         <a class="uk-accordion-title" href>
+        Does Franken UI support full UIkit compatibility?
+        <span
+            class="uk-accordion-icon"
+            uk-icon="icon: chevron-down; ratio: 0.8"></span>
+        </a>
+        <div class="uk-accordion-content">
+            <p>
+                No, Franken UI does not guarantee full UIkit compatibility but
+                strives to achieve it. The goal is to leverage UIkit JavaScript
+                and its accessibility features.
+            </p>
+        </div>
+    </li>
+    <li>
+        <a class="uk-accordion-title" href>
         Do I need to include UIkit JavaScript with Franken UI?
         <span
             class="uk-accordion-icon"

@@ -140,21 +140,6 @@ const { pathname } = Astro.props;
 </ul>
 
 <ul class="uk-nav-default uk-nav pt-4">
-  <li class="uk-nav-header">UIkit Compatibility</li>
-  {
-    docs
-      .filter((a) => a.data.group === "compatibility")
-      .map((a) => (
-        <li class={pathname === a.slug ? "uk-active" : ""}>
-          <a class="justify-between" href={`/docs/${a.slug}`}>
-            {a.data.name}
-          </a>
-        </li>
-      ))
-  }
-</ul>
-
-<ul class="uk-nav-default uk-nav pt-4">
   <li class="uk-nav-header">Alpine Components</li>
   {
     docs

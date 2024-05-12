@@ -42,7 +42,7 @@ export default {
 };
 ```
 
-For convenience, everything are automatically configured using `presetQuick()`. If you want to have total control of what components to use, you can refer to the [optimization](optimization.md) page. 
+<span class="uk-badge uk-badge-danger">Important</span> For convenience, everything are automatically configured using `presetQuick()`. If you want to have total control of what components to use or having some issues with media queries, you can refer to the [optimization](optimization.md) page. 
 
 3\. Once you have installed Franken UI, include the JavaScript files on your page by adding them to the `<head>` section. You can also choose to use the `defer` attribute to delay script execution. Or, you can place the code before the end of your `<body>` tag.
 
