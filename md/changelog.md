@@ -2,6 +2,22 @@
 
 <p class="mt-2 text-lg text-muted-foreground">Latest updates and announcements.</p>
 
+## v0.0.11 (May 2024)
+- Introducing the [CDN installation](https://github.com/sveltecult/franken-ui-releases).
+- Fix missing hooks and components in `presetQuick()`
+- Add sensible padding for modal, table, tab components to make way for CDN aka "no-build" installations. If you are having trouble overriding some paddings, you can always use the not important utilities `!p-6` or consider using [hooks](hooks.md).
+- Change buttons' shadow from `shadow` to `shadow-sm`
+- Add rounded corners on modal even on xs devices
+- Fix notification alignment on xs devices
+- Change UIkit breakpoints to match Tailwind CSS. Here are the list of changes:
+
+| **Screen** | **Original** | **New** |
+|------------|--------------|---------|
+| SM         | 640px        | 640px   |
+| MD         | 960px        | 768px   |
+| LG         | 1200px       | 1024px  |
+| XL         | 1600px       | 1280px  |
+
 ## v0.0.10 (May 2024)
 - This release focus mainly on ease of use, code cleanup and introduction of [`presetQuick()`](installation.md)
 - Fix `uk-accordion-title` alignment

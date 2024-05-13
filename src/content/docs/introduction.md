@@ -67,10 +67,10 @@ Consider this: using Tailwind CSS alone may lead to cluttered HTML with numerous
                 automating the removal of unused CSS.
             </p>
             <p class="mt-2">
-                If you prefer not to use Tailwind CSS, you can grab the generated CSS
-                from the Franken UI website and reference it in your HTML. However,
-                opting out of Tailwind CSS means missing out on features like setting custom
-                themes or purging unused classes.
+                If you prefer not to use Tailwind CSS, you can <a class="font-medium underline underline-offset-4" href="https://github.com/sveltecult/franken-ui-releases" target="_blank">pick one pre-built CSS from several themes
+                available</a> and reference it in your HTML. However, opting out of Tailwind CSS
+                means missing out on features like setting custom themes or purging unused
+                classes.
             </p>
         </div>
     </li>
@@ -119,8 +119,7 @@ Consider this: using Tailwind CSS alone may lead to cluttered HTML with numerous
         </a>
         <div class="uk-accordion-content">
             <p>
-                No, Franken UI does not guarantee full UIkit compatibility but
-                strives to achieve it. The goal is to leverage UIkit JavaScript
+                No. The goal is to leverage UIkit JavaScript
                 and its accessibility features.
             </p>
         </div>
@@ -137,7 +136,7 @@ Consider this: using Tailwind CSS alone may lead to cluttered HTML with numerous
                 Including UIkit JavaScript is optional and depends on your needs
                 for convenience. If you choose not to include it, you will need to
                 handle toggling yourself, either through the server or another
-                JavaScript alternative.
+                JavaScript alternative. Just include it.
             </p>
         </div>
     </li>
