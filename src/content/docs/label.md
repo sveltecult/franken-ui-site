@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Label
 
-<p class="mt-2 text-xl text-muted-foreground">Indicate important notes and highlight parts of your content.</p>
+<p class="mt-2 uk-text-lead">Indicate important notes and highlight parts of your content.</p>
 
 ## Usage
 

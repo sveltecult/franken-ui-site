@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Leader
 
-<p class="mt-2 text-xl text-muted-foreground">Create dot leaders for pricing menus or tables of contents.</p>
+<p class="mt-2 uk-text-lead">Create dot leaders for pricing menus or tables of contents.</p>
 
 A leader, also known as a dot leader or a tab leader, is a repeating pattern used to visually connect content across horizontal spaces. It is most commonly used for restaurant menus, between the meals and prices, and for tables of contents, between titles and page numbers.
 

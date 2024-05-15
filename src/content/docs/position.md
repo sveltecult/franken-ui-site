@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Position
 
-<p class="mt-2 text-xl text-muted-foreground">A collection of utility classes to position content.</p>
+<p class="mt-2 uk-text-lead">A collection of utility classes to position content.</p>
 
 ## Usage
 

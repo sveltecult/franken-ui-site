@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Dropdown
 
-<p class="mt-2 text-xl text-muted-foreground">Defines different styles for a toggleable dropdown.</p>
+<p class="mt-2 uk-text-lead">Defines different styles for a toggleable dropdown.</p>
 
 The Dropdown component is aim-aware. This means the dropdown stays open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that the dropdown stays open even if the mouse pointer shortly moves in another direction. A dropdown closes immediately if another menu item is hovered.
 

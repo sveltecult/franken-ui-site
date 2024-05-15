@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Cover
 
-<p class="mt-2 text-xl text-muted-foreground">
+<p class="mt-2 uk-text-lead">
     Expand images, videos or iframes to cover their entire container and place your own content on top.
 </p>
 

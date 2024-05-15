@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Card
 
-<p class="mt-2 text-xl text-muted-foreground">Create layout boxes with different styles.</p>
+<p class="mt-2 uk-text-lead">Create layout boxes with different styles.</p>
 
 ## Usage
 

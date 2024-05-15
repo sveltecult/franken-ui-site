@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Badge
 
-<p class="mt-2 text-xl text-muted-foreground">
+<p class="mt-2 uk-text-lead">
     Easily create nice looking notification badges.
 </p>
 

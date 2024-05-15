@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Spinner
 
-<p class="mt-2 text-xl text-muted-foreground">Create an animated loading spinner.</p>
+<p class="mt-2 uk-text-lead">Create an animated loading spinner.</p>
 
 ## Usage
 

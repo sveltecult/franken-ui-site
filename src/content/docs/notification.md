@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Notification
 
-<p class="mt-2 text-xl text-muted-foreground">Create toggleable notifications that fade out automatically.</p>
+<p class="mt-2 uk-text-lead">Create toggleable notifications that fade out automatically.</p>
 
 ## Usage
 

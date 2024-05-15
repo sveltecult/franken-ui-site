@@ -11,7 +11,7 @@ javascript: full
 
 # Tailwind CSS Lightbox
 
-<p class="mt-2 text-xl text-muted-foreground">
+<p class="mt-2 uk-text-lead">
     Create a responsive lightbox gallery with images and videos.
 </p>
 

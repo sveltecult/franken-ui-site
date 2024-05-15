@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Thumbnav
 
-<p class="mt-2 text-xl text-muted-foreground">Create a flexible thumbnail navigation.</p>
+<p class="mt-2 uk-text-lead">Create a flexible thumbnail navigation.</p>
 
 ## Usage
 

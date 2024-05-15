@@ -8,7 +8,7 @@ const { pathname } = Astro.url;
   <nav class="uk-navbar-container">
     <div class="container max-w-screen-2xl">
       <div class="uk-navbar" uk-navbar="mode: click">
-        <div class="uk-navbar-left hidden gap-6 md:flex">
+        <div class="uk-navbar-left hidden md:flex">
           <a class="uk-navbar-item text-primary" href="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const { pathname } = Astro.url;
             >
             <span class="text-base font-bold">franken/ui</span>
           </a>
-          <ul class="uk-navbar-nav hidden gap-6 lg:flex">
+          <ul class="uk-navbar-nav hidden lg:flex">
             <li class={pathname.startsWith("/docs") ? "uk-active" : ""}>
               <a href="/docs/introduction">Docs</a>
             </li>
@@ -122,11 +122,7 @@ const { pathname } = Astro.url;
             </div>
             <ul class="uk-iconnav flex-none">
               <li>
-                <a
-                  class="font-medium underline underline-offset-4"
-                  href="https://mas.to/@sveltecult"
-                  target="_blank"
-                >
+                <a href="https://mas.to/@sveltecult" target="_blank">
                   <span class="sr-only">Follow @sveltecult on Mastodon</span>
                   <span uk-icon="icon: mastodon; ratio: 0.8"></span>
                 </a>

@@ -10,7 +10,7 @@ javascript: none
 
 # Transition
 
-<p class="mt-2 text-xl text-muted-foreground">Create smooth transitions between two states when hovering an element.</p>
+<p class="mt-2 uk-text-lead">Create smooth transitions between two states when hovering an element.</p>
 
 ```render
 <div class="mt-6 uk-alert uk-alert-danger">

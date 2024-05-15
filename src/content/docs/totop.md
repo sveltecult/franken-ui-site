@@ -9,7 +9,7 @@ javascript: full
 
 # Totop
 
-<p class="mt-2 text-xl text-muted-foreground">Create a simple to-top scroller.</p>
+<p class="mt-2 uk-text-lead">Create a simple to-top scroller.</p>
 
 ## Usage
 

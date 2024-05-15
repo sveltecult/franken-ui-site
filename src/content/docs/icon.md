@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Icon
 
-<p class="mt-2 text-xl text-muted-foreground">Place scalable vector icons anywhere in your content.</p>
+<p class="mt-2 uk-text-lead">Place scalable vector icons anywhere in your content.</p>
 
 UIkit comes with its own SVG icon system and a comprehensive library, which comprises a growing number of elegant outline icons. This component injects SVGs into the site, so that they adopt color and can be styled with CSS.
 

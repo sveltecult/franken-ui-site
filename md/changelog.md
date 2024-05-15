@@ -1,6 +1,6 @@
 # Changelog
 
-<p class="mt-2 text-lg text-muted-foreground">Latest updates and announcements.</p>
+<p class="mt-2 uk-text-lead">Latest updates and announcements.</p>
 
 ## v0.0.11 (May 2024)
 - Introducing the [CDN installation](https://github.com/sveltecult/franken-ui-releases).

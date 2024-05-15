@@ -10,7 +10,7 @@ javascript: full
 
 # Tailwind CSS Dropbar
 
-<p class="mt-2 text-xl text-muted-foreground">Create a toggleable, full-width section called dropbar.</p>
+<p class="mt-2 uk-text-lead">Create a toggleable, full-width section called dropbar.</p>
 
 ```render
 <div class="mt-6 uk-alert uk-alert-danger">

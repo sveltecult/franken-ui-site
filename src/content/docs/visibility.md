@@ -10,7 +10,7 @@ javascript: none
 
 # Visibility
 
-<p class="mt-2 text-xl text-muted-foreground">Use responsive visibility classes to display or hide elements on different devices.</p>
+<p class="mt-2 uk-text-lead">Use responsive visibility classes to display or hide elements on different devices.</p>
 
 ```render
 <div class="mt-6 uk-alert uk-alert-danger">

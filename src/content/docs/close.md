@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Close
 
-<p class="mt-2 text-xl text-muted-foreground">Create a close icon that can be combined with different components.</p>
+<p class="mt-2 uk-text-lead">Create a close icon that can be combined with different components.</p>
 
 ## Usage
 

@@ -67,7 +67,7 @@ Consider this: using Tailwind CSS alone may lead to cluttered HTML with numerous
                 automating the removal of unused CSS.
             </p>
             <p class="mt-2">
-                If you prefer not to use Tailwind CSS, you can <a class="font-medium underline underline-offset-4" href="https://github.com/sveltecult/franken-ui-releases" target="_blank">pick one pre-built CSS from several themes
+                If you prefer not to use Tailwind CSS, you can <a class="uk-link" href="https://github.com/sveltecult/franken-ui-releases" target="_blank">pick one pre-built CSS from several themes
                 available</a> and reference it in your HTML. However, opting out of Tailwind CSS
                 means missing out on features like setting custom themes or purging unused
                 classes.
@@ -212,7 +212,7 @@ Consider this: using Tailwind CSS alone may lead to cluttered HTML with numerous
                 The <code class="font-geist-mono">preset-quick</code> option will result
                 in an upfront size of approximately <code class="font-geist-mono">137.83kB</code>
                 (<code class="font-geist-mono">22.56kB</code> minified and gzipped). If you find
-                this too large, you can always <a class="font-medium underline underline-offset-4" href="/docs/optimization#picking-components">turn
+                this too large, you can always <a class="uk-link" href="/docs/optimization#picking-components">turn
                 off components</a> you don't need, significantly
                 reducing the CSS size.
             </p>
@@ -228,12 +228,12 @@ Consider this: using Tailwind CSS alone may lead to cluttered HTML with numerous
         <div class="uk-accordion-content">
             <p>
                 Yes, if Franken UI has been beneficial to you in any way, I have
-                setup <a class="font-medium underline underline-offset-4" href="https://ko-fi.com/sveltecult" target="_blank"
+                setup <a class="uk-link" href="https://ko-fi.com/sveltecult" target="_blank"
                     >Ko-Fi</a
-                    > and <a class="font-medium underline underline-offset-4" href="https://liberapay.com/sveltecult" target="_blank"
+                    > and <a class="uk-link" href="https://liberapay.com/sveltecult" target="_blank"
                     >Liberapay</a
                     >. Or, feel free to reach out via email <a
-                    class="font-medium underline underline-offset-4"
+                    class="uk-link"
                     href="mailto:sveltecult@proton.me">sveltecult@proton.me</a
                     >. We can discuss the details, and I'll be happy to send you an
                 invoice. Your support is greatly appreciated and helps sustain the

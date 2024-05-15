@@ -9,7 +9,7 @@ javascript: partial
 
 # Tailwind CSS Nav
 
-<p class="mt-2 text-xl text-muted-foreground">Defines different styles for list navigations.</p>
+<p class="mt-2 uk-text-lead">Defines different styles for list navigations.</p>
 
 ## Usage
 

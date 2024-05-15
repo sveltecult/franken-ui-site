@@ -10,7 +10,7 @@ javascript: none
 
 # Tailwind CSS Dark Mode and Dark Mode Switcher
 
-<p class="mt-2 text-xl text-muted-foreground">Learn how to configure and build a dark mode switcher using Franken UI.</p>
+<p class="mt-2 uk-text-lead">Learn how to configure and build a dark mode switcher using Franken UI.</p>
 
 Offering a dark version for your website is more of an expected feature rather than a nice to have nowadays. Luckily, Tailwind CSS has a dark mode functionality enabled and the components from Franken UI also support it by using the "class" option. If you are using the `preset-quick`, everything is already setup for you.
 

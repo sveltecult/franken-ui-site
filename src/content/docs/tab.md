@@ -9,7 +9,7 @@ javascript: partial
 
 # Tailwind CSS Tab
 
-<p class="mt-2 text-xl text-muted-foreground">Create a tabbed navigation with different styles.</p>
+<p class="mt-2 uk-text-lead">Create a tabbed navigation with different styles.</p>
 
 ## Usage
 

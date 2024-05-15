@@ -9,7 +9,7 @@ javascript: partial
 
 # Tailwind CSS Alert
 
-<p class="mt-2 text-xl text-muted-foreground">Display success, or error messages.</p>
+<p class="mt-2 uk-text-lead">Display success, or error messages.</p>
 
 ## Usage
 

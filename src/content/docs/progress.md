@@ -9,7 +9,7 @@ javascript: partial
 
 # Progress
 
-<p class="mt-2 text-xl text-muted-foreground">Defines progress bars that indicate how far along a process is.</p>
+<p class="mt-2 uk-text-lead">Defines progress bars that indicate how far along a process is.</p>
 
 ## Usage
 

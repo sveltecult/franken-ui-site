@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Modal
 
-<p class="mt-2 text-xl text-muted-foreground">
+<p class="mt-2 uk-text-lead">
     Create modal dialogs with different styles and transitions.
 </p>
 

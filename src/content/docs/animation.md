@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Animation
 
-<p class="mt-2 text-xl text-muted-foreground">A collection of smooth animations to use within your page.</p>
+<p class="mt-2 uk-text-lead">A collection of smooth animations to use within your page.</p>
 
 ## Usage
 

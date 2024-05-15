@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Drop
 
-<p class="mt-2 text-xl text-muted-foreground">Position any element in relation to another element.</p>
+<p class="mt-2 uk-text-lead">Position any element in relation to another element.</p>
 
 The Drop component is aim-aware. This means the drop stays open as long as the mouse pointer moves towards the drop. An additional delay ensures that the drop stays open even if the mouse pointer shortly moves in another direction. A drop closes immediately if another menu item is hovered.
 

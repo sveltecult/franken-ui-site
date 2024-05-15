@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Divider
 
-<p class="mt-2 text-xl text-muted-foreground">Create dividers to separate content and apply different styles to them.</p>
+<p class="mt-2 uk-text-lead">Create dividers to separate content and apply different styles to them.</p>
 
 ## Usage
 

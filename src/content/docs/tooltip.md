@@ -9,7 +9,7 @@ javascript: full
 
 # Tooltip
 
-<p class="mt-2 text-xl text-muted-foreground">Easily create a nice looking tooltip.</p>
+<p class="mt-2 uk-text-lead">Easily create a nice looking tooltip.</p>
 
 ## Usage
 

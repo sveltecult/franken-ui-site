@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Pagination
 
-<p class="mt-2 text-xl text-muted-foreground">Easily create a nice looking pagination to navigate through pages.</p>
+<p class="mt-2 uk-text-lead">Easily create a nice looking pagination to navigate through pages.</p>
 
 ## Usage
 

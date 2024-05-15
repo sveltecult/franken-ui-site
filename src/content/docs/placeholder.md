@@ -9,7 +9,7 @@ javascript: none
 
 # Placeholder
 
-<p class="mt-2 text-xl text-muted-foreground">Create a placeholder space that can be used for uploading files via drag and drop.</p>
+<p class="mt-2 uk-text-lead">Create a placeholder space that can be used for uploading files via drag and drop.</p>
 
 ## Usage
 

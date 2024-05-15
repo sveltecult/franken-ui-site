@@ -10,7 +10,7 @@ javascript: full
 
 # Sticky
 
-<p class="mt-2 text-xl text-muted-foreground">Make elements remain at the top of the viewport, like a sticky navigation.</p>
+<p class="mt-2 uk-text-lead">Make elements remain at the top of the viewport, like a sticky navigation.</p>
 
 ```render
 <div class="mt-6 uk-alert uk-alert-danger">

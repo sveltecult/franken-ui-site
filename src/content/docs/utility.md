@@ -10,7 +10,7 @@ javascript: none
 
 # Utility
 
-<p class="mt-2 text-xl text-muted-foreground">A collection of useful utility classes to style your content.</p>
+<p class="mt-2 uk-text-lead">A collection of useful utility classes to style your content.</p>
 
 ```render
 <div class="mt-6 uk-alert uk-alert-danger">

@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Dotnav
 
-<p class="mt-2 text-xl text-muted-foreground">
+<p class="mt-2 uk-text-lead">
     Create a dot navigation to operate slideshows or to scroll to different page sections.
 </p>
 

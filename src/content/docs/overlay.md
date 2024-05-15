@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Overlay
 
-<p class="mt-2 text-xl text-muted-foreground">Create an image overlay, which comes in different styles.</p>
+<p class="mt-2 uk-text-lead">Create an image overlay, which comes in different styles.</p>
 
 ## Usage
 

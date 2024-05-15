@@ -32,8 +32,8 @@ export default async function (md: string) {
           return `
           <div class="mt-12 relative">
           <ul uk-tab="swiping: false">
-            <li><a class="px-4 pb-3 pt-2" href="#">Preview</a></li>
-            <li><a class="px-4 pb-3 pt-2" href="#">Markup</a></li>
+            <li><a href="#">Preview</a></li>
+            <li><a href="#">Markup</a></li>
           </ul>
   
           <a
@@ -69,12 +69,12 @@ export default async function (md: string) {
       },
 
       codespan: (text) => {
-        return `<code class="font-geist-mono font-medium">${text}</code>`;
+        return `<code class="uk-codespan font-geist-mono">${text}</code>`;
       },
 
       heading: (text, level) => {
         if (level === 1) {
-          return `<h1 class="text-4xl font-extrabold tracking-tight">${text}</h1>`;
+          return `<h1 class="uk-h1">${text}</h1>`;
         }
 
         if (level === 2) {
@@ -88,15 +88,15 @@ export default async function (md: string) {
             slug: slug,
           });
 
-          return `<div class="mt-12"></div><h2 class="border-b border-border pb-2 text-3xl font-semibold tracking-tight" id="${slug}">${text}</h2>`;
+          return `<h2 class="mt-12 uk-h2" id="${slug}">${text}</h2>`;
         }
 
         if (level === 3) {
-          return `<h3 class="mt-12 text-2xl font-semibold tracking-tight">${text}</h3>`;
+          return `<h3 class="mt-12 uk-h3">${text}</h3>`;
         }
 
         if (level === 4) {
-          return `<h4 class="mt-12 text-xl font-semibold tracking-tight">${text}</h4>`;
+          return `<h4 class="mt-12 uk-h4">${text}</h4>`;
         }
 
         return `<h${level}>${text}</h${level}>`;
@@ -106,22 +106,22 @@ export default async function (md: string) {
 
       link: (href, title, text) => {
         if (/\.md$/.test(href)) {
-          return `<a class="font-medium underline underline-offset-4" href="/docs/${href.replace(".md", "")}" ${title ? ` title="${title}" ` : ""}>${text}</a>`;
+          return `<a class="uk-link" href="/docs/${href.replace(".md", "")}" ${title ? ` title="${title}" ` : ""}>${text}</a>`;
         }
 
-        return `<a class="font-medium underline underline-offset-4" href="${href}" ${title ? ` title="${title}" ` : ""}>${text}</a>`;
+        return `<a class="uk-link" href="${href}" ${title ? ` title="${title}" ` : ""}>${text}</a>`;
       },
 
       list: (text) => {
-        return `<ul class="mt-6 ml-6 list-disc [&>li]:mt-2">${text}</ul>`;
+        return `<ul class="mt-6 uk-list uk-list-bullet">${text}</ul>`;
       },
 
       paragraph: (text) => {
-        return `<p class="leading-7 [&:not(:first-child)]:mt-6">${text}</p>`;
+        return `<p class="uk-paragraph">${text}</p>`;
       },
 
       table: (header, body) => {
-        return `<div class="mt-6 overflow-auto"><table class="uk-table uk-table-divider"><thead>${header.replaceAll("<th>", '<th class="p-2">')}</thead><tbody>${body.replaceAll("<td>", '<td class="p-2">')}</tbody></table></div>`;
+        return `<div class="mt-6 uk-overflow-auto"><table class="uk-table uk-table-divider"><thead>${header.replaceAll("<th>", '<th class="p-2">')}</thead><tbody>${body.replaceAll("<td>", '<td class="p-2">')}</tbody></table></div>`;
       },
     },
   }).parse(md, { async: true });

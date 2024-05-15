@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Iconnav
 
-<p class="mt-2 text-xl text-muted-foreground">Create a navigation consisting of icons.</p>
+<p class="mt-2 uk-text-lead">Create a navigation consisting of icons.</p>
 
 ## Usage
 

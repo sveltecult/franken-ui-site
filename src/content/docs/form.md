@@ -9,7 +9,7 @@ javascript: partial
 
 # Tailwind CSS Form
 
-<p class="mt-2 text-xl text-muted-foreground">Easily create nice looking forms with different styles and layouts.</p>
+<p class="mt-2 uk-text-lead">Easily create nice looking forms with different styles and layouts.</p>
 
 ## Usage
 
@@ -468,7 +468,7 @@ Use a button or text as a file input.
         <span class="uk-text-middle">Here is a text</span>
         <div uk-form-custom>
             <input type="file" aria-label="Custom controls">
-            <span class="font-medium underline underline-offset-4">upload</span>
+            <span class="uk-link">upload</span>
         </div>
     </div>
 

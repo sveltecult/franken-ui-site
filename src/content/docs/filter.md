@@ -10,7 +10,7 @@ javascript: full
 
 # Tailwind CSS Filter
 
-<p class="mt-2 text-xl text-muted-foreground">Filter or sort items in any given layout by metadata.</p>
+<p class="mt-2 uk-text-lead">Filter or sort items in any given layout by metadata.</p>
 
 ```render
 <div class="mt-6 uk-alert uk-alert-danger">

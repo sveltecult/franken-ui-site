@@ -297,7 +297,7 @@ In the example above, we first enable the card component and then apply our cust
         </a>
         <div class="uk-accordion-content">
             <p>
-              No, all objects will be merged together, combining all duplicate rules. If you follow the <a class="font-medium underline underline-offset-4" href="/docs/optimization">optimization</a> guide, your final CSS will be much leaner.
+              No, all objects will be merged together, combining all duplicate rules. If you follow the <a class="uk-link" href="/docs/optimization">optimization</a> guide, your final CSS will be much leaner.
             </p>
         </div>
     </li>

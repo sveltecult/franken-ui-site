@@ -10,7 +10,7 @@ javascript: none
 
 # SVG
 
-<p class="mt-2 text-xl text-muted-foreground">Inject inline SVG images into the page markup and style them with CSS.</p>
+<p class="mt-2 uk-text-lead">Inject inline SVG images into the page markup and style them with CSS.</p>
 
 ```render
 <div class="mt-6 uk-alert uk-alert-danger">

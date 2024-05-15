@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Slidenav
 
-<p class="mt-2 text-xl text-muted-foreground">
+<p class="mt-2 uk-text-lead">
     Defines a navigation with previous and next buttons to flip through slideshows.
 </p>
 

@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Breadcrumb
 
-<p class="mt-2 text-xl text-muted-foreground">
+<p class="mt-2 uk-text-lead">
     Create breadcrumbs to show users their location within a website.
 </p>
 

@@ -9,7 +9,7 @@ javascript: full
 
 # Switcher
 
-<p class="mt-2 text-xl text-muted-foreground">Dynamically transition through different content panes.</p>
+<p class="mt-2 uk-text-lead">Dynamically transition through different content panes.</p>
 
 ## Usage
 
@@ -84,9 +84,9 @@ Setting the attribute to `next` and `previous` will switch to the adjacent items
     <li><a href="#">Item</a></li>
 </ul>
 <ul class="uk-switcher mt-5">
-    <li>Hello! <a class="font-medium underline underline-offset-4" href="#" uk-switcher-item="2">Switch to item 3</a></li>
-    <li>Hello again! <a class="font-medium underline underline-offset-4" href="#" uk-switcher-item="next">Next item</a></li>
-    <li>Bazinga! <a class="font-medium underline underline-offset-4" href="#" uk-switcher-item="previous">Previous item</a></li>
+    <li>Hello! <a class="uk-link" href="#" uk-switcher-item="2">Switch to item 3</a></li>
+    <li>Hello again! <a class="uk-link" href="#" uk-switcher-item="next">Next item</a></li>
+    <li>Bazinga! <a class="uk-link" href="#" uk-switcher-item="previous">Previous item</a></li>
 </ul>
 ```
 

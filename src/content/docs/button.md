@@ -9,7 +9,7 @@ javascript: none
 
 # Tailwind CSS Button
 
-<p class="mt-2 text-xl text-muted-foreground">Easily create nice looking buttons, which come in different styles.</p>
+<p class="mt-2 uk-text-lead">Easily create nice looking buttons, which come in different styles.</p>
 
 ## Usage
 

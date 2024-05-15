@@ -9,7 +9,7 @@ javascript: partial
 
 # Datepicker
 
-<p class="mt-2 text-xl text-muted-foreground">
+<p class="mt-2 uk-text-lead">
   A date field component that allows users to enter and edit date.
 </p>
 

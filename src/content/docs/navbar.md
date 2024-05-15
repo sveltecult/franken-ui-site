@@ -10,7 +10,7 @@ javascript: partial
 
 # Navbar
 
-<p class="mt-2 text-xl text-muted-foreground">Create a navigation bar with dropdown menus for the main site navigation.</p>
+<p class="mt-2 uk-text-lead">Create a navigation bar with dropdown menus for the main site navigation.</p>
 
 ```render
 <div class="mt-6 uk-alert uk-alert-danger">

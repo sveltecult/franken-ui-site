@@ -9,7 +9,7 @@ javascript: full
 
 # Tailwind CSS Offcanvas
 
-<p class="mt-2 text-xl text-muted-foreground">Create an offcanvas sidebar that slides in and out of the page, which is perfect for creating mobile navigations.</p>
+<p class="mt-2 uk-text-lead">Create an offcanvas sidebar that slides in and out of the page, which is perfect for creating mobile navigations.</p>
 
 ## Usage
 
