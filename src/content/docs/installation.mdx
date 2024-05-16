@@ -1,0 +1,451 @@
+---
+group: getting-started
+order: 2
+name: Installation
+title: Franken UI Installation
+meta:
+  description: Learn how to install and integrate Franken UI in your projects.
+javascript: none
+---
+
+# Installation
+
+<p class="uk-text-lead uk-paragraph">{`Learn how to install and integrate Franken UI in your projects.`}</p>
+
+## Installation via CDN
+
+Perfect for beginners, the simplest installation can be done using CDN. Choose only one of 12 styles available in your <code class="uk-codespan">&lt;head&gt;</code> tag. Do not include two styles at once.
+
+```html
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/default.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/slate.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/stone.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/gray.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/neutral.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/red.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/rose.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/orange.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/green.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/blue.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/yellow.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/violet.min.css"
+/>
+```
+
+Once you're done, you may now proceed <a class="uk-link" href="#uikit-javascript" uk-scroll>adding the UIkit JavaScript</a>.
+
+## Installation via NPM
+
+Because Franken UI is a Tailwind CSS plugin, it can be included into any existing Tailwind CSS project. To get started, you first need to make sure that you have a [working Tailwind CSS](https://tailwindcss.com/docs/installation) project installed and that you also have Node and NPM installed on your machine.
+
+<span class="uk-label uk-label-primary">Note</span> If your project needs responsiveness,
+you also need to install PostCSS to properly sort media queries.
+
+**1\.** Install the latest version of Franken UI using NPM:
+
+```sh
+npm install franken-ui
+```
+
+**2\.** Include <code class="uk-codespan">presetQuick()</code> inside the presets property on your <code class="uk-codespan">tailwind.config.js</code> file:
+
+```javascript
+import presetQuick from "franken-ui/shadcn-ui/preset-quick";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  presets: [presetQuick()],
+};
+```
+
+Or, if you want full control of what components to use, under the hood, this is what the <code class="uk-codespan">presetQuick()</code> function does. Use this configuration as your base and adjust it according to your needs by commenting out components. It is recommended to do this one by one to ensure that other parts of the application are not affected, as some components rely on others to function properly.
+
+<span class="uk-label uk-label-primary">Note</span> It is recommended to do this
+one by one to ensure that other parts of the application are not affected, as some
+components rely on others to function properly.
+
+```javascript
+import preset from "franken-ui/shadcn-ui/preset";
+import variables from "franken-ui/shadcn-ui/variables";
+import ui from "franken-ui";
+import hooks from "franken-ui/shadcn-ui/hooks";
+
+const shadcn = hooks({
+  theme: "zinc",
+});
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  presets: [preset],
+  safelist: [
+    {
+      pattern: /^uk-/,
+    },
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    variables({
+      theme: "zinc",
+    }),
+    ui({
+      components: {
+        accordion: {
+          hooks: shadcn.accordion,
+        },
+        alert: {
+          hooks: shadcn.alert,
+        },
+        align: {
+          media: true,
+        },
+        animation: {},
+        article: {
+          hooks: shadcn.article,
+          media: true,
+        },
+        background: {
+          hooks: shadcn.background,
+          media: true,
+        },
+        badge: {
+          hooks: shadcn.badge,
+        },
+        breadcrumb: {
+          hooks: shadcn.breadcrumb,
+        },
+        button: {
+          hooks: shadcn.button,
+        },
+        card: {
+          hooks: shadcn.card,
+          // media: true
+        },
+        close: {
+          hooks: shadcn.close,
+        },
+        column: {
+          hooks: shadcn.column,
+          media: true,
+        },
+        comment: {
+          hooks: shadcn.comment,
+          media: true,
+        },
+        container: {
+          media: true,
+        },
+        countdown: {
+          media: true,
+        },
+        cover: {},
+        "description-list": {
+          hooks: shadcn["description-list"],
+        },
+        divider: {
+          hooks: shadcn.divider,
+        },
+        dotnav: {
+          hooks: shadcn.dotnav,
+        },
+        drop: {},
+        dropbar: {
+          hooks: shadcn.dropbar,
+          media: true,
+        },
+        dropdown: {
+          hooks: shadcn.dropdown,
+          media: true,
+        },
+        dropnav: {},
+        flex: {
+          media: true,
+        },
+        "form-range": {
+          hooks: shadcn["form-range"],
+        },
+        form: {
+          hooks: shadcn.form,
+          media: true,
+        },
+        grid: {
+          hooks: shadcn.grid,
+          media: true,
+        },
+        heading: {
+          hooks: shadcn.heading,
+          // media: true
+        },
+        height: {},
+        icon: {
+          hooks: shadcn.icon,
+        },
+        iconnav: {
+          hooks: shadcn.iconnav,
+        },
+        label: {
+          hooks: shadcn.label,
+        },
+        leader: {},
+        lightbox: {},
+        link: {
+          hooks: shadcn.link,
+        },
+        list: {
+          hooks: shadcn.list,
+        },
+        margin: {
+          media: true,
+        },
+        marker: {
+          hooks: shadcn.marker,
+        },
+        modal: {
+          hooks: shadcn.modal,
+          media: true,
+        },
+        nav: {
+          hooks: shadcn.nav,
+        },
+        navbar: {
+          hooks: shadcn.navbar,
+          media: true,
+        },
+        notification: {
+          hooks: shadcn.notification,
+          media: true,
+        },
+        offcanvas: {
+          hooks: shadcn.offcanvas,
+          media: true,
+        },
+        overlay: {},
+        padding: {
+          media: true,
+        },
+        pagination: {
+          hooks: shadcn.pagination,
+        },
+        placeholder: {
+          hooks: shadcn.placeholder,
+        },
+        position: {
+          media: true,
+        },
+        progress: {
+          hooks: shadcn.progress,
+        },
+        search: {
+          hooks: shadcn.search,
+        },
+        section: {
+          hooks: shadcn.section,
+          media: true,
+        },
+        slidenav: {
+          hooks: shadcn.slidenav,
+        },
+        slider: {
+          hooks: shadcn.slider,
+        },
+        slideshow: {
+          hooks: shadcn.slideshow,
+        },
+        sortable: {},
+        spinner: {},
+        // stepper: {
+        // 	hooks: shadcn.stepper
+        // },
+        sticky: {},
+        subnav: {
+          hooks: shadcn.subnav,
+        },
+        svg: {},
+        switcher: {},
+        tab: {
+          hooks: shadcn.tab,
+        },
+        table: {
+          hooks: shadcn.table,
+          media: true,
+        },
+        text: {
+          hooks: shadcn.text,
+          media: true,
+        },
+        thumbnav: {},
+        tile: {
+          hooks: shadcn.tile,
+          media: true,
+        },
+        tooltip: {
+          hooks: shadcn.tooltip,
+        },
+        totop: {},
+        transition: {},
+        utility: {
+          hooks: shadcn.utility,
+        },
+        visibility: {
+          media: true,
+        },
+        width: {
+          media: true,
+        },
+        print: {},
+      },
+    }),
+  ],
+};
+```
+
+**3\.** Finally, install <code class="uk-codespan">postcss-sort-media-queries</code> and <code class="uk-codespan">postcss-combine-duplicated-selectors</code> and update your <code class="uk-codespan">postcss.config.cjs</code> file.
+
+```sh
+npm install postcss-sort-media-queries postcss-combine-duplicated-selectors
+```
+
+In your <code class="uk-codespan">postcss.config.cjs</code> file, add the following configuration:
+
+```javascript
+module.exports = {
+  plugins: [
+    require("tailwindcss"),
+    require("postcss-sort-media-queries")(),
+    require("postcss-combine-duplicated-selectors")({
+      removeDuplicatedProperties: true,
+    }),
+  ],
+};
+```
+
+With this setup, your build process will remove unused CSS classes, eliminate duplicated rules, and properly sort media queries, resulting in a smaller and more efficient CSS file.
+
+For advanced users, exploring [hooks](/docs/hooks) offers a deeper understanding of how to override styles globally. While you can always rely on Tailwind CSS utility classes, hooks provide an alternative approach that can further reduce CSS file sizes and prevent the cluttering of your HTML with utility classes.
+
+## UIkit JavaScript
+
+Once you have installed Franken UI, include the JavaScript files on your page by adding them to the <code class="uk-codespan">&lt;head&gt;</code> section. You can also choose to use the defer attribute to delay script execution. Or, you can place the code before the end of your <code class="uk-codespan">&lt;body&gt;</code> tag.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
+```
+
+## Theming
+
+Franken UI offers 12 variety of themes:
+
+<ul class="uk-column-divider uk-column-1-3@l uk-column-1-2 uk-margin">
+  <li>
+    <code class="uk-codespan">zinc</code>
+  </li>
+  <li>
+    <code class="uk-codespan">slate</code>
+  </li>
+  <li>
+    <code class="uk-codespan">stone</code>
+  </li>
+  <li>
+    <code class="uk-codespan">gray</code>
+  </li>
+  <li>
+    <code class="uk-codespan">neutral</code>
+  </li>
+  <li>
+    <code class="uk-codespan">red</code>
+  </li>
+  <li>
+    <code class="uk-codespan">rose</code>
+  </li>
+  <li>
+    <code class="uk-codespan">orange</code>
+  </li>
+  <li>
+    <code class="uk-codespan">green</code>
+  </li>
+  <li>
+    <code class="uk-codespan">blue</code>
+  </li>
+  <li>
+    <code class="uk-codespan">yellow</code>
+  </li>
+  <li>
+    <code class="uk-codespan">violet</code>
+  </li>
+</ul>
+
+To set a theme, configure the <code class="uk-codespan">presetQuick()</code> function to use your desired theme. Here's an example using the green theme:
+
+```javascript
+import presetQuick from "franken-ui/shadcn-ui/preset-quick";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  presets: [presetQuick({ theme: "green" })],
+};
+```
+
+Or, if you are using the fined grained configuration, you can set the theme inside <code class="uk-codespan">hooks()</code> and <code class="uk-codespan">variables()</code> functions:
+
+```javascript
+import variables from "franken-ui/shadcn-ui/variables";
+import hooks from "franken-ui/shadcn-ui/hooks";
+
+const shadcn = hooks({
+  theme: "green",
+});
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  plugins: [
+    variables({
+      theme: "green",
+    }),
+  ],
+};
+```
+
+## Customizing
+
+If there are specific styles you'd like to override, you can always utilize Tailwind CSS utility classes. For more advanced customization options, consider exploring the use of [hooks](/docs/hooks).
+
+## Editor setup
+
+Keeping track of hooks and configurations can be challenging, but with Franken UI's TypeScript support and a good editor, you can benefit from autocomplete features. If you already have Tailwind CSS IntelliSense installed, you won't need any additional plugins. This not only saves time but also eliminates the need to manually look up and type all UIkit classes.

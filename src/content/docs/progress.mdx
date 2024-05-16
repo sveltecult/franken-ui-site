@@ -1,0 +1,51 @@
+---
+group: components
+name: Progress
+title: Progress
+meta:
+  description: Defines progress bars that indicate how far along a process is.
+javascript: partial
+---
+
+import Example from "src/rehype/example.astro";
+
+# Progress
+
+<p class="uk-text-lead uk-paragraph">{`Defines progress bars that indicate how far along a process is.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Progress
+component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        progress: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To apply this component, add the `.uk-progress` class to a `<progress>` element.
+
+```html
+<progress class="uk-progress" value="" max=""></progress>
+```
+
+<Example component="progress" index={0} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name       | Affected Classes                       |
+| --------------- | -------------------------------------- |
+| `hook-progress` | `.uk-progress`                         |
+| `hook-bar`      | `.uk-progress::-webkit-progress-value` |
+| `hook-bar`      | `.uk-progress::-moz-progress-bar`      |
+| `hook-misc`     | `*`                                    |

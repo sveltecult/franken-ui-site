@@ -1,0 +1,146 @@
+---
+group: components
+name: Sortable
+title: Sortable
+meta:
+  description: Create sortable grids and lists to rearrange the order of its elements.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# Sortable
+
+<p class="uk-text-lead uk-paragraph">{`Create sortable grids and lists to rearrange the order of its elements.`}</p>
+
+Drag and drop an element to a new location within the sortable grid, while the other items adjust to fit. This is great, if you want to sort items like gallery or menu items, for example.
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Sortable
+component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        sortable: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To apply this component, add the `uk-sortable` attribute to a container and create child elements.
+
+```html
+<div uk-sortable>
+  <div></div>
+  <div></div>
+</div>
+```
+
+<Example component="sortable" index={0} />
+
+## Handle
+
+By default, the entire sortable element can be used for drag and drop sorting. To create a handle which will be used instead, just add the `handle: SELECTOR` option to the attribute and add the handle class to the element that you want to use as a handle.
+
+```html
+<ul uk-sortable="handle: .uk-sortable-handle">
+  <li>
+    <div class="uk-sortable-handle"></div>
+    ...
+  </li>
+</ul>
+```
+
+<Example component="sortable" index={1} />
+
+## Group
+
+To be able to sort items from one list to another, you can group them by adding the `group: GROUP-NAME` option to the `uk-sortable` attribute on each list.
+
+```html
+<div uk-sortable="group: my-group">
+  <div></div>
+</div>
+
+<div uk-sortable="group: my-group">
+  <div></div>
+</div>
+```
+
+<Example component="sortable" index={2} />
+
+## Custom class
+
+You can also apply one or more custom classes to items when they are being dragged. To do so, add the `cls-custom: MY-CLASS` option to the attribute.
+
+```html
+<ul uk-sortable="cls-custom: my-class">
+  ...
+</ul>
+```
+
+<span class="uk-label uk-label-primary">Note</span> In this example, we are using
+a nav from the [Nav component](/docs/nav). When dragging an item it will get a box-shadow
+and background.
+
+<Example component="sortable" index={3} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name          | Affected Classes           |
+| ------------------ | -------------------------- |
+| `hook-sortable`    | `.uk-sortable`             |
+| `hook-drag`        | `.uk-sortable-drag`        |
+| `hook-placeholder` | `.uk-sortable-placeholder` |
+| `hook-empty`       | `.uk-sortable-empty`       |
+| `hook-misc`        | `*`                        |
+
+## Component options
+
+Any of these options can be applied to the component attribute. Separate multiple options with a semicolon. [Learn more](/docs/javascript#component-configuration)
+
+| Option            | Value           | Default                   | Description                                   |
+| ----------------- | --------------- | ------------------------- | --------------------------------------------- |
+| `group`           | String          |                           | The group                                     |
+| `animation`       | String, Boolean | `slide`                   | Animation mode (`slide`, `false`).            |
+| `duration`        | Number          | `250`                     | Animation duration in milliseconds.           |
+| `threshold`       | Number          | `5`                       | Mouse move threshold before dragging starts.  |
+| `cls-item`        | String          | `uk-sortable-item`        | The item class.                               |
+| `cls-placeholder` | String          | `uk-sortable-placeholder` | The placeholder class.                        |
+| `cls-drag`        | String          | `uk-sortable-drag`        | The ghost class.                              |
+| `cls-drag-state`  | String          | `uk-drag`                 | The body's dragging class.                    |
+| `cls-base`        | String          | `uk-sortable`             | The list's class.                             |
+| `cls-no-drag`     | String          | `uk-sortable-nodrag`      | Disable dragging on elements with this class. |
+| `cls-empty`       | String          | `uk-sortable-empty`       | The empty list class.                         |
+| `cls-custom`      | String          |                           | The ghost's custom class.                     |
+| `handle`          | String          | `false`                   | The handle selector.                          |
+
+## JavaScript
+
+Learn more about [JavaScript components](javascript.md#programmatic-use).
+
+### Initialization
+
+```javascript
+UIkit.sortable(element, options);
+```
+
+### Events
+
+The following events will be triggered on elements with this component attached:
+
+| Name      | Description                              |
+| --------- | ---------------------------------------- |
+| `start`   | Fires after dragging starts.             |
+| `stop`    | Fires after dragging stops.              |
+| `moved`   | Fires after an element has been moved.   |
+| `added`   | Fires after an element has been added.   |
+| `removed` | Fires after an element has been removed. |

@@ -1,0 +1,67 @@
+---
+group: components
+name: Totop
+title: Totop
+meta:
+  description: Create a simple to-top scroller.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# Totop
+
+<p class="uk-text-lead uk-paragraph">{`Create a simple to-top scroller.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Totop component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        totop: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+The Totop component allows you to apply an icon to your to-top scroller. Just add the `uk-totop` attribute to an `<a>` element.
+
+To add a smooth effect when using the totop to jump up the page, use the [Scroll component](/docs/scroll).
+
+```html
+<a href="" uk-totop></a>
+```
+
+<Example component="totop" index={0} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name     | Affected Classes   |
+| ------------- | ------------------ |
+| `hook-totop`  | `.uk-totop`        |
+| `hook-hover`  | `.uk-totop:hover`  |
+| `hook-active` | `.uk-totop:active` |
+| `hook-misc`   | `*`                |
+
+## Accessibility
+
+The Totop component automatically sets the appropriate WAI-ARIA roles, states and properties.
+
+- The _totop icon_ has the `aria-label` property, and if an `<a>` element is used, the `button` role.
+
+### Internationalization
+
+The Totop component uses the following translation strings. Learn more about [translating components](accessibility.md#internationalization).
+
+| Key     | Default       | Description             |
+| ------- | ------------- | ----------------------- |
+| `label` | `Back to top` | `aria-label` attribute. |

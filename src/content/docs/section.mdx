@@ -1,0 +1,102 @@
+---
+group: components
+name: Section
+title: Section
+meta:
+  robots: noindex
+  description: Create layout boxes with different backgrounds that can be arranged seamlessly next to each other.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Section
+
+<p class="uk-text-lead uk-paragraph">{`Create horizontal layout sections with different background colors and styles.`}</p>
+
+<div class="uk-alert uk-alert-danger uk-margin">
+  <div class="uk-alert-title">Notice</div>
+  <div class="uk-alert-description">
+    This documentation is a work in progress.
+  </div>
+</div>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Section component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        section: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+Sections are used to separate the content of a page into differently styled blocks. To apply this component, just add the `.uk-section` class to a container element. You can place a container from the [Container component](/docs/container) to modify the width of the content inside sections and add horizontal padding. Note that the padding of a nested container will be reset.
+
+```html
+<div class="uk-section">
+  <div class="uk-container"></div>
+</div>
+```
+
+By default, a section is blank. That is why it is important to add a modifier class for styling. In our example we are using the `.uk-section-muted` class. Normally, the section is the outermost element of a page, so this example doesn't quite reflect the realistic usage of this component.
+
+<Example component="section" index={0} />
+
+## Style modifiers
+
+To apply different background colors and paddings, add one of the following classes.
+
+| Class                   | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| `.uk-section-default`   | Adds the default background color of your site. |
+| `.uk-section-muted`     | Adds a muted background color.                  |
+| `.uk-section-primary`   | Adds a primary background color.                |
+| `.uk-section-secondary` | Adds a secondary background color.              |
+
+```html
+<div class="uk-section uk-section-primary"></div>
+```
+
+<Example component="section" index={1} />
+
+### Preserve color
+
+The `.uk-section-primary` and `.uk-section-secondary` classes are extending the inverse style from the [Inverse component](/docs/inverse) automatically. If you want to prevent this behavior, for example because you are using [cards](/docs/card) in these sections, add the `.uk-preserve-color` class.
+
+```html
+<div class="uk-preserve-color uk-section uk-section-primary"></div>
+```
+
+<Example component="section" index={2} />
+
+## Size modifier
+
+You can add different paddings to each section or remove it altogether.
+
+| Class                         | Description                                                                               |
+| ----------------------------- | ----------------------------------------------------------------------------------------- |
+| `.uk-section-xsmall`          | Add this class to decrease a section's padding to a minimum.                              |
+| `.uk-section-small`           | Add this class to decrease a section's padding.                                           |
+| `.uk-section-large`           | Add this class to increase a section's padding.                                           |
+| `.uk-section-xlarge`          | Add this class to further increase a section's padding.                                   |
+| `.uk-padding-remove-vertical` | Add this class from the [Padding component](/docs/padding) to remove a section's padding. |
+
+<Example component="section" index={3} />
+
+## Overlap modifier
+
+Some UIkit themes use richer styles, including textured backgrounds and borders. In this case, you can add the `.uk-section-overlap` class, to apply a border image and a negative offset to the following section. Note that this only works in styles that implement the feature, if there are subsequent sections.
+
+```html
+<div class="uk-section uk-section-overlap"></div>
+```

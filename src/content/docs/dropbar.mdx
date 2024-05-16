@@ -1,0 +1,170 @@
+---
+group: components
+name: Dropbar
+title: Dropbar
+meta:
+  robots: noindex
+  description: Create a toggleable, full-width section called dropbar.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# Dropbar
+
+<p class="uk-text-lead uk-paragraph">{`Create a toggleable, full-width section called dropbar.`}</p>
+
+The Dropbar component provides a section-like style for the [Drop component](/docs/drop). In opposite to the dropdown which is positioned anywhere on a page with space around, the dropbar extends to the full width or height of the viewport, so it perfectly fits three edges without spacing.
+
+The Dropbar component is aim-aware. This means the dropbar stays open as long as the mouse pointer moves towards the dropbar. An additional delay ensures that the dropbar stays open even if the mouse pointer shortly moves in another direction. A dropbar closes immediately if another dropbar is opened.
+
+<div class="uk-alert uk-alert-danger mt-6">
+  <div class="uk-alert-title">Notice</div>
+  <div class="uk-alert-description">
+    This documentation is a work in progress.
+  </div>
+</div>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Dropbar component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        dropbar: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+To apply this component, add the `.uk-dropbar` class and add a modifier class for the direction from which the dropbar appears, for example `.uk-dropbar-top`.
+
+```html
+<div class="uk-dropbar uk-dropbar-top"></div>
+```
+
+Additionally, add the `uk-drop` attribute to the dropbar and a toggle element before. Any content, like a button, can toggle the drop component. Since the dropbar visually requires to extend to the full width or height of the viewport, add the `stretch: true` option to the `uk-drop` attribute. To only stretch to one axis, use `stretch: x` or `stretch: y`. For all the animation details take a look at the [Drop component](/docs/drop).
+
+```html
+<button type="button"></button>
+<div class="uk-dropbar uk-dropbar-top" uk-drop="stretch: x"></div>
+```
+
+<Example component="dropbar" index={0} />
+
+The dropbar is typically used together with the [Navbar component](/docs/navbar).
+
+<Example component="dropbar" index={1} />
+
+Mind, that there is a dedicated implementation for multiple dropbars in the [Navbar component](navbar.md#dropbar) and [Dropnav component](dropnav.md#dropbar).
+
+## Direction
+
+To set the appropriate dropbar style, add one of the following direction modifier classes.
+
+| Direction           | Description                       |
+| ------------------- | --------------------------------- |
+| `uk-dropbar-top`    | Open the dropbar from the top.    |
+| `uk-dropbar-bottom` | Open the dropbar from the bottom. |
+| `uk-dropbar-left`   | Open the dropbar from the left.   |
+| `uk-dropbar-right`  | Open the dropbar from the right.  |
+
+To open the dropbar from a specific direction use the `pos` and `stretch` option from the [Drop component](/docs/drop).
+
+| Position                       | Description                                                                  |
+| ------------------------------ | ---------------------------------------------------------------------------- |
+| `pos: top-left; stretch: x`    | Positions the dropbar above the toggle and stretches it horizontally.        |
+| `pos: bottom-left; stretch: x` | Positions the dropbar below the toggle and stretches it horizontally         |
+| `pos: left-top; stretch: y`    | Positions the dropbar to the left of the toggle and stretches it vertically  |
+| `pos: right-top; stretch: y`   | Positions the dropbar to the right of the toggle and stretches it vertically |
+
+```html
+<div
+  class="uk-dropbar uk-dropbar-left"
+  uk-drop="pos: left-top; stretch: y"
+></div>
+```
+
+<Example component="dropbar" index={2} />
+
+## Animation
+
+To animate the dropbar use the `slide-*` or `reveal-*` animations from the [Drop component](/docs/drop). `slide-*` animations slide the dropbar and its content from a selected direction, while in the `reveal-*` animations, the content of the dropbar stays static and is revealed from a selected direction. Set `animate-out: true` to also show an animation when closing the dropbar.
+
+| Animation       | Description                          |
+| --------------- | ------------------------------------ |
+| `slide-top`     | Slides the dropbar from the top.     |
+| `slide-bottom`  | Slides the dropbar from the bottom.  |
+| `slide-left`    | Slides the dropbar from the left.    |
+| `slide-right`   | Slides the dropbar from the right.   |
+| `reveal-top`    | Reveals the dropbar from the top.    |
+| `reveal-bottom` | Reveals the dropbar from the bottom. |
+| `reveal-left`   | Reveals the dropbar from the left.   |
+| `reveal-right`  | Reveals the dropbar from the right.  |
+
+```html
+<div uk-drop="animation: slide-top; animate-out: true"></div>
+```
+
+<Example component="dropbar" index={3} />
+
+## Nav in dropbar
+
+A dropbar can contain a nav from the [Nav component](/docs/nav). Just add the `.uk-nav` class to a `<ul>` element and use the same `.uk-dropdown-nav` modifier from the [Dropdown component](/docs/dropdown) to have the same nav style.
+
+```html
+<button type="button"></button>
+<div class="uk-dropbar uk-dropbar-top" uk-drop="stretch: x">
+  <ul class="uk-dropdown-nav uk-nav">
+    ...
+  </ul>
+</div>
+```
+
+<Example component="dropbar" index={4} />
+
+## Large modifier
+
+Add the `.uk-dropbar-large` class for a dropbar with larger vertical padding.
+
+```html
+<div
+  class="uk-dropbar uk-dropbar-large uk-dropbar-top"
+  uk-drop="stretch: x"
+></div>
+```
+
+<Example component="dropbar" index={5} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name      | Affected Classes     |
+| -------------- | -------------------- |
+| `hook-dropbar` | `.uk-dropbar`        |
+| `hook-top`     | `.uk-dropbar-top`    |
+| `hook-bottom`  | `.uk-dropbar-bottom` |
+| `hook-left`    | `.uk-dropbar-left`   |
+| `hook-right`   | `.uk-dropbar-right`  |
+| `hook-misc`    | `*`                  |
+
+## Accessibility
+
+The Drop component adheres to the [Menu Button WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/) and automatically sets the appropriate WAI-ARIA roles, states and properties.
+
+- The _toggle_ has the `button` role, the `aria-expanded` state and the `aria-haspopup` property.
+
+### Keyboard interaction
+
+The Drop component can be accessed through keyboard using the following keys.
+
+- The <kbd>enter</kbd> or <kbd>space</kbd> keys open and close the drop.
+- The <kbd>esc</kbd> key closes the drop even if focus has moved to another element.

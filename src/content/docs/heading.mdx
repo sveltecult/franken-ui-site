@@ -1,0 +1,88 @@
+---
+group: components
+name: Heading
+title: Heading
+meta:
+  description: Define different styles for headings.
+javascript: partial
+---
+
+import Example from "src/rehype/example.astro";
+
+# Heading
+
+<p class="uk-text-lead uk-paragraph">{`Define different styles for headings.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Heading component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        heading: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+Combine this component with the [Text component](/docs/text) to style your headings.
+
+## Size modifiers
+
+Add one of the following classes to modify the size and style of headings. Usually, these classes would be used on heading elements, but they work also with any other element like a `div` element.
+
+| Class                 | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| `.uk-heading-small`   | Add this class to apply a small-sized heading.   |
+| `.uk-heading-medium`  | Add this class to apply a medium-sized heading.  |
+| `.uk-heading-large`   | Add this class to apply a large-sized heading.   |
+| `.uk-heading-xlarge`  | Add this class to apply a xlarge-sized heading.  |
+| `.uk-heading-2xlarge` | Add this class to apply a 2xlarge-sized heading. |
+| `.uk-heading-3xlarge` | Add this class to apply a 3xlarge-sized heading. |
+| `.uk-h1`              | Add this class to apply an h1 heading.           |
+| `.uk-h2`              | Add this class to apply an h2 heading.           |
+| `.uk-h3`              | Add this class to apply an h3 heading.           |
+| `.uk-h4`              | Add this class to apply an h4 heading.           |
+
+```html
+<h1 class="uk-heading-medium"></h1>
+```
+
+<Example component="heading" index={0} />
+
+## Divider modifier
+
+To apply a divider to a heading, add the `.uk-heading-divider` class. You can combine it with any size modifier.
+
+```html
+<h1 class="uk-heading-divider"></h1>
+```
+
+<Example component="heading" index={1} />
+
+## Bullet modifier
+
+To apply a bullet to a heading, add the `.uk-heading-bullet` class. You can combine it with any size modifier, and it works well with text alignment.
+
+```html
+<h1 class="uk-heading-bullet"></h1>
+```
+
+<Example component="heading" index={2} />
+
+## Line modifier
+
+To apply a vertically centered line to a heading, add the `.uk-heading-line` class and place a `<span>` element inside the heading element. You can combine it with any size modifier, and it works well with text alignment.
+
+```html
+<h1 class="uk-heading-line"><span></span></h1>
+```
+
+<Example component="heading" index={3} />

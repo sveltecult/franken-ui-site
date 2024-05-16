@@ -1,0 +1,1205 @@
+---
+group: components
+name: Icon
+title: Icon
+meta:
+  description: Place scalable vector icons anywhere in your content.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# Icon
+
+<p class="uk-text-lead uk-paragraph">{`Place scalable vector icons anywhere in your content.`}</p>
+
+UIkit comes with its own SVG icon system and a comprehensive library, which comprises a growing number of elegant outline icons. This component injects SVGs into the site, so that they adopt color and can be styled with CSS.
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Icon component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        icon: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+Make sure to include the icon library script, for more details see the [installation instructions](/docs/installation).
+
+```html
+<script src="uikit/dist/js/uikit-icons.min.js"></script>
+```
+
+To apply this component, add the `uk-icon` attribute to a `<span>` or `<a>` element. To display the actual icon, you need to append the `icon: NAME` parameter to the attribute. Et voilà, you have a vector icon that inherits color just like your text does.
+
+```html
+<span uk-icon="icon: check"></span>
+
+<a href="" uk-icon="icon: heart"></a>
+```
+
+If `icon` is the only option in the attribute value, you can also use `uk-icon="NAME"`
+
+```html
+<span uk-icon="heart"></span>
+```
+
+<Example component="icon" index={0} />
+
+## Library
+
+Here is an overview of all currently available icons. Over time, we will keep adding new icons to the list.
+
+<h4 class="uk-heading-line uk-h4 uk-margin">
+  <span>App</span>
+</h4>
+
+<div class="uk-child-width-1-3@s" uk-grid>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: home"
+        ></span> home
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: sign-in"
+        ></span> sign-in
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: sign-out"
+        ></span> sign-out
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: user"
+        ></span> user
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: users"
+        ></span> users
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: lock"
+        ></span> lock
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: unlock"
+        ></span> unlock
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: settings"
+        ></span> settings
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: cog"
+        ></span> cog
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: nut"
+        ></span> nut
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: comment"
+        ></span> comment
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: commenting"
+        ></span> commenting
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: comments"
+        ></span> comments
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: hashtag"
+        ></span> hashtag
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: tag"
+        ></span> tag
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: cart"
+        ></span> cart
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: bag"
+        ></span> bag
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: credit-card"
+        ></span> credit-card
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: mail"
+        ></span> mail
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: receiver"
+        ></span> receiver
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: print"
+        ></span> print
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: search"
+        ></span> search
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: location"
+        ></span> location
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: bookmark"
+        ></span> bookmark
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: code"
+        ></span> code
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: paint-bucket"
+        ></span> paint-bucket
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: camera"
+        ></span> camera
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: video-camera"
+        ></span> video-camera
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: bell"
+        ></span> bell
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: microphone"
+        ></span> microphone
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: bolt"
+        ></span> bolt
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: star"
+        ></span> star
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: heart"
+        ></span> heart
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: happy"
+        ></span> happy
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: lifesaver"
+        ></span> lifesaver
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: rss"
+        ></span> rss
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: social"
+        ></span> social
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: git-branch"
+        ></span> git-branch
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: git-fork"
+        ></span> git-fork
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: world"
+        ></span> world
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: calendar"
+        ></span> calendar
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: clock"
+        ></span> clock
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: history"
+        ></span> history
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: future"
+        ></span> future
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: crosshairs"
+        ></span> crosshairs
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: pencil"
+        ></span> pencil
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: trash"
+        ></span> trash
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: move"
+        ></span> move
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: link"
+        ></span> link
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: link-external"
+        ></span> link-external
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: eye"
+        ></span> eye
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: eye-slash"
+        ></span> eye-slash
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: question"
+        ></span> question
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: info"
+        ></span> info
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: warning"
+        ></span> warning
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: image"
+        ></span> image
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: thumbnails"
+        ></span> thumbnails
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: table"
+        ></span> table
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: list"
+        ></span> list
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: menu"
+        ></span> menu
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: grid"
+        ></span> grid
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: more"
+        ></span> more
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: more-vertical"
+        ></span> more-vertical
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: plus"
+        ></span> plus
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: plus-circle"
+        ></span> plus-circle
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: minus"
+        ></span> minus
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: minus-circle"
+        ></span> minus-circle
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: close"
+        ></span> close
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: check"
+        ></span> check
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: ban"
+        ></span> ban
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: refresh"
+        ></span> refresh
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: play"
+        ></span> play
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: play-circle"
+        ></span> play-circle
+      </li>
+    </ul>
+  </div>
+</div>
+
+<h4 class="uk-heading-line uk-h4 uk-margin">
+  <span>Devices</span>
+</h4>
+
+<div class="uk-child-width-1-3@s" uk-grid>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: tv"
+        ></span> tv
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: desktop"
+        ></span> desktop
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: laptop"
+        ></span> laptop
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: tablet"
+        ></span> tablet
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: phone"
+        ></span> phone
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: tablet-landscape"
+        ></span> tablet-landscape
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: phone-landscape"
+        ></span> phone-landscape
+      </li>
+    </ul>
+  </div>
+</div>
+
+<h4 class="uk-heading-line uk-h4 uk-margin">
+  <span>Storage</span>
+</h4>
+
+<div class="uk-child-width-1-3@s" uk-grid>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: file"
+        ></span> file
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: file-text"
+        ></span> file-text
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: file-pdf"
+        ></span> file-pdf
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: copy"
+        ></span> copy
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: file-edit"
+        ></span> file-edit
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: folder"
+        ></span> folder
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: album"
+        ></span> album
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: push"
+        ></span> push
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: pull"
+        ></span> pull
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: server"
+        ></span> server
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: database"
+        ></span> database
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: cloud-upload"
+        ></span> cloud-upload
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: cloud-download"
+        ></span> cloud-download
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: download"
+        ></span> download
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: upload"
+        ></span> upload
+      </li>
+    </ul>
+  </div>
+</div>
+
+<h4 class="uk-heading-line uk-h4 uk-margin">
+  <span>Direction</span>
+</h4>
+
+<div class="uk-child-width-1-3@s" uk-grid>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: reply"
+        ></span> reply
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: forward"
+        ></span> forward
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: expand"
+        ></span> expand
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: shrink"
+        ></span> shrink
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: arrow-up-right"
+        ></span> arrow-up-right
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: arrow-up"
+        ></span> arrow-up
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: arrow-down"
+        ></span> arrow-down
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: arrow-left"
+        ></span> arrow-left
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: arrow-right"
+        ></span> arrow-right
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: chevron-up"
+        ></span> chevron-up
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: chevron-down"
+        ></span> chevron-down
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: chevron-left"
+        ></span> chevron-left
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: chevron-right"
+        ></span> chevron-right
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: chevron-double-left"
+        ></span> chevron-double-left
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: chevron-double-right"
+        ></span> chevron-double-right
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: triangle-up"
+        ></span> triangle-up
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: triangle-down"
+        ></span> triangle-down
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: triangle-left"
+        ></span> triangle-left
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: triangle-right"
+        ></span> triangle-right
+      </li>
+    </ul>
+  </div>
+</div>
+
+<h4 class="uk-heading-line uk-h4 uk-margin">
+  <span>Editor</span>
+</h4>
+
+<div class="uk-child-width-1-3@s" uk-grid>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: bold"
+        ></span> bold
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: italic"
+        ></span> italic
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: strikethrough"
+        ></span> strikethrough
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: quote-right"
+        ></span> quote-right
+      </li>
+    </ul>
+  </div>
+</div>
+
+<h4 class="uk-heading-line uk-h4 uk-margin">
+  <span>Brands</span>
+</h4>
+
+<div class="uk-child-width-1-3@s" uk-grid>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: 500px"
+        ></span> 500px
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: android"
+        ></span> android
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: android-robot"
+        ></span> android-robot
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: apple"
+        ></span> apple
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: behance"
+        ></span> behance
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: bluesky"
+        ></span> bluesky
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: discord"
+        ></span> discord
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: dribbble"
+        ></span> dribbble
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: etsy"
+        ></span> etsy
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: facebook"
+        ></span> facebook
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: flickr"
+        ></span> flickr
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: foursquare"
+        ></span> foursquare
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: github"
+        ></span> github
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: github-alt"
+        ></span> github-alt
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: gitter"
+        ></span> gitter
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: google"
+        ></span> google
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: instagram"
+        ></span> instagram
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: joomla"
+        ></span> joomla
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: linkedin"
+        ></span> linkedin
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: mastodon"
+        ></span> mastodon
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: microsoft"
+        ></span> microsoft
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: pinterest"
+        ></span> pinterest
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: reddit"
+        ></span> reddit
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: signal"
+        ></span> signal
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: soundcloud"
+        ></span> soundcloud
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: telegram"
+        ></span> telegram
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: threads"
+        ></span> threads
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="uk-list">
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: tiktok"
+        ></span> tiktok
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: tripadvisor"
+        ></span> tripadvisor
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: tumblr"
+        ></span> tumblr
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: twitch"
+        ></span> twitch
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: uikit"
+        ></span> uikit
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: vimeo"
+        ></span> vimeo
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: whatsapp"
+        ></span> whatsapp
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: wordpress"
+        ></span> wordpress
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: x"
+        ></span> x
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: xing"
+        ></span> xing
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: yelp"
+        ></span> yelp
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: yootheme"
+        ></span> yootheme
+      </li>
+      <li>
+        <span
+          class="uk-margin-small-right text-muted-foreground"
+          uk-icon="ratio: 0.8; icon: youtube"
+        ></span> youtube
+      </li>
+    </ul>
+  </div>
+</div>
+
+## Ratio
+
+Add the `ratio: 2` parameter to the `uk-icon` attribute to double its size – or any other number, depending on how big you want your icon to be.
+
+```html
+<span uk-icon="icon: check; ratio: 2"></span>
+```
+
+<Example component="icon" index={1} />
+
+## Link modifier
+
+To reset the default link styling to a more muted color when using an icon inside an anchor, add the `.uk-icon-link` class.
+
+```html
+<a href="" class="uk-icon-link" uk-icon="heart"></a>
+```
+
+<Example component="icon" index={2} />
+
+## Button modifier
+
+Use the modifier `.uk-icon-button` class on an `<a>` element to create an icon button, which can be used for social icons.
+
+```html
+<a href="" class="uk-icon-button" uk-icon="instagram"></a>
+```
+
+<Example component="icon" index={3} />
+
+## Image modifier
+
+You can also make any background image scale to the size of an icon. Just add the `.uk-icon-image` class and a background image path.
+
+<Example component="icon" index={4} />
+
+## Component options
+
+Any of these options can be applied to the component attribute. Separate multiple options with a semicolon. [Learn more](/docs/javascript#component-configuration)
+
+| Option  | Value  | Default | Description          |
+| ------- | ------ | ------- | -------------------- |
+| `icon`  | String |         | The icon to display. |
+| `ratio` | Number | `1`     | The icon size ratio. |
+
+`icon` is the _Primary_ option and its key may be omitted, if it's the only option in the attribute value.
+
+```html
+<span uk-icon="heart"></span>
+```
+
+## JavaScript
+
+Learn more about [JavaScript components](/docs/javascript#programmatic-use).
+
+### Initialization
+
+```js
+UIkit.icon(element, options);
+```
+
+### Properties
+
+#### svg
+
+A JavaScript Promise that will resolve with the added SVG Node.
+
+```js
+UIkit.icon(element).svg.then(function (svg) {
+  svg.querySelector("path").style.stroke = "red";
+});
+```
+
+## Accessibility
+
+Set the appropriate WAI-ARIA roles, states and properties to the Icon component.
+
+- If an `<a>` element is used, set the `aria-label` property to the `<a>` element to describe its meaning.
+
+```html
+<a href="" uk-icon="icon: heart" aria-label="…"></a>
+```

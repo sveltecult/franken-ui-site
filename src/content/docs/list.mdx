@@ -1,0 +1,133 @@
+---
+group: components
+name: List
+title: List
+meta:
+  description: Easily create nice looking lists, which come in different styles.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# List
+
+<p class="uk-text-lead uk-paragraph">{`Easily create nice looking lists, which come in different styles.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the List component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        list: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To apply this component, add the `.uk-list` class to an unordered or ordered list. The list will now display without any spacing or list-style.
+
+```html
+<ul class="uk-list">
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+```
+
+<Example component="list" index={0} />
+
+## Style type modifiers
+
+Add one of the following classes to set the marker of a list item.
+
+| Class              | Description                                      |
+| ------------------ | ------------------------------------------------ |
+| `.uk-list-disc`    | Use a filled circle as a marker.                 |
+| `.uk-list-circle`  | Use a hollow circle as marker.                   |
+| `.uk-list-square`  | Use a filled square as marker                    |
+| `.uk-list-decimal` | Use decimal numbers as marker. Beginning with 1. |
+| `.uk-list-hyphen`  | Use a hyphen as marker                           |
+
+```html
+<ul class="uk-list uk-list-disc">
+  …
+</ul>
+```
+
+<Example component="list" index={1} />
+
+## Color modifiers
+
+Add one of the following classes to set the marker color.
+
+| Class                | Description                                                      |
+| -------------------- | ---------------------------------------------------------------- |
+| `.uk-list-muted`     | Add this class to mute the marker.                               |
+| `.uk-list-emphasis`  | Add this class to emphasize the marker.                          |
+| `.uk-list-primary`   | Add this class to emphasize the marker with the primary color.   |
+| `.uk-list-secondary` | Add this class to emphasize the marker with the secondary color. |
+
+```html
+<ul class="uk-list uk-list-disc uk-list-primary">
+  …
+</ul>
+```
+
+<Example component="list" index={2} />
+
+## Image bullet modifier
+
+Add the `.uk-list-bullet` class to set a custom image bullet as a marker of a list item. Mind, that it can not be combined with color modifiers.
+
+```html
+<ul class="uk-list uk-list-bullet">
+  …
+</ul>
+```
+
+<Example component="list" index={3} />
+
+## Divider modifier
+
+Add the `.uk-list-divider` class to separate list items with lines.
+
+```html
+<ul class="uk-list uk-list-divider">
+  …
+</ul>
+```
+
+<Example component="list" index={4} />
+
+## Striped modifier
+
+Add zebra-striping to a list using the `.uk-list-striped` class.
+
+```html
+<ul class="uk-list uk-list-striped">
+  …
+</ul>
+```
+
+<Example component="list" index={5} />
+
+## Accessibility
+
+Set the appropriate WAI-ARIA roles, states and properties to the List component.
+
+- If a `<div>` element is used, set the `list` role to the list, and the `listitem` role to the list items.
+
+```html
+<div class="uk-list" role="list">
+  <div role="listitem">List item 1</div>
+  <div role="listitem">List item 2</div>
+  <div role="listitem">List item 3</div>
+</div>
+```

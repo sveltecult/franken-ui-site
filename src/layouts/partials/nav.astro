@@ -6,9 +6,9 @@ const docs = await getCollection("docs");
 const { pathname } = Astro.props;
 ---
 
-<ul class="uk-nav-default uk-nav lg:hidden">
-  <li class={pathname.startsWith("/docs") ? "uk-active" : ""}>
-    <a href="/docs/introduction">Docs</a>
+<ul class="uk-nav uk-nav-default lg:hidden">
+  <li class={pathname === "/" ? "uk-active" : ""}>
+    <a href="/">Home</a>
   </li>
   <li class={pathname === "changelog" ? "uk-active" : ""}>
     <a href="/changelog">Changelog</a>
@@ -56,7 +56,7 @@ const { pathname } = Astro.props;
   }
 </ul>
 
-<ul class="uk-nav-default uk-nav pt-4 lg:pt-0">
+<ul class="uk-nav uk-nav-default pt-4 lg:pt-0">
   <li class="uk-nav-header">Getting Started</li>
   {
     docs
@@ -70,80 +70,11 @@ const { pathname } = Astro.props;
   }
 </ul>
 
-<ul class="uk-nav-default uk-nav pt-4">
-  <li class="uk-nav-header">Templates</li>
-  {
-    [
-      {
-        link: "https://github.com/sveltecult/franken-ui-template-astro/",
-        text: "Astro",
-      },
-      {
-        link: "https://github.com/sveltecult/franken-ui-template-laravel/",
-        text: "Laravel (Blade)",
-      },
-    ].map((a) => (
-      <li>
-        <a class="justify-between" href={a.link} target="_blank">
-          {a.text}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-external-link"
-          >
-            <>
-              <path d="M15 3h6v6" />
-              <path d="M10 14 21 3" />
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            </>
-          </svg>
-        </a>
-      </li>
-    ))
-  }
-</ul>
-
-<ul class="uk-nav-default uk-nav pt-4">
+<ul class="uk-nav uk-nav-default pt-4">
   <li class="uk-nav-header">Components</li>
   {
     docs
       .filter((a) => a.data.group === "components")
-      .map((a) => (
-        <li class={pathname === a.slug ? "uk-active" : ""}>
-          <a class="justify-between" href={`/docs/${a.slug}`}>
-            <span>
-              {a.data.name}
-              {a.data.badge ? (
-                <span class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000]">
-                  {a.data.badge}
-                </span>
-              ) : (
-                ""
-              )}
-            </span>
-            {a.data.icon ? (
-              <span uk-icon={`icon: ${a.data.icon}; ratio: 0.8`} />
-            ) : (
-              ""
-            )}
-          </a>
-        </li>
-      ))
-  }
-</ul>
-
-<ul class="uk-nav-default uk-nav pt-4">
-  <li class="uk-nav-header">Alpine Components</li>
-  {
-    docs
-      .filter((a) => a.data.group === "alpine-components")
       .map((a) => (
         <li class={pathname === a.slug ? "uk-active" : ""}>
           <a class="justify-between" href={`/docs/${a.slug}`}>

@@ -1,0 +1,114 @@
+---
+group: components
+name: Close
+title: Close
+meta:
+  description: Create a close icon that can be combined with different components.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# Close
+
+<p class="uk-text-lead uk-paragraph">{`Create a close icon that can be combined with different components.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Close component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        close: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To apply this component, add the `uk-close` attribute to an `<a>` or `<button>` element.
+
+```html
+<button type="button" uk-close></button>
+
+<a href="" uk-close></a>
+```
+
+<Example component="close" index={0} />
+
+## Large modifier
+
+Add the `.uk-close-large` class for a larger close button.
+
+```html
+<button class="uk-close-large" type="button" uk-close></button>
+```
+
+<Example component="close" index={1} />
+
+## Close in alerts
+
+This is an example of how this component is used with an alert box from the [Alert component](/docs/alert).
+
+```html
+<div class="uk-alert" uk-alert>
+  <button class="uk-alert-close right-4 top-4" type="button" uk-close></button>
+</div>
+```
+
+<Example component="close" index={2} />
+
+## Close in drops
+
+This is an example of how this component is used with the [Drop component](/docs/drop).
+
+```html
+<div uk-drop>
+  <button class="uk-drop-close" type="button" uk-close></button>
+</div>
+```
+
+<Example component="close" index={3} />
+
+## Close in modals
+
+This is an example of how this component is used with the [Modal component](/docs/modal).
+
+```html
+<div id="modal" uk-modal>
+  <div class="uk-modal-body uk-modal-dialog">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+  </div>
+</div>
+```
+
+<Example component="close" index={4} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name    | Affected Classes  |
+| ------------ | ----------------- |
+| `hook-close` | `.uk-close`       |
+| `hook-close` | `.uk-close:hover` |
+| `hook-misc`  | `*`               |
+
+## Accessibility
+
+The Close component automatically sets the appropriate WAI-ARIA roles and properties.
+
+- The _close icon_ has the `aria-label` property, and if an `<a>` element is used, the `button` role.
+
+### Internationalization
+
+The Close component uses the following translation strings. Learn more about [translating components](/docs/accessibility).
+
+| Key     | Default | Description             |
+| ------- | ------- | ----------------------- |
+| `label` | `Close` | `aria-label` attribute. |

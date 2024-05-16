@@ -1,0 +1,79 @@
+<div class="uk-width-1-2@m uk-card uk-card-body uk-card-default">
+  <h3 class="uk-card-title">Default</h3>
+  <p class="uk-margin">
+    Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed
+    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </p>
+</div>
+<!-- split -->
+<div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid>
+  <div>
+    <div class="uk-card uk-card-body uk-card-default">
+      <h3 class="uk-card-title">Default</h3>
+      <p class="uk-margin">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+  <div>
+    <div class="uk-card uk-card-body uk-card-primary">
+      <h3 class="uk-card-title">Primary</h3>
+      <p class="uk-margin">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+  <div>
+    <div class="uk-card uk-card-body uk-card-secondary">
+      <h3 class="uk-card-title">Secondary</h3>
+      <p class="uk-margin">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+  <div>
+    <div class="uk-card uk-card-body uk-card-danger">
+      <h3 class="uk-card-title">Danger</h3>
+      <p class="uk-margin">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- split -->
+<div class="uk-width-1-3@s uk-card">
+  <div class="uk-card-header">
+    <h3 class="uk-card-title">Create project</h3>
+    <p class="uk-margin-small-top uk-text-small text-muted-foreground">
+      Deploy your new project in one-click.
+    </p>
+  </div>
+  <div class="uk-card-body uk-padding-remove-top uk-padding-remove-bottom">
+    <div class="">
+      <label class="uk-form-label" for="name">Name</label>
+      <input
+        class="uk-input"
+        id="name"
+        type="text"
+        aria-describedby="name-help-block"
+        placeholder="Name"
+      />
+      <div id="name-help-block" class="uk-form-help">
+        The name of your project.
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <label class="uk-form-label" for="framework">Framework</label>
+      <select class="uk-select" name="framework" id="framework">
+        <option value="sveltekit">Sveltekit</option>
+        <option value="sveltekit">Astro</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="uk-card-footer uk-flex uk-flex-between">
+    <button class="uk-button uk-button-default">Cancel</button>
+    <button class="uk-button uk-button-primary">Deploy</button>
+  </div>
+</div>

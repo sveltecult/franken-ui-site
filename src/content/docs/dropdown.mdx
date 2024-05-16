@@ -1,0 +1,56 @@
+---
+group: components
+name: Dropdown
+title: Dropdown
+meta:
+  description: Defines different styles for a toggleable dropdown.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# Dropdown
+
+<p class="uk-text-lead uk-paragraph">{`Defines different styles for a toggleable dropdown.`}</p>
+
+The Dropdown component is aim-aware. This means the dropdown stays open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that the dropdown stays open even if the mouse pointer shortly moves in another direction. A dropdown closes immediately if another menu item is hovered.
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Dropdown
+component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        dropdown: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+A dropdown is an example of the [drop](/docs/drop) that provides its [own styling](https://github.com/uikit/uikit/issues/2237). Any content, like a button, can toggle a dropdown. Just add the `uk-dropdown` attribute to a block element following the toggle.
+
+<Example component="dropdown" index={0} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name             | Affected Classes                                                       |
+| --------------------- | ---------------------------------------------------------------------- |
+| `hook-dropdown`       | `.uk-dropdown`                                                         |
+| `hook-dropbar`        | `.uk-dropdown-dropbar`                                                 |
+| `hook-dropbar-large`  | `.uk-dropdown-dropbar-large`                                           |
+| `hook-nav`            | `.uk-dropdown-nav`                                                     |
+| `hook-nav-item`       | `.uk-dropdown-nav > li > a`                                            |
+| `hook-nav-item-hover` | `.uk-dropdown-nav > li > a:hover, .uk-dropdown-nav > li.uk-active > a` |
+| `hook-nav-subtitle`   | `.uk-dropdown-nav .uk-nav-subtitle`                                    |
+| `hook-nav-header`     | `.uk-dropdown-nav .uk-nav-header`                                      |
+| `hook-nav-divider`    | `.uk-dropdown-nav .uk-nav-divider`                                     |
+| `hook-misc`           | `*`                                                                    |

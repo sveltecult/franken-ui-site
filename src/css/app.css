@@ -2,19 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --shiki-bg: #09090b;
+}
+
+.dark {
+  --shiki-bg: #18181b;
+}
+
 [x-cloak] {
   display: none !important;
 }
 
-.DocSearch-Container {
-  z-index: 990 !important;
+code[data-theme*="blackout"] {
+  max-height: 650px;
+
+  @apply overflow-auto rounded-md border border-border p-4 font-geist-mono;
+}
+
+code[data-theme*="blackout"],
+code[data-theme*="blackout"] span {
+  background-color: var(--shiki-bg);
+
+  @apply font-geist-mono text-sm;
 }
 
 .copy {
-  @apply absolute right-0 top-[13.3px] text-muted-foreground hover:text-foreground;
+  @apply absolute right-0 top-[8.5px] text-muted-foreground hover:text-foreground;
 }
 
 .copy::before {
   content: "";
   @apply absolute inset-0 z-[1];
+}
+
+figure[data-rehype-pretty-code-figure] pre {
+  @apply uk-margin-medium rounded-md;
+}
+
+.aside-l {
+  position: fixed;
+  top: 3.5rem;
+  bottom: 0;
+  overflow-y: auto;
+
+  @apply uk-visible@xl w-64 p-8 pl-0;
+}
+
+.aside-r {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 60px);
+
+  @apply uk-visible@xl w-64 pl-8;
 }

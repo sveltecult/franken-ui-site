@@ -1,0 +1,164 @@
+---
+group: components
+name: Background
+title: Background
+meta:
+  description: A collection of utility classes to add different backgrounds to elements.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Background
+
+<p class="uk-text-lead uk-paragraph">{`A collection of utility classes to add different backgrounds to elements.`}</p>
+
+## Usage
+
+On your `tailwind.config.js` file, add the Background component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        background: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+To apply a background color to an element, add one of the following classes. The actual color for each modifier is defined by the UIkit style that you have chosen or customized.
+
+| Class                      | Description                           |
+| -------------------------- | ------------------------------------- |
+| `.uk-background-default`   | Applies the default background color. |
+| `.uk-background-muted`     | Applies a muted background color.     |
+| `.uk-background-primary`   | Applies the primary background color. |
+| `.uk-background-secondary` | Applies a secondary background color. |
+
+```html
+<div class="uk-background-primary"></div>
+```
+
+<span class="uk-label uk-label-primary">Note</span> To adapt your content for better visibility on each background, add the helper classes like `text-*-foreground`. Use the [Padding component](/docs/padding) to add some padding to the elements.
+
+<Example component="background" index={0} />
+
+## Size modifiers
+
+This component features classes to specify the size of background images by keeping its intrinsic ratio.
+
+| Class                       | Description                                                                                    |
+| --------------------------- | ---------------------------------------------------------------------------------------------- |
+| `.uk-background-cover`      | Scales the background image to completely cover the containing area.                           |
+| `.uk-background-contain`    | Scales the background image as far as its width and height can fit inside the containing area. |
+| `.uk-background-width-1-1`  | Scales the background image to fill 100% of the available width.                               |
+| `.uk-background-height-1-1` | Scales the background image to fill 100% of the available height.                              |
+
+<span class="uk-label uk-label-primary">Note</span> When using these classes, the
+background position automatically shifts to the middle and background-repeat is set
+to no-repeat.
+
+```html
+<div class="uk-background-cover"></div>
+```
+
+<Example component="background" index={1} />
+
+## Position modifiers
+
+To alter the background position of your image — which is in the top left-hand corner of the area by default, add one of the following classes.
+
+| Class                          | Description                                                           |
+| ------------------------------ | --------------------------------------------------------------------- |
+| `.uk-background-top-left`      | The initial position of the image is in the top left hand corner.     |
+| `.uk-background-top-center`    | The initial position of the image is at the top.                      |
+| `.uk-background-top-right`     | The initial position of the image is in the top right hand corner.    |
+| `.uk-background-center-left`   | The initial position of the image is on the left.                     |
+| `.uk-background-center-center` | The initial position of the image is in the middle.                   |
+| `.uk-background-center-right`  | The initial position of the image is on the right.                    |
+| `.uk-background-bottom-left`   | The initial position of the image is in the bottom left hand corner.  |
+| `.uk-background-bottom-center` | The initial position of the image is at the bottom.                   |
+| `.uk-background-bottom-right`  | The initial position of the image is in the bottom right hand corner. |
+
+```html
+<div class="uk-background-top-left"></div>
+```
+
+<Example component="background" index={2} />
+
+## No repeat
+
+To keep smaller images from repeating to fill the background area, add the `.uk-background-norepeat` class.
+
+```html
+<div class="uk-background-norepeat"></div>
+```
+
+## Attachment
+
+You can also apply a fixed background attachment, so that the image remains in its position while scrolling the site.
+
+```html
+<div class="uk-background-fixed"></div>
+```
+
+<Example component="background" index={3} />
+
+## Responsive
+
+Add one of the following classes to limit the display of background images to certain viewport sizes. This is great in cases where the image and content overlap on a phone screen in a way that would make text illegible.
+
+| Class                     | Description                                                            |
+| ------------------------- | ---------------------------------------------------------------------- |
+| `.uk-background-image@s`  | Displays the background image on device widths of _640px_ and larger.  |
+| `.uk-background-image@m`  | Displays the background image on device widths of _768px_ and larger.  |
+| `.uk-background-image@l`  | Displays the background image on device widths of _1024px_ and larger. |
+| `.uk-background-image@xl` | Displays the background image on device widths of _1080px_ and larger. |
+
+```html
+<div class="uk-background-image@m"></div>
+```
+
+Resize your browser window to see the effect in the example below.
+
+<Example component="background" index={4} />
+
+## Blend modes
+
+Add one of the following classes to apply different blend modes to your background image. You can combine these with the background color classes, as well. For a better understanding of how background blend modes work, take a look at this [CSS Tricks article](https://css-tricks.com/almanac/properties/b/background-blend-mode/).
+
+| Class                              | Description                                    |
+| ---------------------------------- | ---------------------------------------------- |
+| `.uk-background-blend-multiply`    | This class sets the blend mode to multiply.    |
+| `.uk-background-blend-screen`      | This class sets the blend mode to screen.      |
+| `.uk-background-blend-overlay`     | This class sets the blend mode to overlay.     |
+| `.uk-background-blend-darken`      | This class sets the blend mode to darken.      |
+| `.uk-background-blend-lighten`     | This class sets the blend mode to lighten.     |
+| `.uk-background-blend-color-dodge` | This class sets the blend mode to color dodge. |
+| `.uk-background-blend-color-burn`  | This class sets the blend mode to color burn.  |
+| `.uk-background-blend-hard-light`  | This class sets the blend mode to hard light.  |
+| `.uk-background-blend-soft-light`  | This class sets the blend mode to soft light.  |
+| `.uk-background-blend-difference`  | This class sets the blend mode to difference.  |
+| `.uk-background-blend-exclusion`   | This class sets the blend mode to exclusion.   |
+| `.uk-background-blend-hue`         | This class sets the blend mode to hue.         |
+| `.uk-background-blend-saturation`  | This class sets the blend mode to saturation.  |
+| `.uk-background-blend-color`       | This class sets the blend mode to color.       |
+| `.uk-background-blend-luminosity`  | This class sets the blend mode to luminosity.  |
+
+```html
+<div class="uk-background-primary uk-background-blend-multiply"></div>
+```
+
+<Example component="background" index={5} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/introduction#using-hooks).
+
+| Hook Name   | Affected Classes |
+| ----------- | ---------------- |
+| `hook-misc` | `*`              |

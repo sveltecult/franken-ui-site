@@ -1,0 +1,68 @@
+---
+group: components
+name: Tile
+title: Tile
+meta:
+  description: Create layout boxes with different backgrounds that can be arranged seamlessly next to each other.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Tile
+
+<p class="uk-text-lead uk-paragraph">{`Create layout boxes with different backgrounds that can be arranged seamlessly next to each other.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Tile component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        tile: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+To apply this component, add the `.uk-tile` class to a `<div>` element. By default, a tile is blank. That is why it is important to add one of the following modifier classes for styling.
+
+| Class                | Description                          |
+| -------------------- | ------------------------------------ |
+| `.uk-tile-default`   | Applies the default tile background. |
+| `.uk-tile-muted`     | Applies a muted tile background.     |
+| `.uk-tile-primary`   | Applies the primary tile background. |
+| `.uk-tile-secondary` | Applies a secondary tile background. |
+
+```html
+<div class="uk-tile uk-tile-default"></div>
+```
+
+<Example component="tile" index={0} />
+
+### Preserve color
+
+The `.uk-tile-primary` and `.uk-tile-secondary` classes are extending the inverse style from the [Inverse component](/docs/inverse) automatically. If you want to prevent this behavior, for example because you are using [cards](/docs/card) in these sections, add the `.uk-preserve-color` class.
+
+```html
+<div class="uk-preserve-color uk-tile uk-tile-primary"></div>
+```
+
+<Example component="tile" index={1} />
+
+## Tile and padding
+
+The Tile component has some padding by default. To remove this or to apply different spacing, add one of the classes from the [Padding component](/docs/padding).
+
+```html
+<div class="uk-tile uk-padding-large uk-tile-default"></div>
+```
+
+<Example component="tile" index={2} />

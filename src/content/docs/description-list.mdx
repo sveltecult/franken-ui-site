@@ -1,0 +1,67 @@
+---
+group: components
+name: Description List
+title: Description List
+meta:
+  description: Easily create nice looking description lists, which come in different styles.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Description List
+
+<p class="uk-text-lead uk-paragraph">{`Easily create nice looking description lists, which come in different styles.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Description
+List component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        'description-list': {
+            hooks: {}
+        }
+    }
+}),
+```
+
+Add the `.uk-description-list` class to display terms and descriptions below each other.
+
+```html
+<dl class="uk-description-list">
+  <dt></dt>
+  <dd></dd>
+</dl>
+```
+
+<Example component="description-list" index={0} />
+
+## Divider modifier
+
+Add the `.uk-description-list-divider` class to add a horizontal line between list items.
+
+```html
+<dl class="uk-description-list uk-description-list-divider">
+  <dt></dt>
+  <dd></dd>
+</dl>
+```
+
+<Example component="description-list" index={1} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/introduction#using-hooks).
+
+| Hook Name           | Affected Classes                                   |
+| ------------------- | -------------------------------------------------- |
+| `hook-term`         | `.uk-description-list > dt`                        |
+| `hook-description`  | `.uk-description-list > dd`                        |
+| `hook-divider-term` | `.uk-description-list-divider > dt:nth-child(n+2)` |
+| `hook-misc`         | `*`                                                |

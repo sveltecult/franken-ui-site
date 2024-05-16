@@ -1,0 +1,145 @@
+---
+group: components
+name: Visibility
+title: Visibility
+meta:
+  robots: noindex
+  description: Use responsive visibility classes to display or hide elements on different devices.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Visibility
+
+<p class="uk-text-lead uk-paragraph">{`Use responsive visibility classes to display or hide elements on different devices.`}</p>
+
+<div class="uk-alert uk-alert-danger mt-6">
+  <div class="uk-alert-title">Notice</div>
+  <div class="uk-alert-description">
+    This documentation is a work in progress.
+  </div>
+</div>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Visibility
+component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        visibility: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+Add one of these classes to hide an element.
+
+| Class           | Description                                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `.uk-hidden`    | Hides the element on any device. This is more of a legacy class. The recommended way to do this, is to use the `hidden` attribute. |
+| `.uk-invisible` | Hides the element without removing it from the document flow.                                                                      |
+
+```html
+<div hidden></div>
+
+<div class="uk-invisible"></div>
+```
+
+## Responsive
+
+This component provides responsive classes to hide or display elements on different viewports.
+
+### Hidden
+
+Add one of the `.uk-hidden-*` classes to hide the element from screens larger than a specified width.
+
+| Class          | Description                                        |
+| -------------- | -------------------------------------------------- |
+| `uk-hidden@s`  | Only affects device widths of _640px_ and larger.  |
+| `uk-hidden@m`  | Only affects device widths of _768px_ and larger.  |
+| `uk-hidden@l`  | Only affects device widths of _1024px_ and larger. |
+| `uk-hidden@xl` | Only affects device widths of _1080px_ and larger. |
+
+```html
+<!-- Hidden on tablets and larger -->
+<div class="uk-hidden@m"></div>
+```
+
+<span class="uk-label uk-label-primary">Note</span> In this example the green elements
+are hidden on screens that are larger than the defined breakpoint. Resize your browser
+window to see the effect.
+
+<Example component="visibility" index={0} />
+
+### Visible
+
+Use `.uk-visible-*` classes to show the element for screens larger than the specified width.
+
+| Class           | Description                                        |
+| --------------- | -------------------------------------------------- |
+| `uk-visible@s`  | Only affects device widths of _640px_ and larger.  |
+| `uk-visible@m`  | Only affects device widths of _768px_ and larger.  |
+| `uk-visible@l`  | Only affects device widths of _1024px_ and larger. |
+| `uk-visible@xl` | Only affects device widths of _1080px_ and larger. |
+
+```html
+<!-- Visible on tablets and larger -->
+<div class="uk-visible@m"></div>
+```
+
+<span class="uk-label uk-label-primary">Note</span> In this example the green elements
+are displayed on screens that are larger than the defined breakpoint. Resize your
+browser window to see the effect.
+
+<Example component="visibility" index={1} />
+
+## Toggle
+
+To display elements on hover or focus only, add the `.uk-visible-toggle` class to a parent element and one of the following classes to any child elements which should be hidden.
+
+| Class                 | Description                                                    |
+| --------------------- | -------------------------------------------------------------- |
+| `.uk-hidden-hover`    | The element is removed from the document flow when hidden.     |
+| `.uk-invisible-hover` | The element is not removed from the document flow when hidden. |
+
+The child elements will be displayed when the parent element is hovered or focused. Add `tabindex="0"` to the parent element to allow it to receive focus through keyboard navigation and on touch devices.
+
+If there are `a` or `button` elements within the hidden child element, they are already focusable through keyboard navigation and will make the child element appear. Therefore, add `tabindex="-1"` so the parent element is still focusable on touch devices.
+
+```html
+<div class="uk-visible-toggle" tabindex="0">
+  <div class="uk-hidden-hover"></div>
+</div>
+```
+
+<Example component="visibility" index={2} />
+
+## Touch
+
+Add the `.uk-hidden-touch` class to hide elements on touch devices and the `.uk-hidden-notouch` to hide elements on devices without a touch screen.
+
+```html
+<!-- Hidden on touch devices -->
+<div class="uk-hidden-touch"></div>
+
+<!-- Hidden on no-touch devices -->
+<div class="uk-hidden-notouch"></div>
+```
+
+<Example component="visibility" index={3} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name   | Affected Classes |
+| ----------- | ---------------- |
+| `hook-misc` | `*`              |

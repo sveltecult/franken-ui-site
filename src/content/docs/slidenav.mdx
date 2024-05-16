@@ -1,0 +1,99 @@
+---
+group: components
+name: Slidenav
+title: Slidenav
+meta:
+  description: Defines navigation with previous and next buttons to flip through slideshows.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# Slidenav
+
+<p class="uk-text-lead uk-paragraph">{`Defines a navigation with previous and next buttons to flip through slideshows.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Slidenav
+component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        slidenav: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To create a navigation with previous and next buttons, just add the `uk-slidenav` attribute to `<a>` elements. Add the `previous` or `next` parameter to the attribute to style the nav items as previous or next buttons.
+
+```html
+<a href="" uk-slidenav-next></a> <a href="" uk-slidenav-previous></a>
+```
+
+<Example component="slidenav" index={0} />
+
+## Large modifier
+
+To increase the size of the slidenav icons, add the `.uk-slidenav-large` class.
+
+```html
+<a href="" class="uk-slidenav-large" uk-slidenav-next></a>
+<a href="" class="uk-slidenav-large" uk-slidenav-previous></a>
+```
+
+<Example component="slidenav" index={1} />
+
+## Slidenav container
+
+To display a conjoint slidenav, wrap the slidenav items inside a `<div>` element and add the `.uk-slidenav-container` class, as well as one of the `.uk-position-*` classes.
+
+```html
+<div class="uk-slidenav-container">
+  <a href="" uk-slidenav-previous></a>
+  <a href="" uk-slidenav-next></a>
+</div>
+```
+
+<Example component="slidenav" index={2} />
+
+## Position as overlay
+
+To position the slidenav on top of an element or the [Slideshow component](/docs/slideshow) for example, just add one of the `.uk-position-*` classes from the [Position component](/docs/position). To create a position context on the container, add the `.uk-position-relative` class.
+
+{/* Use the `.uk-light` or `.uk-dark` class from the [Inverse component](/docs/inverse) to apply a light or dark color for better visibility. */}
+
+```html
+<div class="uk-position-relative">
+  <!-- The element which is wrapped goes here -->
+
+  <a class="uk-position-center-left" href="" uk-slidenav-previous></a>
+  <a class="uk-position-center-right" href="" uk-slidenav-next></a>
+</div>
+```
+
+<span class="uk-label uk-label-primary">Note</span> You can also apply the [Visibility
+component](visibility.md#toggle), so that the slidenav only appears on hover.
+
+<Example component="slidenav" index={3} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name        | Affected Classes         |
+| ---------------- | ------------------------ |
+| `hook-slidenav`  | `.uk-slidenav`           |
+| `hook-hover`     | `.uk-slidenav:hover`     |
+| `hook-active`    | `.uk-slidenav:active`    |
+| `hook-previous`  | `.uk-slidenav-previous`  |
+| `hook-next`      | `.uk-slidenav-next`      |
+| `hook-large`     | `.uk-slidenav-large`     |
+| `hook-container` | `.uk-slidenav-container` |
+| `hook-misc`      | `*`                      |

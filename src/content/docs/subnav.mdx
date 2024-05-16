@@ -1,0 +1,103 @@
+---
+group: components
+name: Subnav
+title: Subnav
+meta:
+  description: Defines different styles for a sub navigation.
+javascript: partial
+---
+
+import Example from "src/rehype/example.astro";
+
+# Subnav
+
+<p class="uk-text-lead uk-paragraph">{`Defines different styles for a sub navigation.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Subnav component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        subnav: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To apply this component, use the following classes. To align a subnav, for example to horizontally center it, you can use the flex classes from Tailwind CSS.
+
+| Class         | Description                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `.uk-subnav`  | Add this class to a `<ul>` element to define the Subnav component. Use `<a>` elements as nav items within the list. |
+| `.uk-active ` | Add this class to a list item to apply an active state.                                                             |
+
+To add list items without a link, use a `<span>` element instead of an `<a>`. Alternatively, disable an `<a>` element by adding the `.uk-disabled` class to the `<li>` element and remove the `href` attribute from the anchor to make it inaccessible through keyboard navigation.
+
+```html
+<ul class="uk-subnav">
+  <li class="uk-active"><a href=""></a></li>
+  <li><a href=""></a></li>
+  <li><span></span></li>
+</ul>
+```
+
+<Example component="subnav" index={0} />
+
+## Style modifiers
+
+Add one of the following classes for additional styles.
+
+| Class                  | Description               |
+| ---------------------- | ------------------------- |
+| `.uk-subnav-primary`   | Adds a primary style.     |
+| `.uk-subnav-secondary` | Adds a secondary style.   |
+| `.uk-subnav-danger`    | Adds a destructive style. |
+
+<Example component="subnav" index={1} />
+
+## Subnav and Dropdown
+
+You can also use a dropdown from the [Dropdown component](/docs/dropdown) with a subnav.
+
+```html
+<ul class="uk-subnav">
+  <li>
+    <!-- This is the menu item toggling the dropdown -->
+    <a href=""></a>
+
+    <!-- This is the dropdown -->
+    <div uk-dropdown="mode: click">
+      <ul class="uk-dropdown-nav uk-nav">
+        ...
+      </ul>
+    </div>
+  </li>
+</ul>
+```
+
+<Example component="subnav" index={2} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name                | Affected Classes                                                       |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `hook-subnav`            | `.uk-subnav`                                                           |
+| `hook-item`              | `.uk-subnav > * > :first-child`                                        |
+| `hook-item-hover`        | `.uk-subnav > * > a:hover`                                             |
+| `hook-item-active`       | `.uk-subnav > .uk-active > a`                                          |
+| `hook-divider`           | `.uk-subnav-divider > :nth-child(n + 2):not(.uk-first-column)::before` |
+| `hook-pill-item`         | `.uk-subnav-pill > * > :first-child`                                   |
+| `hook-pill-item-hover`   | `.uk-subnav-pill > * > a:hover`                                        |
+| `hook-pill-item-onclick` | `.uk-subnav-pill > * > a:active`                                       |
+| `hook-pill-item-active`  | `.uk-subnav-pill > .uk-active > a`                                     |
+| `hook-item-disabled`     | `.uk-subnav > .uk-disabled > a`                                        |
+| `hook-misc`              | `*`                                                                    |

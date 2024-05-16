@@ -1,0 +1,94 @@
+---
+group: components
+name: Thumbnav
+title: Thumbnav
+meta:
+  description: Create a flexible thumbnail navigation.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Thumbnav
+
+<p class="uk-text-lead uk-paragraph">{`Create a flexible thumbnail navigation.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Thumbnav
+component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        thumbnav: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To create a navigation with thumbnails, use the following classes. This component is built with Flexbox. So to align a thumbnav, you can use flex classes from Tailwind CSS.
+
+| Class          | Description                                                                                                                            |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `.uk-thumbnav` | Add this class to a `<ul>` element to define the Thumbnav component. Nest your thumbnail images inside `<a>` elements within the list. |
+| `.uk-active `  | Add this class to a list item to apply an active state.                                                                                |
+
+```html
+<ul class="uk-thumbnav">
+  <li class="uk-active">
+    <a href=""><img src="" width="" height="" alt="" /></a>
+  </li>
+  <li>
+    <a href=""><img src="" alt="" /></a>
+  </li>
+</ul>
+```
+
+<Example component="thumbnav" index={0} />
+
+## Vertical alignment
+
+The thumbnav can also be displayed vertically. Just add the `.uk-thumbnav-vertical` modifier.
+
+```html
+<ul class="uk-thumbnav uk-thumbnav-vertical">
+  ...
+</ul>
+```
+
+<Example component="thumbnav" index={1} />
+
+## Position as overlay
+
+To position the thumbnav on top of an element or the [Slideshow component](/docs/slideshow) for example, add one of the `.uk-position-*` classes from the [Position component](/docs/position) to a `div` element wrapping the thumbnav. To create a position context on the container, add the `.uk-position-relative` class.
+
+```html
+<div class="uk-position-relative">
+  <!-- The element which is wrapped goes here -->
+
+  <div class="uk-position-bottom-center uk-position-small">
+    <ul class="uk-thumbnav">
+      ...
+    </ul>
+  </div>
+</div>
+```
+
+<Example component="thumbnav" index={2} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name          | Affected Classes                |
+| ------------------ | ------------------------------- |
+| `hook-thumbnav`    | `.uk-thumbnav`                  |
+| `hook-item`        | `.uk-thumbnav > * > *`          |
+| `hook-item-hover`  | `.uk-thumbnav > * > :hover`     |
+| `hook-item-active` | `.uk-thumbnav > .uk-active > *` |
+| `hook-misc`        | `*`                             |

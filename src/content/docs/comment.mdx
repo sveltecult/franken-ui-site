@@ -1,0 +1,123 @@
+---
+group: components
+name: Comment
+title: Comment
+meta:
+  description: Includes styles for comments, for example for a blog section on your site.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Comment
+
+<p class="uk-text-lead uk-paragraph">{`Includes styles for comments, for example for a blog section on your site.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Comment component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        comment: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+The Comment component consists of the comment itself, a comment header, including an avatar, a title and meta text, and a comment body.
+
+| Class                | Description                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------- |
+| `.uk-comment`        | Add this class to define the Comment component.                                       |
+| `.uk-comment-body`   | Add this class to create a comment body.                                              |
+| `.uk-comment-header` | Add this class to create a comment header.                                            |
+| `.uk-comment-title`  | Add this class to a heading to create a comment title.                                |
+| `.uk-comment-meta`   | Add this class to create meta text about your comment, e.g. a [subnav](/docs/subnav). |
+| `.uk-comment-avatar` | Add this class to an `<img>` element to create an avatar for the comment author.      |
+
+```html
+<article class="uk-comment">
+  <header class="uk-comment-header">
+    <img class="uk-comment-avatar" src="" width="" height="" alt="" />
+    <h4 class="uk-comment-title"></h4>
+    <ul class="uk-comment-meta uk-subnav"></ul>
+  </header>
+  <div class="uk-comment-body"></div>
+</article>
+```
+
+<Example component="comment" index={0} />
+
+## Primary modifier
+
+To style a comment differently, for example to highlight it as the admin's comment, just add the `.uk-comment-primary` class.
+
+```html
+<article class="uk-comment uk-comment-primary">...</article>
+```
+
+<Example component="comment" index={1} />
+
+## Lists
+
+Add the `.uk-comment-list` class to a `<ul>` element to create a list of comments. You can nest any number of `<ul>` elements inside a comment list.
+
+```html
+<ul class="uk-comment-list">
+  <li>
+    <article class="uk-comment">...</article>
+    <ul>
+      <li>
+        <article class="uk-comment">...</article>
+      </li>
+    </ul>
+  </li>
+</ul>
+```
+
+<Example component="comment" index={2} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/introduction#using-hooks).
+
+| Hook Name                | Affected Classes                                        |
+| ------------------------ | ------------------------------------------------------- |
+| `hook-comment`           | `.uk-comment`                                           |
+| `hook-body`              | `.uk-comment-body`                                      |
+| `hook-header`            | `.uk-comment-header`                                    |
+| `hook-title`             | `.uk-comment-title`                                     |
+| `hook-meta`              | `.uk-comment-meta`                                      |
+| `hook-avatar`            | `.uk-avatar`                                            |
+| `hook-list-adjacent`     | `.uk-comment-list > :nth-child(n + 2)`                  |
+| `hook-list-sub`          | `.uk-comment-list .uk-comment ~ ul`                     |
+| `hook-list-sub-adjacent` | `.uk-comment-list .uk-comment ~ ul > :nth-child(n + 2)` |
+| `hook-primary`           | `.uk-comment-primary`                                   |
+| `hook-misc`              | `*`                                                     |
+
+## Accessibility
+
+Set the appropriate WAI-ARIA roles, states and properties to the Comment component.
+
+- Set the `comment` role for each _comment_.
+
+```html
+<ul class="uk-comment-list">
+  <li>
+    <article class="uk-comment" role="comment">...</article>
+    <ul>
+      <li>
+        <article class="uk-comment" role="comment">...</article>
+      </li>
+    </ul>
+  </li>
+</ul>
+```

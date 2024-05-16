@@ -1,0 +1,59 @@
+<button
+  class="uk-button uk-button-default uk-margin"
+  type="button"
+  uk-toggle="target: +"
+>
+  Toggle HTML5 Video
+</button>
+
+<video
+  src="https://yootheme.com/site/images/media/yootheme-pro.mp4"
+  width="1920"
+  height="1080"
+  controls
+  playsinline
+  hidden
+  uk-video
+></video>
+<!-- split -->
+<div class="uk-child-width-1-2@m" uk-grid>
+  <div>
+    <video
+      src="https://yootheme.com/site/images/media/yootheme-pro.mp4"
+      width="1800"
+      height="1200"
+      loop
+      muted
+      playsinline
+      uk-video="autoplay: inview"
+    ></video>
+  </div>
+  <div>
+    <video
+      src="https://yootheme.com/site/images/media/yootheme-pro.mp4"
+      width="1800"
+      height="1200"
+      loop
+      muted
+      playsinline
+      uk-video="autoplay: hover"
+    ></video>
+  </div>
+</div>
+<!-- split -->
+<button
+  class="uk-button uk-button-default uk-margin-bottom"
+  type="button"
+  uk-toggle="target: +"
+>
+  Toggle YouTube Video
+</button>
+
+<iframe
+  src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1"
+  width="1920"
+  height="1080"
+  allowfullscreen
+  uk-responsive
+  uk-video="automute: true"
+></iframe>

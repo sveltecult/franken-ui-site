@@ -1,0 +1,78 @@
+---
+group: components
+name: Align
+title: Align
+meta:
+  description: Control the alignment of inline elements depending on the viewport size.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Align
+
+<p class="uk-text-lead uk-paragraph">{`Control the alignment of inline elements depending on the viewport size.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Align component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        align: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+To align images or other elements with spacing between the text and the element, add one of these classes.
+
+| Class              | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| `.uk-align-left`   | Floats the element to the left and creates right and bottom margin. |
+| `.uk-align-right`  | Floats the element to the right and creates left and bottom margin. |
+| `.uk-align-center` | Centers the element and creates bottom margin.                      |
+
+```html
+<img class="uk-align-left" src="" width="" height="" alt="" />
+```
+
+<Example component="align" index={0} />
+
+## Responsive
+
+UIkit provides a number of responsive alignment classes. Basically, they work just like the usual alignment classes, except that they have suffixes that represent the breakpoint from which they come to effect.
+
+| Class                                         | Description                                        |
+| --------------------------------------------- | -------------------------------------------------- |
+| `.uk-align-left@s`<br/> `.uk-align-right@s`   | Only affects device widths of _640px_ and higher.  |
+| `.uk-align-left@m`<br/> `.uk-align-right@m`   | Only affects device widths of _768px_ and higher.  |
+| `.uk-align-left@l`<br/> `.uk-align-right@l`   | Only affects device widths of _1024px_ and higher. |
+| `.uk-align-left@xl`<br/> `.uk-align-right@xl` | Only affects device widths of _1080px_ and higher. |
+
+```html
+<img
+  class="uk-align-right@m uk-align-center"
+  src=""
+  width=""
+  height=""
+  alt=""
+/>
+```
+
+<Example component="align" index={1} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name   | Affected Classes |
+| ----------- | ---------------- |
+| `hook-misc` | `*`              |

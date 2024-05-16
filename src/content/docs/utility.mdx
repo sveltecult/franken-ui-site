@@ -1,0 +1,393 @@
+---
+group: components
+name: Utility
+title: Utility
+meta:
+  robots: noindex
+  description: A collection of useful utility classes to style your content.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Utility
+
+<p class="uk-text-lead uk-paragraph">{`A collection of useful utility classes to style your content.`}</p>
+
+<div class="uk-alert uk-alert-danger mt-6">
+  <div class="uk-alert-title">Notice</div>
+  <div class="uk-alert-description">
+    This documentation is a work in progress.
+  </div>
+</div>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Utility component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        utility: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+## Panel
+
+UIkit uses panels to outline certain sections of your content. These can be arranged in grid columns from the [Grid component](/docs/grid), for example.
+
+Add the `.uk-panel` class to a `<div>` element to create a position context, set box-sizing to border-box, apply a clearfix and to remove the bottom margin of its last child element.
+
+<Example component="utility" index={0} />
+
+### Scrollable panel
+
+Add the `.uk-panel-scrollable` class to give the panel a fixed height and make it scrollable, if its content exceeds the height. You can also add one of the `.uk-height-*` [classes](/docs/height) to apply a different height.
+
+<Example component="utility" index={1} />
+
+## Clearing and floating
+
+Floating elements are taken from the document flow and aligned to the left or right side of their container. It is important to clear floats or in the worst case, you might end up with a scrambled site. The following classes will help you to set up basic layouts.
+
+| Class             | Description                                                                                                                                                     |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.uk-float-left`  | Add this class to float the element to the left.                                                                                                                |
+| `.uk-float-right` | Add this class to float the element to the right.                                                                                                               |
+| `.uk-clearfix`    | Add this class to a parent container to clear floats. Alternatively, you can create a new block format context, e.g. by adding the `.uk-overflow-hidden` class. |
+
+<Example component="utility" index={2} />
+
+## Overflow
+
+These utilities provide different classes to modify an element's overflow behavior.
+
+| Class                 | Description                                                                                                                                                           |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.uk-overflow-hidden` | Add this class to clip content that exceeds the dimensions of its container.                                                                                          |
+| `.uk-overflow-auto`   | Add this class to create a container that provides a horizontal or vertical scrollbar whenever the elements content it are wider or higher than the container itself. |
+
+<span class="uk-label uk-label-primary">Note</span> The `.uk-overflow-auto` class is useful when having to handle tables on a responsive website, which at some point would just get too big. It also works great on `<pre>` elements.
+
+<Example component="utility" index={3} />
+
+## Overflow Auto
+
+Add the `uk-overflow-auto` attribute to expand an element's height to make it fill the remaining height of a parent container. It provides a vertical scrollbar if its content is higher than the expanded height.
+
+<Example component="utility" index={4} />
+
+It's often used within the [Modal component](/docs/modal).
+
+```html
+<div id="my-id" uk-modal>
+  <div class="uk-modal-dialog" uk-overflow-auto></div>
+</div>
+```
+
+<Example component="utility" index={5} />
+
+You can change the target heights by adding the `selContainer` and `selContent` options to the attribute. [Learn more](/docs/javascript#component-configuration)
+
+| Option          | Value  | Default            | Description                                                                       |
+| --------------- | ------ | ------------------ | --------------------------------------------------------------------------------- |
+| `sel-container` | String | `.uk-modal`        | CSS selector for the container element which provides the height.                 |
+| `sel-content`   | String | `.uk-modal-dialog` | CSS selector for the element which wraps the inner content to provide its height. |
+
+## Resize
+
+These utilities provide different classes for resizing elements.
+
+| Class                 | Description                                                |
+| --------------------- | ---------------------------------------------------------- |
+| `.uk-resize`          | Add this class to enable horizontal and vertical resizing. |
+| `.uk-resize-vertical` | Add this class to enable only vertical resizing.           |
+
+<p>Grab and drag the bottom right corner of each box below to resize it</p>
+
+<Example component="utility" index={6} />
+
+## Display
+
+Add one of these classes to change the display properties of an element.
+
+| Class                      | Description                                                |
+| -------------------------- | ---------------------------------------------------------- |
+| `.uk-display-block`        | Forces the element to behave like a block element.         |
+| `.uk-display-inline`       | Forces the element to behave like an inline element.       |
+| `.uk-display-inline-block` | Forces the element to behave like an inline-block element. |
+
+## Inline
+
+These classes are often used to create a position context on containers with an image as a child. The container keeps the same size as the image as well as the responsive behavior. That way content that is placed on top of the image with the [Position component](/docs/position) will not flow out of the image dimensions.
+
+| Class             | Description                                                                                                            |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `.uk-inline`      | Add this class to apply inline-block behavior to an element, add a max-width of 100% and to create a position context. |
+| `.uk-inline-clip` | Same as `.uk-inline`, it but also clips overflowing child elements.                                                    |
+
+```html
+<div class="uk-inline">
+  <img src="" width="" height="" alt="" />
+  <div class="uk-position-cover"></div>
+</div>
+```
+
+<Example component="utility" index={7} />
+
+## Responsive objects
+
+In UIkit `<img>`, `<canvas>`, `<audio>` and `<video>` elements adapt to the width of their parent container by default. To apply responsive behavior to iframes, add the `uk-responsive` attribute . For other elements or to apply a different behavior, just add one of the following classes.
+
+| Class                   | Description                                                                                                                                                                                                                                                                                                |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.uk-responsive-width`  | Add this class to apply the same responsive behavior to any other element. It adjusts the object's width according to its parent's width, keeping the original aspect ratio.                                                                                                                               |
+| `.uk-responsive-height` | Add this class to adjust the object's height (instead of its width) according to its parent's height, keeping the original aspect ratio.                                                                                                                                                                   |
+| `.uk-preserve-width`    | Add this class to avoid the default responsive behavior and preserve the original image dimensions. You can also add the class to a parent element and it will be applied to all relevant elements content it. If you are embedding Google Maps into your site, you may need this to fix the map's images. |
+
+```html
+<img class="uk-responsive-height" src="" width="" height="" alt="" />
+
+<iframe src="" width="" height="" uk-responsive></iframe>
+```
+
+## Object Fit and Position
+
+Define how the content of an image or video should be resized to fit its element.
+
+| Class                   | Description                                                                                                 |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `.uk-object-cover`      | Scales the image by keeping its aspect ratio to completely cover the content box.                           |
+| `.uk-object-contain`    | Scales the image by keeping its aspect ratio as far as its width and height can fit inside the content box. |
+| `.uk-object-fill`       | Scales the image to fill the element's content box.                                                         |
+| `.uk-object-none`       | Doesn't scale the image at all.                                                                             |
+| `.uk-object-scale-down` | Like contain, but never up-scales.                                                                          |
+
+<span class="uk-label uk-label-primary">Note</span> Since images and video are responsive
+by default in UIkit, it's mandatory to set the aspect ratio when using one of these
+classes.
+
+```html
+<img
+  class="uk-object-cover"
+  src=""
+  width="1000"
+  height="1000"
+  alt=""
+  style="aspect-ratio: 1 / 1"
+/>
+```
+
+<Example component="utility" index={8} />
+
+To modify the alignment of the image or video within its element, add one of the `uk-object-position-*` classes.
+
+| Class                               | Description                |
+| ----------------------------------- | -------------------------- |
+| `.uk-object-position-top-left`      | Align to the top left.     |
+| `.uk-object-position-top-center`    | Align to the top.          |
+| `.uk-object-position-top-right`     | Align to the top right.    |
+| `.uk-object-position-center-left`   | Align to the left.         |
+| `.uk-object-position-center-center` | Align to the center.       |
+| `.uk-object-position-center-right`  | Align to the right.        |
+| `.uk-object-position-bottom-left`   | Align to the bottom left.  |
+| `.uk-object-position-bottom-center` | Align to the bottom.       |
+| `.uk-object-position-bottom-right`  | Align to the bottom right. |
+
+## Border radius
+
+To modify the border radius of an element, like an image, add one of the following classes.
+
+| Class                | Description                              |
+| -------------------- | ---------------------------------------- |
+| `.uk-border-rounded` | Add this class to apply rounded corners. |
+| `.uk-border-circle`  | Add this class to apply a circled shape. |
+| `.uk-border-pill`    | Add this class to apply a pill shape.    |
+
+<Example component="utility" index={9} />
+
+## Box shadow
+
+You can apply different box shadows to elements. Just add one of the following classes.
+
+| Class                   | Description                                      |
+| ----------------------- | ------------------------------------------------ |
+| `.uk-box-shadow-small`  | Add this class to apply a small box shadow.      |
+| `.uk-box-shadow-medium` | Add this class to apply a medium box shadow.     |
+| `.uk-box-shadow-large`  | Add this class to apply a large box shadow.      |
+| `.uk-box-shadow-xlarge` | Add this class to apply a very large box shadow. |
+
+```html
+<div class="uk-box-shadow-small"></div>
+```
+
+<Example component="utility" index={10} />
+
+## Box shadow bottom
+
+To apply a box shadow at the bottom of an element so that appears to be hovering, add the `.uk-box-shadow-bottom` class. This can also be combined with one of the other `.uk-box-shadow-*` modifiers.
+
+```html
+<div class="uk-box-shadow-bottom"></div>
+```
+
+<Example component="utility" index={11} />
+
+### Hover
+
+To apply a box shadow on hover, add one of the following classes. This can also be used to modify the shadow size on hover. To do so, just combine them with one of the classes above.
+
+| Class                         | Description                                               |
+| ----------------------------- | --------------------------------------------------------- |
+| `.uk-box-shadow-hover-small`  | Add this class to apply a small box shadow on hover.      |
+| `.uk-box-shadow-hover-medium` | Add this class to apply a medium box shadow on hover.     |
+| `.uk-box-shadow-hover-large`  | Add this class to apply a large box shadow on hover.      |
+| `.uk-box-shadow-hover-xlarge` | Add this class to apply a very large box shadow on hover. |
+
+```html
+<div class="uk-box-shadow-hover-small"></div>
+```
+
+<Example component="utility" index={12} />
+
+## Drop cap
+
+With the `.uk-dropcap` class you can achieve a drop cap within a text by adding it directly to the `<p>` element.
+
+<Example component="utility" index={13} />
+
+## Logo
+
+With the new `.uk-logo` class you can easily define your logo, for example within your navbar.
+
+```html
+<a class="uk-logo" href=""></a>
+```
+
+<Example component="utility" index={14} />
+
+{/* Add the `.uk-light` class from the [Inverse component](/docs/inverse) when displaying the image on dark backgrounds, so that its color will automatically be inverted for better visibility. */}
+
+{/* <Example component="utility" index={15} /> */}
+
+### Logo image
+
+You can also use an `<img>` element, for example an SVG, as a logo.
+
+```html
+<a class="uk-logo" href="">
+  <img src="" width="" height="" alt="" />
+</a>
+```
+
+You can even automatically display alternative logos for light and dark backgrounds by using the [Inverse component](/docs/inverse). Just add the `.uk-logo-inverse` class to a second logo image. Depending on the color mode, the inverted logo will be displayed when the `.uk-light` or `.uk-dark` class is applied to the parent element.
+
+```html
+<div class="uk-light">
+  <a class="uk-logo" href="">
+    <img src="" width="" height="" alt="" />
+    <img class="uk-logo-inverse" src="" width="" height="" alt="" />
+  </a>
+</div>
+```
+
+<Example component="utility" index={16} />
+
+<span class="uk-label uk-label-primary">Note</span> To inject an SVG logo as inline
+SVG, use the [SVG component](/docs/svg).
+
+## Blend modes
+
+Add one of the following classes to apply different blend modes to your backgrounds, for example when placing them on images. You can combine these with the [Overlay component](/docs/overlay). For a better understanding of how background blend modes work, take a look at this [CSS Tricks article](https://css-tricks.com/almanac/properties/b/background-blend-mode/).
+
+| Class                   | Description                                    |
+| ----------------------- | ---------------------------------------------- |
+| `.uk-blend-multiply`    | This class sets the blend mode to multiply.    |
+| `.uk-blend-screen`      | This class sets the blend mode to screen.      |
+| `.uk-blend-overlay`     | This class sets the blend mode to overlay.     |
+| `.uk-blend-darken`      | This class sets the blend mode to darken.      |
+| `.uk-blend-lighten`     | This class sets the blend mode to lighten.     |
+| `.uk-blend-color-dodge` | This class sets the blend mode to color dodge. |
+| `.uk-blend-color-burn`  | This class sets the blend mode to color burn.  |
+| `.uk-blend-hard-light`  | This class sets the blend mode to hard light.  |
+| `.uk-blend-soft-light`  | This class sets the blend mode to soft light.  |
+| `.uk-blend-difference`  | This class sets the blend mode to difference.  |
+| `.uk-blend-exclusion`   | This class sets the blend mode to exclusion.   |
+| `.uk-blend-hue`         | This class sets the blend mode to hue.         |
+| `.uk-blend-saturation`  | This class sets the blend mode to saturation.  |
+| `.uk-blend-color`       | This class sets the blend mode to color.       |
+| `.uk-blend-luminosity`  | This class sets the blend mode to luminosity.  |
+
+```html
+<div class="uk-position-relative">
+  <div class="uk-overlay uk-overlay-primary uk-blend-multiply"></div>
+  <img src="" width="" height="" alt="" />
+</div>
+```
+
+<Example component="utility" index={17} />
+
+## Transform center
+
+To center an element to itself, add the `uk-transform-center` class. This is particularly useful for absolute positioning.
+
+<Example component="utility" index={18} />
+
+## Transform origin
+
+To modify the origin of an animation, like scaling, add one of the `uk-transform-origin-*` classes. This can be combined with the [Animation component](/docs/animation).
+
+| Class                                | Description                                      |
+| ------------------------------------ | ------------------------------------------------ |
+| `.uk-transform-origin-top-left`      | The transition originates from the top left.     |
+| `.uk-transform-origin-top-center`    | The transition originates from the top.          |
+| `.uk-transform-origin-top-right`     | The transition originates from the top right.    |
+| `.uk-transform-origin-center-left`   | The transition originates from the left.         |
+| `.uk-transform-origin-center-right`  | The transition originates from the right.        |
+| `.uk-transform-origin-bottom-left`   | The transition originates from the bottom left.  |
+| `.uk-transform-origin-bottom-center` | The transition originates from the bottom.       |
+| `.uk-transform-origin-bottom-right`  | The transition originates from the bottom right. |
+
+```html
+<div class="uk-animation-scale-up uk-transform-origin-bottom-right"></div>
+```
+
+<Example component="utility" index={19} />
+
+## Disabled
+
+To disable the click behavior of any element, like a `<a>`, `<button>` or `<iframe>` element, add the `.uk-disabled` class.
+
+<Example component="utility" index={20} />
+
+## Drag
+
+To apply a move cursor to elements that are being dragged, add the `.uk-drag` class.
+
+```html
+<div class="uk-drag"></div>
+```
+
+<Example component="utility" index={21} />
+
+To create a box shadow on an [upload area](/docs/upload) when dragging a file over it, add the `.uk-dragover` class.
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name                | Affected Classes                              |
+| ------------------------ | --------------------------------------------- |
+| `hook-panel-scrollable`  | `.uk-panel-scrollable`                        |
+| `hook-box-shadow-bottom` | `.uk-box-shadow-bottom::after`                |
+| `hook-dropcap`           | `.uk-dropcap > p:first-of-type::first-letter` |
+| `hook-logo`              | `.uk-logo`                                    |
+| `hook-logo-hover`        | `.uk-logo:hover`                              |
+| `hook-misc`              | `*`                                           |

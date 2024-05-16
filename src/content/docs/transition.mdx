@@ -1,0 +1,60 @@
+---
+group: components
+name: Transition
+title: Transition
+meta:
+  description: Create smooth transitions between two states when hovering an element.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Transition
+
+<p class="uk-text-lead">{`Create smooth transitions between two states when hovering an element.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Transition
+component within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        transition: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To toggle a transition on hover or focus, add the `.uk-transition-toggle` class to a parent element. Also add `tabindex="0"` to make the animation focusable through keyboard navigation and on touch devices. Add one of the `.uk-transition-*` classes to any child element to apply the actual effect.
+
+| Class                                                                                                                                                           | Description                                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `.uk-transition-fade`                                                                                                                                           | Lets the element fade in                                                           |
+| `.uk-transition-scale-up`<br /> `.uk-transition-scale-down`                                                                                                     | The element scales up or down.                                                     |
+| `.uk-transition-slide-top`<br /> `.uk-transition-slide-bottom`<br /> `.uk-transition-slide-left`<br /> `.uk-transition-slide-right`                             | Lets the element slide in from the top                                             |
+| `.uk-transition-slide-top-small`<br /> `.uk-transition-slide-bottom-small`<br /> `.uk-transition-slide-left-small`<br /> `.uk-transition-slide-right-small`     | The element slides in from the top, bottom, left or right with a smaller distance. |
+| `.uk-transition-slide-top-medium`<br /> `.uk-transition-slide-bottom-medium`<br /> `.uk-transition-slide-left-medium`<br /> `.uk-transition-slide-right-medium` | The element slides in from the top, bottom, left or right with a medium distance.  |
+
+This component is mostly used in combination with the [Overlay component](/docs/overlay) as elements are transitioned from invisible to visible state. To place the overlay on top of another element, like an image, use the [Position component](/docs/position).
+
+```html
+<div class="uk-transition-toggle" tabindex="0">
+  <div class="uk-transition-fade"></div>
+</div>
+```
+
+<Example component="transition" index={0} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name   | Affected Classes |
+| ----------- | ---------------- |
+| `hook-misc` | `*`              |

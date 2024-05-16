@@ -1,0 +1,566 @@
+---
+group: components
+name: Navbar
+title: Navbar
+meta:
+  robots: noindex
+  description: Create a navigation bar with dropdown menus for the main site navigation.
+javascript: partial
+---
+
+import Example from "src/rehype/example.astro";
+
+# Navbar
+
+<p class="uk-text-lead uk-paragraph">{`Create a navigation bar with dropdown menus for the main site navigation.`}</p>
+
+<div class="uk-alert uk-alert-danger uk-margin">
+  <div class="uk-alert-title">Notice</div>
+  <div class="uk-alert-description">
+    This documentation is a work in progress.
+  </div>
+</div>
+
+The Navbar component initializes all dropdowns with the same options, so they don't have to be initialized individually. All dropdowns within the navbar are aim-aware. This means the dropdowns stay open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that dropdowns stay open even if the mouse pointer shortly moves in another direction. In hover mode dropdowns close immediately if another menu item is hovered.
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Navbar component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        navbar: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+The Navbar component consists of a navbar container, the navbar itself and one or more navigations.
+
+| Element                                                            | Description                                                                                                    |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `uk-navbar`                                                        | Add this attribute to a `<nav>` element to define the Navbar component.                                        |
+| `.uk-navbar-container`                                             | Add this class to the same `<nav>` element or a parent element to add the navbar background style.             |
+| `.uk-navbar-left`<br/> `.uk-navbar-center`<br/> `.uk-navbar-right` | Add one of these classes to a `<div>` element to align the navigation.                                         |
+| `.uk-navbar-nav`                                                   | Add this class to a `<ul>` element to create the navigation. Use `<a>` elements as menu items within the list. |
+| `.uk-parent`                                                       | Add this class to indicate a parent menu item.                                                                 |
+| `.uk-active`                                                       | Add this class to indicate an active menu item.                                                                |
+
+```html
+<nav class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-left">
+    <ul class="uk-navbar-nav">
+      <li class="uk-active"><a href=""></a></li>
+      <li class="uk-parent"><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </div>
+</nav>
+```
+
+<Example component="navbar" index={0} />
+
+Neither the navbar, nor the navbar container have horizontal padding. To set the same horizontal padding as the rest of the page use the [Container component](/docs/container).
+
+```html
+<nav class="uk-navbar-container">
+  <div class="uk-container">
+    <div uk-navbar>…</div>
+  </div>
+</nav>
+```
+
+<Example component="navbar" index={1} />
+
+## Multiple navigations
+
+You can place more than one navigation inside a navbar container. That way you can have a left-aligned, a centered and a right-aligned navigation inside the same navbar.
+
+```html
+<nav class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-left">…</div>
+  <div class="uk-navbar-center">…</div>
+  <div class="uk-navbar-right">…</div>
+</nav>
+```
+
+<Example component="navbar" index={2} />
+
+## Transparent modifier
+
+When using an image or a colored background for the hero section of your website, you might want to turn the navbar transparent. Just add the `.uk-navbar-transparent` class on the same element as the `.uk-navbar-container` class.
+
+{/* If necessary, add the `.uk-light` or `.uk-dark` class from the [Inverse component](/docs/inverse) to adjust the navbar color. */}
+
+```html
+<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>…</nav>
+```
+
+<Example component="navbar" index={3} />
+
+## Subtitle
+
+To define a subtitle, create a `<div>` element inside an item's `<a>` element. Add the `.uk-navbar-subtitle` class to another `<div>` element.
+
+```html
+<li>
+  <a href="">
+    <div>
+      …
+      <div class="uk-navbar-subtitle"></div>
+    </div>
+  </a>
+</li>
+```
+
+<Example component="navbar" index={4} />
+
+## Content item
+
+You can also add custom content to the navbar, like text, icons, buttons or forms. Add the `.uk-navbar-item` class to a `<div>` element that serves as a container for your content.
+
+```html
+<nav class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-left">
+    <a href="" class="uk-navbar-item uk-logo"></a>
+    <ul class="uk-navbar-nav">
+      …
+    </ul>
+    <div class="uk-navbar-item">…</div>
+  </div>
+</nav>
+```
+
+Add the `.uk-logo` class from the [Utility component](/docs/utility) to an `<a>` or `<div>` element to indicate your brand.
+
+<Example component="navbar" index={5} />
+
+## Centered logo
+
+You can create a split menu with a centered logo. Just add the `uk-navbar-center-left` class to one navbar and the `uk-navbar-center-right` class to another within the same navbar container. This will keep your logo centered and align the menus to the left and right.
+
+```html
+<div class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-center">
+    <div class="uk-navbar-center-left">…</div>
+    <a href="" class="uk-navbar-item uk-logo"></a>
+    <div class="uk-navbar-center-right">…</div>
+  </div>
+</div>
+```
+
+<Example component="navbar" index={6} />
+
+## Toggle item
+
+Add the `.uk-navbar-toggle` class and the `uk-navbar-toggle-icon` attribute to an `<a>` or `<div>` element to create an icon as a toggle. By default, there is no JavaScript attached to the toggle. As an example, you can add an off-canvas navigation from the [Offcanvas component](/docs/offcanvas) or a modal from the [Modal component](/docs/modal).
+
+```html
+<div class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-left">
+    <a class="uk-navbar-toggle" uk-navbar-toggle-icon href=""></a>
+  </div>
+</div>
+```
+
+<Example component="navbar" index={7} />
+
+To change the toggle icon from a menu icon to a close icon with a smooth animation, add the `.uk-navbar-toggle-animate` class.
+
+```html
+<a
+  class="uk-navbar-toggle-animate uk-navbar-toggle"
+  uk-navbar-toggle-icon
+  href=""
+></a>
+```
+
+<Example component="navbar" index={8} />
+
+## Dropdowns
+
+A navbar can contain a dropdown from the [Dropdown component](/docs/dropdown). Just add the `.uk-navbar-dropdown` modifier to the dropdown, so it fits perfectly into the navbar styling. Add the `.uk-navbar-dropdown-nav` class to navs inside the dropdown.
+
+```html
+<ul class="uk-navbar-nav">
+  <li>
+    <a href=""></a>
+    <div class="uk-navbar-dropdown">
+      <ul class="uk-nav uk-navbar-dropdown-nav">
+        …
+      </ul>
+    </div>
+  </li>
+</ul>
+```
+
+<Example component="navbar" index={9} />
+
+### Click mode
+
+A parent item inside the navbar can be enabled by either hovering or clicking the toggle. Just add the `mode: click` option to the `uk-navbar` attribute.
+
+```html
+<nav class="uk-navbar-container" uk-navbar="mode: click">…</nav>
+```
+
+<Example component="navbar" index={10} />
+
+### Alignment
+
+By default, the dropdowns are positioned below the navbar item and are aligned to the left. To change the alignment, set the `align` option to the `uk-navbar` attribute.
+
+| Position | Description                         |
+| -------- | ----------------------------------- |
+| `left`   | Aligns the dropdowns to the left.   |
+| `right`  | Aligns the dropdowns to the right.  |
+| `center` | Aligns the dropdowns to the center. |
+
+```html
+<div uk-navbar="align: center"></div>
+```
+
+<Example component="navbar" index={11} />
+
+### Target
+
+By default, the dropdowns are aligned to their navbar item. To position the dropdown to a different element, just add `target: SELECTOR` option to the `uk-navbar` attribute.
+
+```html
+<nav class="uk-navbar-container" uk-navbar="target: !.uk-navbar">…</nav>
+```
+
+<Example component="navbar" index={12} />
+
+### Dropbar
+
+A dropbar extends to the full width of the navbar and displays the dropdown without its default styling. To place dropdowns inside such a dropbar, add the `dropbar: true` option to the `uk-navbar`. Optionally, use `dropbar-anchor` option to select after which element the dropbar will be injected into the markup.
+
+```html
+<nav class="uk-navbar-container" uk-navbar="dropbar: true">…</nav>
+```
+
+<Example component="navbar" index={13} />
+
+### Stretch
+
+To stretch a dropdown, use the [Drop component](/docs/drop) and its `stretch` option. In the following example the dropdown is aligned to the boundary of the parent navbar.
+
+```html
+<div
+  class="uk-navbar-dropdown"
+  uk-drop="boundary: !.uk-navbar; stretch: x; flip: false"
+>
+  …
+</div>
+```
+
+<Example component="navbar" index={14} />
+
+## Parent icon
+
+To create a parent icon, just add the `uk-navbar-parent-icon` attribute to a `<span>` element.
+
+```html
+<ul class="uk-navbar-nav">
+  <li>
+    <a href="">Parent <span uk-navbar-parent-icon></span></a>
+    <div class="uk-navbar-dropdown">…</div>
+  </li>
+</ul>
+```
+
+<Example component="navbar" index={15} />
+
+## Width and Grid
+
+You can place a grid from the [Grid component](/docs/grid) inside a dropdown. Just wrap the content with a `<div>` element and add the `uk-grid` attribute. If the grid should stack automatically whenever the dropdown no longer fits its container, just add the `.uk-drop-grid` class.
+
+To accommodate up to five columns, you also need to add one of the following classes. Columns will stack if they no longer fit into the container.
+
+| Class                         | Description                                              |
+| ----------------------------- | -------------------------------------------------------- |
+| `.uk-navbar-dropdown-width-2` | Add this class to double the dropdown's width.           |
+| `.uk-navbar-dropdown-width-3` | Add this class to triple the dropdown's width.           |
+| `.uk-navbar-dropdown-width-4` | Add this class to multiply the dropdown's width by four. |
+| `.uk-navbar-dropdown-width-5` | Add this class to multiply the dropdown's width by five. |
+
+```html
+<div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
+  <div class="uk-drop-grid uk-child-width-1-2" uk-grid>
+    <div>
+      <ul class="uk-nav uk-navbar-dropdown-nav">
+        …
+      </ul>
+    </div>
+    <div>…</div>
+  </div>
+</div>
+```
+
+<Example component="navbar" index={16} />
+
+## Sticky Navbar
+
+For a basic sticky navbar, wrap the navbar inside a container with the `uk-sticky` attribute from the [Sticky component](/docs/sticky).
+
+The navbar itself has a modifier class `uk-navbar-sticky` that ensures an optimized styling for the sticky state (for example, an additional box shadow). To let the Sticky component dynamically add and remove that class, set `cls-active: uk-navbar-sticky`. To ensure that the class is added to the navbar container, set `sel-target: .uk-navbar-container`.
+
+**Note** You can view more examples in the tests for the [Sticky Navbar](../assets/uikit/tests/sticky-navbar.html).
+
+```html
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+  <nav class="uk-navbar-container" uk-navbar>…</nav>
+</div>
+```
+
+<Example component="navbar" index={17} />
+
+Instead of using a Dropdown, you can also show the subnavigation in a Dropbar, which will stretch across the full width below the navbar. Simply set `dropbar: true` in the `uk-navbar` attribute.
+
+```html
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+  <nav class="uk-navbar-container" uk-navbar="dropbar: true">…</nav>
+</div>
+```
+
+<Example component="navbar" index={18} />
+
+### Transparent sticky navbar
+
+When a [transparent navbar](navbar.md#transparent-modifier) becomes sticky, it is usually required to remove the `.uk-navbar-transparent` class together with `.uk-light` or `.uk-dark` and add them again when the navbar returns to the non-sticky state. To do that, set `cls-inactive: uk-navbar-transparent uk-light`.
+
+By default, the immediate toggling of classes does not look ideal. Instead, set `start: 200` to make the navbar disappear and then re-appear when the user has scrolled 200px past the navbar. In that case, the navbar can also slide in with an animation. Just set `animation: uk-animation-slide-top`.
+
+```html
+<div
+  uk-sticky="start: 200; animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light"
+>
+  <nav class="uk-navbar-container" uk-navbar>…</nav>
+</div>
+```
+
+<Example component="navbar" index={19} />
+
+### Dropbar transparent mode
+
+To optimize the look of a transparent navbar if it opens a dropbar, set the `dropbar-transparent-mode` option to one of the following values.
+
+| Mode     | Description                                                                                     |
+| -------- | ----------------------------------------------------------------------------------------------- |
+| `remove` | Remove navbar transparency when the dropbar opens and add it when the dropbar closes.           |
+| `behind` | Open the dropbar behind the navbar so the navbar content is shown above the dropbar background. |
+
+Use the [Inverse component](/docs/inverse) to color the transparent navbar depending on the background behind. To prevent the navbar from changing its color when it stops being transparent, just add the `sel-active: .uk-navbar-transparent` option to the `uk-inverse` attribute.
+
+For example, set `dropbar-transparent-mode: remove` if the navbar is only transparent in the hero section, but not when sticky.
+
+```html
+<div
+  uk-sticky="start: 200; animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent"
+>
+  <nav
+    class="uk-navbar-container"
+    uk-inverse="sel-active: .uk-navbar-transparent"
+    uk-navbar="dropbar: true; dropbar-transparent-mode: remove"
+  >
+    …
+  </nav>
+</div>
+```
+
+<Example component="navbar" index={20} />
+
+Alternatively, if the navbar is always transparent even when sticky, set `dropbar-transparent-mode: behind` to open the dropbar behind the navbar, so it is no longer transparent.
+
+```html
+<div class="uk-inverse-light">
+  <div
+    uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
+  >
+    <nav
+      class="uk-navbar-container uk-navbar-transparent uk-position-relative uk-position-z-index-high"
+      uk-inverse="sel-active: .uk-navbar-transparent"
+      uk-navbar="dropbar: true; dropbar-transparent-mode: behind; dropbar-anchor: !.uk-navbar-container; target-y: !.uk-navbar-container"
+    >
+      …
+    </nav>
+  </div>
+</div>
+```
+
+<Example component="navbar" index={21} />
+
+When using a sticky transparent navbar, it's quite common to blend it with the page background. In this case, the dropbar needs to be placed outside of the blending element using `dropbar-anchor`, and the dropdowns using `container`. Otherwise, the dropbar and dropdowns would also blend with the page background. This also means the dropbar will be placed outside of the sticky container. As a result, only the navbar will stay sticky, and the opened dropbar will scroll out of view. This is why we added a new `close-on-scroll` option to close the dropbar before scrolling.
+
+Since only white color blends well with the page background, make sure the navbar has light colors or use the `.uk-light` class. Do not use the `uk-inverse` attribute to color the navbar automatically.
+
+```html
+<div
+  class="uk-position-z-index-high uk-blend-difference"
+  uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
+>
+  <nav
+    class="uk-navbar-container uk-navbar-transparent"
+    uk-navbar="container: !.uk-section-default; dropbar: true; dropbar-transparent-mode: behind; close-on-scroll: true; dropbar-anchor: !.uk-blend-difference"
+  >
+    …
+  </nav>
+</div>
+```
+
+<Example component="navbar" index={22} />
+
+### Color navbar parts separately
+
+To color navbar parts separately, just add the `target: .uk-navbar-left, .uk-navbar-center, .uk-navbar-right` option to the `uk-inverse` attribute.
+
+```html
+<div class="uk-position-relative">
+  <div class="uk-position-top">
+    <div
+      uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
+    >
+      <nav
+        class="uk-navbar-container uk-navbar-transparent"
+        uk-inverse="target: .uk-navbar-left, .uk-navbar-center, .uk-navbar-right"
+        uk-navbar
+      >
+        …
+      </nav>
+    </div>
+  </div>
+
+  <div class="uk-child-width-1-3@s uk-grid-collapse uk-grid-match" uk-grid>
+    <div>
+      <div class="uk-tile uk-tile-default">…</div>
+    </div>
+    <div>
+      <div class="uk-tile uk-tile-primary">…</div>
+    </div>
+    <div>
+      <div class="uk-tile uk-tile-secondary">…</div>
+    </div>
+  </div>
+</div>
+```
+
+<Example component="navbar" index={23} />
+
+For more detailed information on coloring the navbar depending on the page background, take a look at the [Inverse component](/docs/inverse).
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name                     | Affected Classes                                                               |
+| ----------------------------- | ------------------------------------------------------------------------------ |
+| `hook-navbar`                 | `.uk-navbar`                                                                   |
+| `hook-container`              | `.uk-navbar-container:not(.uk-navbar-transparent)`                             |
+| `hook-nav-item`               | `.uk-navbar-nav > li > a`                                                      |
+| `hook-nav-item-hover`         | `.uk-navbar-nav > li:hover > a, .uk-navbar-nav > li > a[aria-expanded="true"]` |
+| `hook-nav-item-onclick`       | `.uk-navbar-nav > li > a:active`                                               |
+| `hook-nav-item-active`        | `.uk-navbar-nav > li.uk-active > a`                                            |
+| `hook-item`                   | `.uk-navbar-item`                                                              |
+| `hook-toggle`                 | `.uk-navbar-toggle`                                                            |
+| `hook-toggle-hover`           | `.uk-navbar-toggle:hover, .uk-navbar-toggle[aria-expanded="true"]`             |
+| `hook-toggle-icon`            | `.uk-navbar-toggle-icon`                                                       |
+| `hook-toggle-icon-hover`      | `:hover > .uk-navbar-toggle-icon`                                              |
+| `hook-subtitle`               | `.uk-navbar-subtitle`                                                          |
+| `hook-primary`                | `.uk-navbar-primary`                                                           |
+| `hook-transparent`            | `.uk-navbar-transparent`                                                       |
+| `hook-sticky`                 | `.uk-navbar-sticky`                                                            |
+| `hook-dropdown`               | `.uk-navbar-dropdown`                                                          |
+| `hook-dropdown-large`         | `.uk-navbar-dropdown-large`                                                    |
+| `hook-dropdown-dropbar`       | `.uk-navbar-dropdown-dropbar`                                                  |
+| `hook-dropdown-dropbar-large` | `.uk-navbar-dropdown-dropbar-large`                                            |
+| `hook-dropdown-nav`           | `.uk-navbar-dropdown-nav`                                                      |
+| `hook-nav-item`               | `.uk-navbar-dropdown-nav > li > a`                                             |
+| `hook-nav-item-hover`         | `.uk-navbar-dropdown-nav > li > a:hover`                                       |
+| `hook-nav-item-active`        | `.uk-navbar-dropdown-nav > li.uk-active > a`                                   |
+| `hook-subtitle`               | `.uk-navbar-dropdown-nav .uk-nav-subtitle`                                     |
+| `hook-dropdown-nav-header`    | `.uk-navbar-dropdown-nav .uk-nav-header`                                       |
+| `hook-dropdown-nav-divider`   | `.uk-navbar-dropdown-nav .uk-nav-divider`                                      |
+| `hook-dropbar`                | `.uk-navbar-dropbar`                                                           |
+| `hook-misc`                   | `*`                                                                            |
+
+## Component options
+
+Any of these options can be applied to the component attribute. Separate multiple options with a semicolon. [Learn more](/docs/javascript#component-configuration)
+
+| Option                     | Value                 | Default             | Description                                                                                                  |
+| -------------------------- | --------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `align`                    | String                | `left`              | Dropdown alignment (`left`, `right`, `center`).                                                              |
+| `dropbar `                 | Boolean               | `false`             | Enable or disable dropbar behavior.                                                                          |
+| `dropbar-anchor`           | CSS selector          | `false`             | If set, dropbar will be inserted after the anchor element.                                                   |
+| `dropbar-transparent-mode` | Boolean, String       | `false`             | The dropbar transparent mode (`behind`, `remove`).                                                           |
+| `stretch`                  | Boolean, String       | `false`             | Stretch dropdown on both (true) or given axis (`x`, `y`).                                                    |
+| `mode`                     | String                | `click, hover`      | Comma-separated list of dropdown trigger behavior modes (`click`, `hover`).                                  |
+| `delay-show`               | Number                | `0`                 | Delay time in hover mode before a dropdown is shown in ms.                                                   |
+| `delay-hide`               | Number                | `800`               | Delay time in hover mode before a dropdown is hidden in ms.                                                  |
+| `boundary`                 | CSS selector          | `true`              | The area the dropdown can't exceed causing it to flip and shift. By default, the nearest scrolling ancestor. |
+| `target`                   | Boolean, CSS selector | `false`             | The element the dropdown is positioned to (`true` for window).                                               |
+| `target-x`                 | Boolean, CSS selector | `false`             | The element's X axis the dropdown is positioned to (`true` for window).                                      |
+| `target-y`                 | Boolean, CSS selector | `false`             | The element's Y axis the dropdown is positioned to (`true` for window).                                      |
+| `offset`                   | Number                | `0`                 | The dropdown offset.                                                                                         |
+| `animation`                | String                | `uk-animation-fade` | Space-separated names of animations. Comma-separated for animation out.                                      |
+| `animate-out`              | Boolean               | `false`             | Use animation when closing the dropdown.                                                                     |
+| `bg-scroll`                | Boolean               | `true`              | Allow background scrolling while dropdown is opened.                                                         |
+| `close-on-scroll`          | Boolean               | `false`             | Close the dropdown on scrolling a parent scroll container.                                                   |
+| `duration`                 | Number                | `200`               | The animation duration.                                                                                      |
+| `container`                | Boolean               | `false`             | Define a target container via a selector to specify where the dropdown should be appended in the DOM.        |
+
+## JavaScript
+
+Learn more about [JavaScript components](javascript.md#programmatic-use).
+
+### Initialization
+
+```js
+UIkit.navbar(element, options);
+```
+
+### Events
+
+The following events will be triggered on elements with this component attached:
+
+| Name         | Description                                                                                    |
+| ------------ | ---------------------------------------------------------------------------------------------- |
+| `beforeshow` | Fires before an item is shown. Can prevent showing by calling `preventDefault()` on the event. |
+| `show`       | Fires after an item is shown.                                                                  |
+| `shown`      | Fires after the item's show animation has been completed.                                      |
+| `beforehide` | Fires before an item is hidden. Can prevent hiding by calling `preventDefault()` on the event. |
+| `hide`       | Fires after an item's hide animation has started.                                              |
+| `hidden`     | Fires after an item is hidden.                                                                 |
+
+## Accessibility
+
+The Navbar component adheres to the [Disclosure Navigation Menu WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/) and automatically sets the appropriate WAI-ARIA states and properties.
+
+- The _nav items_ and _toggle items_ have the `aria-expanded` state and the `aria-haspopup` property.
+- The _toggle items_ also have the `aria-label` property.
+
+### Keyboard interaction
+
+The Navbar component can be accessed through the keyboard using the following keys.
+
+- The <kbd>tab</kbd> or <kbd>shift+tab</kbd> keys place focus inside or outside the navbar.
+- The <kbd>left/right arrow</kbd> keys navigate through the navbar items. In hover mode the dropdown will open automatically. If the focus is on the last item, it moves to the first item.
+- The <kbd>enter</kbd> or <kbd>space</kbd> keys open and close the dropdown of the focused navbar item.
+- The <kbd>up/down arrow</kbd> keys navigates through the nav items in a dropdown. If the focus is on the last item, it moves to the first item.
+- The <kbd>esc</kbd> key closes any dropdown even if the focus has moved to another element.
+
+### Internationalization
+
+The Toggle Item component uses the following translation strings. Learn more about [translating components](accessibility.md#internationalization).
+
+| Key     | Default     | Description             |
+| ------- | ----------- | ----------------------- |
+| `label` | `Open Menu` | `aria-label` attribute. |

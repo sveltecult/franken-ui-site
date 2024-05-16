@@ -1,0 +1,68 @@
+<button type="button" aria-label="Close" uk-close></button>
+<!-- split -->
+<button
+  class="uk-close-large"
+  type="button"
+  aria-label="Close"
+  uk-close
+></button>
+<!-- split -->
+<div class="uk-alert" uk-alert>
+  <button
+    class="uk-alert-close"
+    type="button"
+    aria-label="Close"
+    uk-close
+  ></button>
+  <div class="uk-alert-description">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt.
+  </div>
+</div>
+<!-- split -->
+<div class="uk-inline">
+  <button class="uk-button uk-button-default" type="button">Click</button>
+  <div uk-drop="mode: click">
+    <div class="uk-card uk-card-body uk-card-default">
+      <button
+        class="uk-drop-close"
+        type="button"
+        aria-label="Close"
+        uk-close
+      ></button>
+      <p class="uk-margin">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- split -->
+<a class="uk-button uk-button-default" href="#modal" uk-toggle> Open modal </a>
+
+<div class="uk-modal uk-flex-top" id="modal" uk-modal>
+  <div class="uk-modal-body uk-margin-auto-vertical uk-modal-dialog">
+    <button
+      class="uk-modal-close-default"
+      type="button"
+      aria-label="Close"
+      uk-close
+    ></button>
+    <h2 class="uk-modal-title">Are you absolutely sure?</h2>
+    <div class="my-6 text-sm text-muted-foreground">
+      This action cannot be undone. This will permanently delete your account
+      and remove your data from our servers.
+    </div>
+    <div class="uk-flex uk-flex-right">
+      <button
+        class="uk-modal-close uk-button uk-button-default uk-margin-small-right"
+        type="button"
+      >
+        Cancel
+      </button>
+      <button class="uk-button uk-button-primary" type="button">
+        Continue
+      </button>
+    </div>
+  </div>
+</div>

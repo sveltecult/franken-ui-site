@@ -1,0 +1,165 @@
+---
+group: getting-started
+order: 8
+name: Theming
+title: Theming
+meta:
+  description: Using CSS Variables or Tailwind CSS for theming.
+javascript: none
+---
+
+# Theming
+
+You can choose between using CSS variables or Tailwind CSS utility classes for theming.
+
+## Utility classes
+
+```html
+<div class="bg-zinc-950 dark:bg-white"></div>
+```
+
+## CSS Variables
+
+```html
+<div class="bg-background text-foreground"></div>
+```
+
+### Convention
+
+We use a simple `background` and `foreground` convention for colors. The `background` variable is used for the background color of the component and the `foreground` variable is used for the text color.
+
+The `background` suffix is omitted when the variable is used for the background color of the component.
+
+Given the following CSS variables:
+
+```css
+--primary: 222.2 47.4% 11.2%;
+--primary-foreground: 210 40% 98%;
+```
+
+The `background` color of the following component will be `hsl(var(--primary))` and the `foreground` color will be `hsl(var(--primary-foreground))`.
+
+```html
+<div class="bg-primary text-primary-foreground">Hello</div>
+```
+
+**CSS variables must be defined without color space function**. See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information.
+
+### List of variables
+
+Here's the list of variables available for customization:
+
+### For default backgrounds
+
+```css
+--background: 0 0% 100%;
+--foreground: 222.2 47.4% 11.2%;
+```
+
+### For muted backgrounds
+
+```css
+--muted: 210 40% 96.1%;
+--muted-foreground: 215.4 16.3% 46.9%;
+```
+
+### Background color for cards
+
+```css
+--card: 0 0% 100%;
+--card-foreground: 222.2 47.4% 11.2%;
+```
+
+### Background color for popovers
+
+```css
+--popover: 0 0% 100%;
+--popover-foreground: 222.2 47.4% 11.2%;
+```
+
+### For border color
+
+```css
+--border: 214.3 31.8% 91.4%;
+```
+
+### Border color for inputs
+
+```css
+--input: 214.3 31.8% 91.4%;
+```
+
+### For primary colors
+
+```css
+--primary: 222.2 47.4% 11.2%;
+--primary-foreground: 210 40% 98%;
+```
+
+### For secondary colors
+
+```css
+--secondary: 210 40% 96.1%;
+--secondary-foreground: 222.2 47.4% 11.2%;
+```
+
+### For accents such as hover effects
+
+```css
+--accent: 210 40% 96.1%;
+--accent-foreground: 222.2 47.4% 11.2%;
+```
+
+### For destructive actions
+
+```css
+--destructive: 0 100% 50%;
+--destructive-foreground: 210 40% 98%;
+```
+
+### For focus ring
+
+```css
+--ring: 215 20.2% 65.1%;
+```
+
+### Adding new colors
+
+To add new colors, you need to add them to your CSS file and to your `tailwind.config.js` file.
+
+```css
+:root {
+  --warning: 38 92% 50%;
+  --warning-foreground: 48 96% 89%;
+}
+
+.dark {
+  --warning: 48 96% 89%;
+  --warning-foreground: 38 92% 50%;
+}
+```
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        warning: "hsl(var(--warning))",
+        "warning-foreground": "hsl(var(--warning-foreground))",
+      },
+    },
+  },
+};
+```
+
+You can now use the `warning` utility class in your components.
+
+```html
+<div class="bg-warning text-warning-foreground" />
+```
+
+### Other color formats
+
+We recommend using [HSL colors](https://www.smashingmagazine.com/2021/07/hsl-colors-css/) for theming but you can also use other color formats if you prefer.
+
+See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information on using `rgb`, `rgba` or `hsl` colors.

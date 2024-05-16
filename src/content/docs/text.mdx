@@ -1,0 +1,157 @@
+---
+group: components
+name: Text
+title: Text
+meta:
+  description: A collection of utility classes to style text.
+javascript: full
+---
+
+import Example from "src/rehype/example.astro";
+
+# Text
+
+<p class="uk-text-lead uk-paragraph">{`A collection of utility classes to style text.`}</p>
+
+Combine this component with the [Heading component](/docs/heading) to style your content.
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Text component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        text: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+## Style modifiers
+
+UIkit offers various text utilities to style your text.
+
+| Class           | Description                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `.uk-text-lead` | <span class="uk-text-lead">Add this class to highlight text, for example in article subtitles.</span>                |
+| `.uk-text-meta` | <span class="uk-text-meta">Add this class to a paragraph that contains meta text about an article or similar.</span> |
+
+## Font size
+
+The following classes will modify the font size of your text.
+
+| Class              | Description                                                                       |
+| ------------------ | --------------------------------------------------------------------------------- |
+| `.uk-text-small`   | <span class="uk-text-small">Add this class to decrease the font size.</span>      |
+| `.uk-text-default` | <span class="uk-text-default">Add this class to set default the font size.</span> |
+| `.uk-text-large`   | <span class="uk-text-large">Add this class to increase the font size.</span>      |
+
+## Font weight
+
+Add one of the following classes to modify the font-weight of your text.
+
+| Class              | Description                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| `.uk-text-light`   | <span class="uk-text-light">Add this class to apply a font-weight of `300`.</span>  |
+| `.uk-text-normal`  | <span class="uk-text-normal">Add this class to apply a font-weight of `400`.</span> |
+| `.uk-text-bold`    | <span class="uk-text-bold">Add this class to apply a font-weight of `700`.</span>   |
+| `.uk-text-lighter` | <span class="uk-text-lighter">Add this class to apply a lighter font weight.</span> |
+| `.uk-text-bolder`  | <span class="uk-text-bolder">Add this class to apply a bolder font weight.</span>   |
+
+## Font style
+
+Add the `.uk-text-italic` class to create <span class="uk-text-italic">italic text</span>.
+
+## Text transform
+
+The following classes will transform the text into uppercased, capitalized or lowercase characters.
+
+| Class                 | Description                                                                                  |
+| --------------------- | -------------------------------------------------------------------------------------------- |
+| `.uk-text-capitalize` | <span class="uk-text-capitalize">Add this class to transform your text to capitalize.</span> |
+| `.uk-text-uppercase`  | <span class="uk-text-uppercase">Add this class to transform your text to uppercase.</span>   |
+| `.uk-text-lowercase`  | <span class="uk-text-lowercase">Add this class to transform your text to lowercase.</span>   |
+
+## Text decoration
+
+Add the `.uk-text-decoration-none` class to remove any text decoration from a <a class="uk-text-decoration-none" href>link</a>.
+
+## Text color
+
+Use one of these classes to apply a different color to text elements.
+
+| Class                | Description                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| `.uk-text-muted`     | <span class="uk-text-muted">Add this class to mute text.</span>                                   |
+| `.uk-text-emphasis`  | <span class="uk-text-emphasis">Add this class to emphasize text.</span>                           |
+| `.uk-text-primary`   | <span class="uk-text-primary">Add this class to emphasize text with the primary color.</span>     |
+| `.uk-text-secondary` | <span class="uk-text-secondary">Add this class to emphasize text with the secondary color.</span> |
+| `.uk-text-success`   | <span class="uk-text-success">Add this class to indicate success.</span>                          |
+| `.uk-text-warning`   | <span class="uk-text-warning">Add this class to indicate a warning.</span>                        |
+| `.uk-text-danger`    | <span class="uk-text-danger">Add this class to indicate danger.</span>                            |
+
+## Text background
+
+To apply a gradient or background image to text, add the `.uk-text-background` class to a `<span>` element inside the text element. Styles that don't define a `background-image`, will apply the primary color.
+
+```html
+<h1><span class="uk-text-background"></span></h1>
+```
+
+## Text alignment
+
+Add one of these useful classes to align your text.
+
+| Class              | Description                |
+| ------------------ | -------------------------- |
+| `.uk-text-left`    | Aligns text to the left.   |
+| `.uk-text-right`   | Aligns text to the right.  |
+| `.uk-text-center`  | Centers text horizontally. |
+| `.uk-text-justify` | Justifies text.            |
+
+<Example component="text" index={0} />
+
+### Responsive
+
+UIkit provides a number of responsive alignment classes. Basically, they work just like the usual alignment classes, except that they have suffixes that represent the breakpoint from which they come to effect.
+
+| Class                                                                   | Description                                   |
+| ----------------------------------------------------------------------- | --------------------------------------------- |
+| `.uk-text-left@s`<br /> `.uk-text-center@s`<br /> `.uk-text-right@s`    | Affects device widths of _640px_ and larger.  |
+| `.uk-text-left@m`<br /> `.uk-text-center@m`<br /> `.uk-text-right@m`    | Affects device widths of _768px_ and larger.  |
+| `.uk-text-left@l`<br /> `.uk-text-center@l`<br /> `.uk-text-right@l`    | Affects device widths of _1024px_ and larger. |
+| `.uk-text-left@xl`<br /> `.uk-text-center@xl`<br /> `.uk-text-right@xl` | Affects device widths of _1080px_ and larger. |
+
+<Example component="text" index={1} />
+
+### Vertical alignment
+
+Add one of these classes to vertically align text to an object.
+
+| Class               | Description                  |
+| ------------------- | ---------------------------- |
+| `.uk-text-top`      | Aligns text to the top.      |
+| `.uk-text-middle`   | Centers text vertically.     |
+| `.uk-text-bottom`   | Aligns text to the bottom.   |
+| `.uk-text-baseline` | Aligns text to the baseline. |
+
+<Example component="text" index={2} />
+
+## Text wrapping
+
+Add one of these useful classes to wrap your text.
+
+| Class               | Description                                                                                        |
+| ------------------- | -------------------------------------------------------------------------------------------------- |
+| `.uk-text-truncate` | Prevents text from wrapping into multiple lines, truncating it and displaying an ellipsis instead. |
+| `.uk-text-break`    | Breaks strings, if their length exceeds the width of their container.                              |
+| `.uk-text-nowrap`   | Prevents text from wrapping into multiple lines.                                                   |
+
+<Example component="text" index={3} />

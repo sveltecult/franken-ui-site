@@ -1,0 +1,285 @@
+---
+group: components
+name: Form
+title: Form
+meta:
+  description: Easily create nice looking forms with different styles and layouts.
+javascript: partial
+---
+
+import Example from "src/rehype/example.astro";
+
+# Form
+
+<p class="uk-text-lead uk-paragraph">{`Easily create nice looking forms with different styles and layouts.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Form Range
+and Form components within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        'form-range': {
+            hooks: {}
+        },
+        form: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+Add one of the following classes to form controls inside a `<form>` element to define them.
+
+| Class               | Description                                                                     |
+| ------------------- | ------------------------------------------------------------------------------- |
+| `.uk-input`         | Add this class to `<input>` elements.                                           |
+| `.uk-select`        | Add this class to `<select>` elements.                                          |
+| `.uk-textarea`      | Add this class to `<textarea>` elements.                                        |
+| `.uk-radio`         | Add this class to `<input type="radio">` elements to create radio buttons.      |
+| `.uk-checkbox`      | Add this class to `<input type="checkbox">` elements to create checkboxes.      |
+| `.uk-range`         | Add this class to `<input type="range">` elements to create range forms.        |
+| `.uk-toggle-switch` | Add this class to `<input type="checkbox">` elements to create toggle switches. |
+
+```html
+<form>
+  <input class="uk-input" type="text" />
+  <select class="uk-select">
+    <option></option>
+    <option></option>
+  </select>
+  <textarea class="uk-textarea"></textarea>
+  <input class="uk-radio" type="radio" />
+  <input class="uk-checkbox" type="checkbox" />
+  <input class="uk-range" type="range" />
+</form>
+```
+
+Add the `.uk-fieldset` class to a `<fieldset>` element and the `.uk-legend` class to a `<legend>` element to define a fieldset and a form legend.
+
+<Example component="form" index={0} />
+
+## States modifiers
+
+Provide the user with basic information through feedback states on form controls by using one of the following classes.
+
+| Class             | Description                                                        |
+| ----------------- | ------------------------------------------------------------------ |
+| `.uk-form-danger` | Add this class to notify the user that the value is not validated. |
+
+Add the `disabled` attribute to a form control. It will appear muted.
+
+<Example component="form" index={1} />
+
+## Width modifiers
+
+You can apply the `.uk-width-*` classes from the [Width component](/docs/width) to form controls.
+
+<Example component="form" index={2} />
+
+## Blank modifier
+
+Add the `.uk-form-blank` class to minimize the styling of form controls.
+
+<Example component="form" index={3} />
+
+## Layout
+
+Define labels and controls and apply a stacked or horizontal layout to form elements. Layout modifiers can be added to any parent element like the `<fieldset>` element. This makes it possible to have different form layouts for each fieldset.
+
+| Class                 | Description                                                 |
+| --------------------- | ----------------------------------------------------------- |
+| `.uk-form-stacked`    | Add this class to display labels on top of controls.        |
+| `.uk-form-horizontal` | Add this class to display labels and controls side by side. |
+| `.uk-form-label`      | Add this class to define form labels.                       |
+| `.uk-form-controls`   | Add this class to define form controls.                     |
+
+```html
+<form class="uk-form-stacked">
+  <div>
+    <label class="uk-form-label"></label>
+    <div class="uk-form-controls">…</div>
+  </div>
+  <div>
+    <div class="uk-form-label"></div>
+    <div class="uk-form-controls">…</div>
+  </div>
+</form>
+```
+
+<Example component="form" index={4} />
+
+### Horizontal form
+
+Use the `.uk-form-controls-text` class to better align checkboxes and radio buttons when using them with text in a horizontal layout.
+
+```html
+<form class="uk-form-horizontal">
+  <div>
+    <label class="uk-form-label"></label>
+    <div class="uk-form-controls">…</div>
+  </div>
+  <div>
+    <div class="uk-form-label"></div>
+    <div class="uk-form-controls uk-form-controls-text">…</div>
+  </div>
+</form>
+```
+
+<Example component="form" index={5} />
+
+## Form and icons
+
+You use an icon from the [Icon component](/docs/icon) inside a form. Add the `.uk-form-icon` class to a `<span>` element. Group it with an `<input>` element by adding the `.uk-inline` class from the [Utility component](utility.md#inline) to a container element around both. The icon has to come first in the markup. By default, the icon will be placed on the left side of the form. To change the alignment, add the `.uk-form-icon-flip` class.
+
+```html
+<div class="uk-inline">
+  <span class="uk-form-icon" uk-icon="icon: user"></span>
+  <input class="uk-input" />
+</div>
+```
+
+<Example component="form" index={6} />
+
+### Clickable icons
+
+To enable an action, for example opening a modal to pick an image or link, use an `<a>` or `<button>` element to create the icon.
+
+```html
+<div class="uk-inline">
+  <a class="uk-form-icon uk-form-icon-flip" href="" uk-icon="icon: user"></a>
+  <input class="uk-input" />
+</div>
+```
+
+<Example component="form" index={7} />
+
+## Form and grid
+
+You can also use the [Grid](/docs/grid) and [Width](/docs/width) components to define the layout of a form.
+
+<Example component="form" index={8} />
+
+## Custom controls
+
+To replace a file input or select forms with your own HTML content, like a button or text, add the `uk-form-custom` attribute to a container element.
+
+### File
+
+Use a button or text as a file input.
+
+```html
+<div uk-form-custom>
+  <input type="file" />
+  <button type="button"></button>
+</div>
+```
+
+<Example component="form" index={9} />
+
+<span class="uk-label uk-label-primary">Note</span> The hover and focus state for
+`uk-form-custom` are not styled by default, but you could use the adjacent sibling
+selector to do so.
+
+### Select
+
+Use a button, text or a link as a select form. Just add the `target: SELECTOR` option to the `uk-form-custom` attribute to select where the option value should be displayed. `target: true` will select the adjacent element in the markup.
+
+```html
+<div uk-form-custom="target: true">
+  <select>
+    <option></option>
+    <option></option>
+  </select>
+  <button type="button"></button>
+</div>
+```
+
+<Example component="form" index={10} />
+
+## Help block
+
+Form text can be created using `.uk-form-help` and should be explicitly associated with the form control it relates to using the `aria-describedby` attribute. This will ensure that assistive technologies—such as screen readers—will announce this form text when the user focuses or enters the control.
+
+<Example component="form" index={11} />
+
+## Toggle Switch
+
+Use the following toggle switch component to ask for a yes or no type of input from your users without the use of JavaScript.
+
+<Example component="form" index={12} />
+
+### Style modifiers
+
+There are several style modifiers available. Just add one of the following classes to apply a different look.
+
+| Class                       | Description               |
+| --------------------------- | ------------------------- |
+| `.uk-toggle-switch-primary` | Adds a primary style.     |
+| `.uk-toggle-switch-danger`  | Adds a destructive style. |
+
+<Example component="form" index={13} />
+
+## Tag input
+
+Tag inputs render tags inside an input, followed by an actual text input. Please note that you have to implement
+your own JavaScript for removing or adding new tags.
+
+| Class           | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| `.uk-tag-input` | Add this class to hold tags and the actual text input. |
+| `.uk-tag`       | Add this class to a `span` to display the tag.         |
+
+<Example component="form" index={14} />
+
+## Pin input
+
+Allows users to input a sequence of one-character alphanumeric inputs. Please note that you have to implement your
+own JavaScript to activate the next or previous input when the user types or removes
+characters.
+
+| Class               | Description                                |
+| ------------------- | ------------------------------------------ |
+| `.uk-pin-input`     | Add this class to hold all the inputs.     |
+| `.uk-pin-separated` | Add this modifier separate all the inputs. |
+| `.uk-disabled`      | Add this class to disable all the inputs.  |
+
+<Example component="form" index={15} />
+
+### Separated
+
+<Example component="form" index={16} />
+
+## Component option
+
+You can add this option to the `uk-form-custom` attribute. [Learn more](/docs/javascript#component-configuration)
+
+| Option   | Value                 | Default | Description           |
+| -------- | --------------------- | ------- | --------------------- |
+| `target` | CSS selector, Boolean | `false` | Value display target. |
+
+## JavaScript
+
+Learn more about [JavaScript components](javascript.md#programmatic-use).
+
+### Initialization
+
+```js
+UIkit.formCustom(element, options);
+```
+
+## Accessibility
+
+Set the appropriate WAI-ARIA roles, states and properties to the Form component.
+
+- If no `<label>` element is associated with the form control, set the `aria-label` property to the form control to describe its meaning.
+
+```html
+<input class="uk-input" type="text" aria-label="…" />
+```

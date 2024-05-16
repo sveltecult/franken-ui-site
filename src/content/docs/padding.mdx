@@ -1,0 +1,61 @@
+---
+group: components
+name: Padding
+title: Padding
+meta:
+  description: A collection of utility classes to add spacing between elements and their content.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Padding
+
+<p class="uk-text-lead uk-paragraph">{`A collection of utility classes to add spacing between elements and their content.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Padding component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        padding: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+To apply this component, add one of the following classes to a block element.
+
+| Class               | Description                          |
+| ------------------- | ------------------------------------ |
+| `.uk-padding`       | Adds default padding to the element. |
+| `.uk-padding-small` | Adds small padding to the element.   |
+| `.uk-padding-large` | Adds large padding to the element.   |
+
+```html
+<div class="uk-padding"></div>
+```
+
+<Example component="padding" index={0} />
+
+## Remove padding
+
+In some cases you want to remove padding from an element, rather than adding it. To do so, apply one of the following classes.
+
+| Class                           | Description                                     |
+| ------------------------------- | ----------------------------------------------- |
+| `.uk-padding-remove`            | Removes all padding from an element.            |
+| `.uk-padding-remove-top`        | Removes top padding from an element.            |
+| `.uk-padding-remove-bottom`     | Removes bottom padding from an element.         |
+| `.uk-padding-remove-left`       | Removes left padding from an element.           |
+| `.uk-padding-remove-right`      | Removes right padding from an element.          |
+| `.uk-padding-remove-vertical`   | Removes top and bottom padding from an element. |
+| `.uk-padding-remove-horizontal` | Removes left and right padding from an element. |

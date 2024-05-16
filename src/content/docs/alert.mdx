@@ -1,0 +1,128 @@
+---
+group: components
+name: Alert
+title: Alert
+meta:
+  description: Displays a callout for user attention.
+javascript: partial
+---
+
+import Example from "src/rehype/example.astro";
+
+# Alert
+
+<p class="uk-text-lead uk-paragraph">Display success, or error messages.</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Alert component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        alert: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To apply this component, add the `uk-alert` attribute to a block element.
+
+```html
+<div class="uk-alert" uk-alert></div>
+```
+
+<Example component="alert" index={0} />
+
+## Close button
+
+To create a close button and enable its functionality, add the `.uk-alert-close` class to a `<button>` or `<a>` element inside the alert box. To apply a close icon, add the `uk-close` attribute from the [Close component](/docs/close).
+
+```html
+<div class="uk-alert" uk-alert>
+  <a href class="uk-alert-close"></a>
+</div>
+```
+
+<Example component="alert" index={1} />
+
+## Danger modifier
+
+Just add `.uk-alert-danger` class to apply a different look.
+
+<Example component="alert" index={2} />
+
+## With icon
+
+To add icon, just add your `svg` tag next to your title and message.
+
+<Example component="alert" index={3} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name          | Affected Classes        |
+| ------------------ | ----------------------- |
+| `hook-alert`       | `.uk-alert`             |
+| `hook-close`       | `.uk-alert-close`       |
+| `hook-close-hover` | `.uk-alert-close:hover` |
+| `hook-close-focus` | `.uk-alert-close:focus` |
+| `hook-default`     | `.uk-alert-default`     |
+| `hook-primary`     | `.uk-alert-primary`     |
+| `hook-success`     | `.uk-alert-success`     |
+| `hook-warning`     | `.uk-alert-warning`     |
+| `hook-danger`      | `.uk-alert-danger`      |
+| `hook-misc`        | `*`                     |
+
+## Component options
+
+Any of these options can be applied to the component attribute. Separate multiple options with a semicolon. [Learn more](/docs/javascript#component-configuration)
+
+| Option      | Value        | Default           | Description                         |
+| ----------- | ------------ | ----------------- | ----------------------------------- |
+| `animation` | Boolean      | `true`            | Fade out or hide directly.          |
+| `duration`  | Number       | `150`             | Animation duration in milliseconds. |
+| `sel-close` | CSS selector | `.uk-alert-close` | The close trigger element.          |
+
+`animation` is the _Primary_ option and its key may be omitted, if it's the only option in the attribute value.
+
+```html
+<span uk-toggle=".my-class"></span>
+```
+
+## JavaScript
+
+Learn more about [JavaScript components](/docs/javascript.md#programmatic-use).
+
+### Initialization
+
+```javascript
+UIkit.alert(element, options);
+```
+
+### Events
+
+The following events will be triggered on elements with this component attached:
+
+| Name         | Description                                                                                    |
+| ------------ | ---------------------------------------------------------------------------------------------- |
+| `beforehide` | Fires before an item is hidden. Can prevent hiding by calling `preventDefault()` on the event. |
+| `hide`       | Fires after an item is hidden.                                                                 |
+
+### Methods
+
+The following methods are available for the component:
+
+#### Close
+
+```javascript
+UIkit.alert(element).close();
+```
+
+Closes and removes the Alert.

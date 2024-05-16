@@ -1,17 +1,14 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { getCollection, getEntry } from "astro:content";
-import Docs from "layouts/docs.astro";
-import marked from "lib/marked";
-
-const { slug } = Astro.params;
-
-const e = await getEntry("docs", slug);
+import { getCollection } from "astro:content";
+import Master from "layouts/master.astro";
+import Nav from "layouts/partials/nav.astro";
+import Navbar from "layouts/partials/navbar.astro";
 
 export const getStaticPaths = (async () => {
   const docs = await getCollection("docs");
 
-  return docs.map((a: any) => {
+  return docs.map((a) => {
     return {
       params: {
         slug: a.slug,
@@ -21,64 +18,69 @@ export const getStaticPaths = (async () => {
   });
 }) satisfies GetStaticPaths;
 
-const m = await marked(e?.body || "");
+const entry = Astro.props;
+
+const { Content, headings, remarkPluginFrontmatter } = await entry.render();
 ---
 
-<Docs
-  doc={{
-    title: e?.data.title,
-    meta: e?.data.meta,
-  }}
-  tbc={m.tbc}
-  slug={e?.slug}
->
-  {
-    e?.data.javascript !== "none" ? (
-      <div class="mb-5">
-        <a
-          href="/docs/javascript"
-          class="inline-flex items-center justify-between rounded-full bg-accent px-1 py-1 pr-4 text-sm text-accent-foreground"
-        >
-          <span
-            class={`mr-3 rounded-full px-3 py-1.5 text-xs ${e?.data.javascript === "full" ? "bg-destructive text-destructive-foreground" : "bg-primary text-primary-foreground"}`}
-          >
-            <svg width="16" height="16" viewBox="0 0 20 20">
-              <polygon
-                fill="currentColor"
-                points="14.4,3.1 11.3,5.1 15,7.3 15,12.9 10,15.7 5,12.9 5,8.5 2,6.8 2,14.8 9.9,19.5 18,14.8 18,5.3"
-              />
-              <polygon
-                fill="currentColor"
-                points="9.8,4.2 6.7,2.4 9.8,0.4 12.9,2.3"
-              />
-            </svg>
-          </span>
-          <span class="text-sm font-medium">
-            {e?.data.javascript === "full"
-              ? "UIkit is required"
-              : "UIkit is optional"}
-          </span>
-          <svg
-            class="ml-2.5 h-2.5 w-2.5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 9 4-4-4-4"
-            />
-          </svg>
-        </a>
-      </div>
-    ) : (
-      ""
-    )
-  }
+<Master doc={{ title: remarkPluginFrontmatter.title }}>
+  <Navbar>
+    <Fragment slot="offcanvas">
+      <Nav pathname={entry.slug} />
+    </Fragment>
+  </Navbar>
 
-  <Fragment set:html={m.html} />
-</Docs>
+  <div class="uk-container uk-container-xlarge">
+    <aside class="aside-l">
+      <Nav pathname={entry.slug} />
+    </aside>
+    <div
+      class="uk-container uk-container-xsmall uk-margin-medium-top uk-margin-medium-bottom"
+    >
+      <div class="uk-position-relative" id="docs">
+        <Content />
+        <aside class="aside-r">
+          <ul
+            class="uk-nav uk-nav-default"
+            uk-scrollspy-nav="closest: li; scroll: true; offset: 40"
+            uk-sticky="offset: 96"
+          >
+            <li class="uk-nav-header">On This Page</li>
+            {
+              headings
+                .filter((a) => a.depth === 2)
+                .map((a) => (
+                  <li>
+                    <a href={`#${a.slug}`}>{a.text}</a>
+                  </li>
+                ))
+            }
+            <li class="uk-nav-divider my-2"></li>
+            <li>
+              <a
+                href="https://github.com/sveltecult/franken-ui"
+                target="_blank"
+              >
+                <span
+                  class="uk-margin-small-right"
+                  uk-icon="ratio: 0.8; icon: warning"></span>
+                <span>Report issue</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href={`https://github.com/sveltecult/franken-ui-site/tree/master/src/content/docs/${entry.id}`}
+                target="_blank"
+              >
+                <span
+                  class="uk-margin-small-right"
+                  uk-icon="ratio: 0.8; icon: file-edit"></span>
+                <span>Edit this page</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+</Master>

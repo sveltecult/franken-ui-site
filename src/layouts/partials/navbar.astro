@@ -6,15 +6,17 @@ const { pathname } = Astro.url;
   uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;"
 >
   <nav class="uk-navbar-container">
-    <div class="container max-w-screen-2xl">
+    <div class="uk-container uk-container-xlarge">
       <div class="uk-navbar" uk-navbar="mode: click">
-        <div class="uk-navbar-left hidden md:flex">
+        <div class="uk-navbar-left flex">
           <a class="uk-navbar-item text-primary" href="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 256 256"
               class="h-6 w-6"
-              ><rect width="256" height="256" fill="none"></rect><line
+            >
+              <rect width="256" height="256" fill="none"></rect>
+              <line
                 x1="208"
                 y1="128"
                 x2="128"
@@ -23,7 +25,8 @@ const { pathname } = Astro.url;
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"></line><line
+                stroke-width="16"></line>
+              <line
                 x1="192"
                 y1="40"
                 x2="40"
@@ -32,8 +35,8 @@ const { pathname } = Astro.url;
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="16"></line></svg
-            >
+                stroke-width="16"></line>
+            </svg>
             <span class="text-base font-bold">franken/ui</span>
           </a>
           <ul class="uk-navbar-nav hidden lg:flex">
@@ -102,29 +105,33 @@ const { pathname } = Astro.url;
           </ul>
         </div>
 
-        <div class="uk-navbar-right ml-0 flex-1 md:ml-auto md:flex-none">
-          <div class="uk-navbar-item flex w-full">
-            <div class="flex-1">
-              <button
-                id="docsearch-toggle"
-                class="relative inline-flex h-8 w-full items-center justify-start whitespace-nowrap rounded-[0.5rem] border border-input bg-background px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:pr-12 md:w-40 lg:w-64"
-              >
-                <span class="hidden lg:inline-flex">
-                  Search documentation...
-                </span>
-                <span class="inline-flex lg:hidden"> Search... </span>
-                <kbd
-                  class="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex"
-                >
-                  <span class="text-xs">⌘</span>K
-                </kbd>
-              </button>
-            </div>
+        <div class="uk-navbar-right md:flex-none">
+          <div class="uk-navbar-item flex">
             <ul class="uk-iconnav flex-none">
               <li>
-                <a href="https://mas.to/@sveltecult" target="_blank">
-                  <span class="sr-only">Follow @sveltecult on Mastodon</span>
-                  <span uk-icon="icon: mastodon; ratio: 0.8"></span>
+                <a href="#not-available" uk-toggle>
+                  <span class="sr-only">Search</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-search"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/sveltecult" target="_blank">
+                  <span class="sr-only">Follow @sveltecult on X</span>
+                  <span uk-icon="icon: x; ratio: 0.8"></span>
                 </a>
               </li>
               <li>
@@ -142,14 +149,17 @@ const { pathname } = Astro.url;
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     class="lucide lucide-sun dark:hidden"
-                    ><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"
-                    ></path><path d="M12 20v2"></path><path
-                      d="m4.93 4.93 1.41 1.41"></path><path
-                      d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"
-                    ></path><path d="M20 12h2"></path><path
-                      d="m6.34 17.66-1.41 1.41"></path><path
-                      d="m19.07 4.93-1.41 1.41"></path></svg
                   >
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                  </svg>
                   <svg
                     id="theme-toggle-dark-icon"
                     xmlns="http://www.w3.org/2000/svg"
@@ -162,11 +172,12 @@ const { pathname } = Astro.url;
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     class="lucide lucide-moon hidden dark:block"
-                    ><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg
                   >
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                  </svg>
                 </a>
               </li>
-              <li class="lg:hidden">
+              <li class="uk-hidden@xl">
                 <a href="#menu" uk-toggle>
                   <span class="sr-only">Toggle menu</span>
                   <svg
@@ -180,13 +191,11 @@ const { pathname } = Astro.url;
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     class="lucide lucide-menu"
-                    ><line x1="4" x2="20" y1="12" y2="12"></line><line
-                      x1="4"
-                      x2="20"
-                      y1="6"
-                      y2="6"></line><line x1="4" x2="20" y1="18" y2="18"
-                    ></line></svg
                   >
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                  </svg>
                 </a>
               </li>
             </ul>
@@ -207,7 +216,9 @@ const { pathname } = Astro.url;
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 256 256"
         class="mr-2 h-4 w-4"
-        ><rect width="256" height="256" fill="none"></rect><line
+      >
+        <rect width="256" height="256" fill="none"></rect>
+        <line
           x1="208"
           y1="128"
           x2="128"
@@ -216,7 +227,8 @@ const { pathname } = Astro.url;
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="16"></line><line
+          stroke-width="16"></line>
+        <line
           x1="192"
           y1="40"
           x2="40"
@@ -225,8 +237,8 @@ const { pathname } = Astro.url;
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="16"></line></svg
-      >
+          stroke-width="16"></line>
+      </svg>
       <span class="font-bold"> franken/ui </span>
     </a>
 

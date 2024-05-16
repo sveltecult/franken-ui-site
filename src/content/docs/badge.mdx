@@ -1,0 +1,62 @@
+---
+group: components
+name: Badge
+title: Badge
+meta:
+  description: Displays a badge or a component that looks like a badge.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Badge
+
+<p class="uk-text-lead uk-paragraph">{`Easily create nice looking notification badges.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Badge component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        badge: {
+            hooks: {}
+        }
+    }
+}),
+```
+
+To create a badge, just add the `.uk-badge` class to an inline element like `<a>` or `<span>` element.
+
+```html
+<span class="uk-badge"></span>
+```
+
+<Example component="badge" index={0} />
+
+## Style modifiers
+
+There are several style modifiers available. Just add one of the following classes to apply a different look.
+
+| Class                 | Description               |
+| --------------------- | ------------------------- |
+| `.uk-badge-primary`   | Adds a primary style.     |
+| `.uk-badge-secondary` | Adds a secondary style.   |
+| `.uk-badge-danger`    | Adds a destructive style. |
+
+<Example component="badge" index={1} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name    | Affected Classes  |
+| ------------ | ----------------- |
+| `hook-badge` | `.uk-badge`       |
+| `hook-hover` | `.uk-badge:hover` |
+| `hook-misc`  | `*`               |

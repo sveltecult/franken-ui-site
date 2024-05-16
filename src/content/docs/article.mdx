@@ -1,0 +1,64 @@
+---
+group: components
+name: Article
+title: Article
+meta:
+  description: Create articles within your page.
+javascript: none
+---
+
+import Example from "src/rehype/example.astro";
+
+# Article
+
+<p class="uk-text-lead uk-paragraph">{`Create articles within your page.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Article component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        article: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+The Article component consists of the article itself, a title and meta text.
+
+| Class               | Description                                                                                                |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `.uk-article`       | Add this class to define the Article component. Typically you would use an `<article>` element for this.   |
+| `.uk-article-title` | Add this class to a heading to create an article title. Typically you would use a `<h1>` element for this. |
+| `.uk-article-meta`  | Add this class to a paragraph that contains meta text about your article.                                  |
+
+```html
+<article class="uk-article">
+  <h1 class="uk-article-title"></h1>
+  <p class="uk-article-meta"></p>
+</article>
+```
+
+Use the `.uk-text-lead` class from the [Text component](/docs/text) to create a leading paragraph.
+
+<Example component="article" index={0} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name       | Affected Classes            |
+| --------------- | --------------------------- |
+| `hook-article`  | `.uk-article`               |
+| `hook-adjacent` | `.uk-article + .uk-article` |
+| `hook-title`    | `.uk-article-title`         |
+| `hook-meta`     | `.uk-article-meta`          |
+| `hook-misc`     | `*`                         |
