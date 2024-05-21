@@ -54,6 +54,9 @@ const { pathname } = Astro.props;
       </li>
     ))
   }
+  <li class={pathname === "about" ? "uk-active" : ""}>
+    <a href="/about">About</a>
+  </li>
 </ul>
 
 <ul class="uk-nav uk-nav-default pt-4 lg:pt-0">
@@ -68,6 +71,9 @@ const { pathname } = Astro.props;
         </li>
       ))
   }
+  <li class={`hidden lg:block ${pathname === "about" ? "uk-active" : ""}`}>
+    <a href="/about">About</a>
+  </li>
 </ul>
 
 <ul class="uk-nav uk-nav-default pt-4">

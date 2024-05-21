@@ -1,0 +1,34 @@
+import Master from "layouts/master.astro";
+import Navbar from "layouts/partials/navbar.astro";
+import Nav from "layouts/partials/nav.astro";
+
+<Master doc={{ title: "About" }}>
+  <Navbar>
+    <Fragment slot="offcanvas">
+      <Nav pathname="about" />
+    </Fragment>
+  </Navbar>
+
+<div class="uk-container uk-container-xsmall uk-margin-medium-top uk-margin-medium-bottom">
+
+# About
+
+Franken UI is a port of [shadcn/ui](https://ui.shadcn.com) for plain HTML or server rendered pages. It is compatible with [UIkit 3's](https://getuikit.com) JavaScript and accessibility features. It works both as a standalone or as a Tailwind CSS plugin.
+
+This project is maintained by [sveltecult](https://x.com/sveltecult) and I am a completely independent developer and have no affiliation with Svelte, @shadcn, UIkit and YOOtheme, or any other entities.
+
+## Credits
+
+- [shadcn](https://x.com/shadcn) - For providing the design and implementation of the original [shadcn/ui](https://ui.shadcn.com).
+- [UIkit](https://getuikit.com) - For documentation, examples, base stylings, JavaScript and accessibility features.
+- [Flowbite](https://flowbite.com) - For documenation and other components.
+- [SvelteKit](https://kit.svelte.dev/), [Tailwind CSS](https://tailwindcss.com/), [PostCSS](https://github.com/postcss/postcss), [postcss-combine-duplicated-selectors](https://github.com/ChristianMurphy/postcss-combine-duplicated-selectors) and [postcss-sort-media-queries](https://github.com/yunusga/postcss-sort-media-queries) - For the tools we used to build and optimize this library.
+- [Astro](https://astro.build/), and [unifiedjs](https://github.com/unifiedjs) to build this documenation.
+- And all the amazing open source projects used to make this project possible.
+
+## License
+
+Licensed under the [MIT license](https://github.com/sveltecult/franken-ui/blob/master/LICENSE.md).
+
+</div>
+</Master>
