@@ -23,7 +23,12 @@ const entry = Astro.props;
 const { Content, headings, remarkPluginFrontmatter } = await entry.render();
 ---
 
-<Master doc={{ title: remarkPluginFrontmatter.title }}>
+<Master
+  doc={{
+    title: remarkPluginFrontmatter.title,
+    meta: remarkPluginFrontmatter.meta,
+  }}
+>
   <Navbar>
     <Fragment slot="offcanvas">
       <Nav pathname={entry.slug} />
