@@ -19,51 +19,51 @@ Perfect for beginners, the simplest installation can be done using CDN. Choose o
 ```html
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/default.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/default.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/slate.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/slate.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/stone.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/stone.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/gray.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/gray.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/neutral.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/neutral.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/red.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/red.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/rose.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/rose.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/orange.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/orange.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/green.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/green.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/blue.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/blue.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/yellow.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/yellow.min.css"
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/franken-ui-releases@0.0.12/dist/violet.min.css"
+  href="https://unpkg.com/franken-ui-releases@0.0.13/dist/violet.min.css"
 />
 ```
 
@@ -93,7 +93,7 @@ export default {
 };
 ```
 
-Or, if you want full control of what components to use, under the hood, this is what the <code class="uk-codespan">presetQuick()</code> function does. Use this configuration as your base and adjust it according to your needs by commenting out components. It is recommended to do this one by one to ensure that other parts of the application are not affected, as some components rely on others to function properly.
+Or, if you want full control of what components to use, under the hood, this is what the <code class="uk-codespan">presetQuick()</code> function does. Use this configuration as your base and adjust it according to your needs by commenting out components.
 
 <span class="uk-label uk-label-primary">Note</span> It is recommended to do this
 one by one to ensure that other parts of the application are not affected, as some
@@ -289,9 +289,10 @@ export default {
         },
         sortable: {},
         spinner: {},
-        // stepper: {
-        // 	hooks: shadcn.stepper
-        // },
+        stepper: {
+         	hooks: shadcn.stepper,
+          media: true,
+        },
         sticky: {},
         subnav: {
           hooks: shadcn.subnav,
@@ -364,8 +365,8 @@ For advanced users, exploring [hooks](/docs/hooks) offers a deeper understanding
 Once you have installed Franken UI, include the JavaScript files on your page by adding them to the <code class="uk-codespan">&lt;head&gt;</code> section. You can also choose to use the defer attribute to delay script execution. Or, you can place the code before the end of your <code class="uk-codespan">&lt;body&gt;</code> tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.21.5/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.21.5/dist/js/uikit-icons.min.js"></script>
 ```
 
 ## Theming
@@ -422,7 +423,7 @@ export default {
 };
 ```
 
-Or, if you are using the fined grained configuration, you can set the theme inside <code class="uk-codespan">hooks()</code> and <code class="uk-codespan">variables()</code> functions:
+Or, if you are using the fine-grained configuration, you can set the theme inside <code class="uk-codespan">hooks()</code> and <code class="uk-codespan">variables()</code> functions:
 
 ```javascript
 import variables from "franken-ui/shadcn-ui/variables";
@@ -441,6 +442,8 @@ export default {
   ],
 };
 ```
+
+<span class="uk-badge uk-badge-danger">v0.0.13</span> Franken UI supports theme generators. You can refer to this [documentation](/docs/theming#using-theme-generators) on how to generate your own palette.
 
 ## Customizing
 

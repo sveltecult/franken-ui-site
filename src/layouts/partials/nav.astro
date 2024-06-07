@@ -67,7 +67,16 @@ const { pathname } = Astro.props;
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
       .map((a) => (
         <li class={pathname === a.slug ? "uk-active" : ""}>
-          <a href={`/docs/${a.slug}`}>{a.data.name}</a>
+          <a href={`/docs/${a.slug}`}>
+            <span>{a.data.name}</span>
+            {a.data.badge ? (
+              <span class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000]">
+                {a.data.badge}
+              </span>
+            ) : (
+              ""
+            )}
+          </a>
         </li>
       ))
   }

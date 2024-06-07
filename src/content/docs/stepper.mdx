@@ -1,0 +1,81 @@
+---
+group: components
+name: Stepper
+title: Stepper
+meta:
+  description: Create a stepper to show the number of steps required to complete something.
+javascript: none
+badge: New
+---
+
+import Example from "src/rehype/example.astro";
+
+# Stepper
+
+<p class="uk-text-lead uk-paragraph">{`The stepper component can be used to show a numbered list of steps next to a form component to indicate the progress and number of steps that are required to complete and submit the form data.`}</p>
+
+## Usage
+
+<span class="uk-label uk-label-primary">Note</span> If you are not using Tailwind
+CSS, you can skip this step. On your `tailwind.config.js` file, add the Stepper component
+within the `ui()` plugin.
+
+```javascript
+import ui from "franken-ui";
+
+ui({
+    components: {
+        stepper: {
+            hooks: {},
+            media: true
+        }
+    }
+}),
+```
+
+To create a stepper, just add the `.uk-stepper` class to a `<ul>` tag.
+
+```html
+<ul class="uk-stepper uk-stepper-default">
+    <li>
+        <a href="#">Personal Info</a>
+    </li>
+    <li>
+        <a href="#">Account Info</a>
+    </li>
+    <li>
+        <a href="#">Confirmation</a>
+    </li>
+</ul>
+```
+
+<Example component="stepper" index={0} />
+
+## Active modifier
+
+This example can be used to highlight the current step in the stepper, indicating which step is actively being worked on.
+
+<span class="uk-label uk-label-primary">Note</span> When you add the `.uk-active` class to one of your `li` tags, the previous `li` tags will automatically change colors.
+
+<Example component="stepper" index={1} />
+
+## Checked modifier
+
+To show a checkmark when the step has been finished, add the `.uk-stepper-checked` to one of your `li` tag.
+
+<Example component="stepper" index={2} />
+
+## Counter modifier
+
+This example can be used to display step numbers within the stepper, helping to indicate the sequence of steps. Each li tag will be numbered to show its position in the progression.
+
+<Example component="stepper" index={3} />
+
+## Available hooks
+
+Learn more about [using hooks](/docs/hooks).
+
+| Hook Name      | Affected Classes |
+| -------------- | ---------------- |
+| `hook-stepper` | `.uk-stepper`    |
+| `hook-misc`    | `*`              |

@@ -32,4 +32,5 @@ export default defineConfig({
     ],
   },
   output: "static",
+  compressHTML: true,
 });
